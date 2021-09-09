@@ -2,7 +2,11 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Sidebar from 'components/Sidebar';
 import Dashboard from 'pages/Dashboard';
 import Settings from 'pages/Settings';
-import Tables from 'pages/Tables';
+// import Tables from 'pages/Tables';
+import Tables from 'pages/VendorList';
+// import Tables from 'pages/SngleVendor';
+// import Tables from 'components/filterTable';
+// import Tables from 'pages/vendorRequestList';
 import Maps from 'pages/Maps';
 import Footer from 'components/Footer';
 
