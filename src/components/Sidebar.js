@@ -55,7 +55,7 @@ export default function Sidebar() {
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
-                                    <Icon name="toc" size="2xl" />
+                                    <Icon name="person" size="2xl" />
                                     Vendor Register
                                 </NavLink>
                             </li>
