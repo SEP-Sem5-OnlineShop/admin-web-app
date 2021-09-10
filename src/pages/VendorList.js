@@ -1,5 +1,5 @@
 // import StatusCard from 'components/StatusCard';
-import team from '../assets/img/team-1-800x800.jpg';
+// import team from '../assets/img/team-1-800x800.jpg';
 import TableCard from 'components/ListComponent';
 // import TableCard from 'components/ListElementComponent';
 

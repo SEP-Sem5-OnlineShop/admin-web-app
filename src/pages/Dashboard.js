@@ -1,13 +1,13 @@
-import StatusCard from 'components/StatusCard';
-import ChartLine from 'components/ChartLine';
-import ChartBar from 'components/ChartBar';
-import PageVisitsCard from 'components/PageVisitsCard';
-import TrafficCard from 'components/TrafficCard';
+// import StatusCard from 'components/StatusCard';
+// import ChartLine from 'components/ChartLine';
+// import ChartBar from 'components/ChartBar';
+// import PageVisitsCard from 'components/PageVisitsCard';
+// import TrafficCard from 'components/TrafficCard';
 
 export default function Dashboard() {
     return (
         <div className="p-4">
-            <h2 class="text-xl">Welcome To The OnTheWay Admin Panel</h2>
+            <h2 className="text-xl">Welcome To The OnTheWay Admin Panel</h2>
             {/* <div className="bg-light-blue-500 px-3 md:px-8 h-40" />
 
             <div className="px-3 md:px-8 -mt-24">

@@ -1,13 +1,13 @@
 import Card from '@material-tailwind/react/Card';
-import CardHeader from '@material-tailwind/react/CardHeader';
+// import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import Image from '@material-tailwind/react/Image';
 import Button from "@material-tailwind/react/Button";
-import Progress from '@material-tailwind/react/Progress';
-import Team1 from 'assets/img/team-1-800x800.jpg';
-import Team2 from 'assets/img/team-2-800x800.jpg';
-import Team3 from 'assets/img/team-3-800x800.jpg';
-import Team4 from 'assets/img/team-4-470x470.png';
+// import Progress from '@material-tailwind/react/Progress';
+// import Team1 from 'assets/img/team-1-800x800.jpg';
+// import Team2 from 'assets/img/team-2-800x800.jpg';
+// import Team3 from 'assets/img/team-3-800x800.jpg';
+// import Team4 from 'assets/img/team-4-470x470.png';
 
 export default function ListComponent(props) {
     const comProps = {
@@ -67,7 +67,7 @@ export default function ListComponent(props) {
                                             iconOnly={false}
                                             ripple="light"
                                         >
-                                        <svg width="12" fill="Black" height="12" class="hover:text-gray-800 dark:hover:text-white dark:text-gray-200 text-gray-500" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                        <svg width="12" fill="Black" height="12" className="hover:text-gray-800 dark:hover:text-white dark:text-gray-200 text-gray-500" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                                             {/* <path d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z">
                                             </path> */}
                                             <path d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z">
