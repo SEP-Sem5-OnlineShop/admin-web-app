@@ -10,7 +10,7 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-/*! tailwindcss v2.2.11 | MIT License | https://tailwindcss.com
+/*! tailwindcss v2.1.4 | MIT License | https://tailwindcss.com
 */
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
@@ -29,6 +29,7 @@ Use a better box model (opinionated).
 Use a more readable tab size (opinionated).
 */
 html {
+	-moz-tab-size: 4;
 	tab-size: 4;
 }
 /**
@@ -277,6 +278,14 @@ button {
   background-color: transparent;
   background-image: none;
 }
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ */
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
 fieldset {
   margin: 0;
   padding: 0;
@@ -339,7 +348,7 @@ body {
   box-sizing: border-box; /* 1 */
   border-width: 0; /* 2 */
   border-style: solid; /* 2 */
-  border-color: currentColor; /* 2 */
+  border-color: #e5e7eb; /* 2 */
 }
 /*
  * Ensure horizontal rules are visible by default
@@ -370,16 +379,6 @@ textarea::placeholder {
 button,
 [role="button"] {
   cursor: pointer;
-}
-/**
- * Override legacy focus reset from Normalize with modern Firefox focus styles.
- *
- * This is actually an improvement over the new defaults in Firefox in our testing,
- * as it triggers the better focus styles even for links, which still use a dotted
- * outline in Firefox by default.
- */
-:-moz-focusring {
-	outline: auto;
 }
 table {
   border-collapse: collapse;
@@ -430,20 +429,11 @@ samp {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 /**
- * 1. Make replaced elements `display: block` by default as that's
- *    the behavior you want almost all of the time. Inspired by
- *    CSS Remedy, with `svg` added as well.
+ * Make replaced elements `display: block` by default as that's
+ * the behavior you want almost all of the time. Inspired by
+ * CSS Remedy, with `svg` added as well.
  *
- *    https://github.com/mozdevs/cssremedy/issues/14
- * 
- * 2. Add `vertical-align: middle` to align replaced elements more
- *    sensibly by default when overriding `display` by adding a
- *    utility like `inline`.
- *
- *    This can trigger a poorly considered linting error in some
- *    tools but is included by design.
- * 
- *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
+ * https://github.com/mozdevs/cssremedy/issues/14
  */
 img,
 svg,
@@ -453,8 +443,8 @@ audio,
 iframe,
 embed,
 object {
-  display: block; /* 1 */
-  vertical-align: middle; /* 2 */
+  display: block;
+  vertical-align: middle;
 }
 /**
  * Constrain images and videos to the parent width and preserve
@@ -467,36 +457,14 @@ video {
   max-width: 100%;
   height: auto;
 }
-/**
- * Ensure the default browser behavior of the `hidden` attribute.
- */
-[hidden] {
-  display: none;
-}
-*, ::before, ::after{
-	--tw-translate-x: 0;
-	--tw-translate-y: 0;
-	--tw-rotate: 0;
-	--tw-skew-x: 0;
-	--tw-skew-y: 0;
-	--tw-scale-x: 1;
-	--tw-scale-y: 1;
-	--tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-	--tw-border-opacity: 1;
-	border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+*{
+	--tw-shadow: 0 0 #0000;
+	--tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+	--tw-ring-offset-width: 0px;
+	--tw-ring-offset-color: #fff;
+	--tw-ring-color: rgba(59, 130, 246, 0.5);
 	--tw-ring-offset-shadow: 0 0 #0000;
 	--tw-ring-shadow: 0 0 #0000;
-	--tw-shadow: 0 0 #0000;
-	--tw-blur: var(--tw-empty,/*!*/ /*!*/);
-	--tw-brightness: var(--tw-empty,/*!*/ /*!*/);
-	--tw-contrast: var(--tw-empty,/*!*/ /*!*/);
-	--tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
-	--tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
-	--tw-invert: var(--tw-empty,/*!*/ /*!*/);
-	--tw-saturate: var(--tw-empty,/*!*/ /*!*/);
-	--tw-sepia: var(--tw-empty,/*!*/ /*!*/);
-	--tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
-	--tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .container{
 	width: 100%;
@@ -526,14 +494,14 @@ video {
 		max-width: 1536px;
 	}
 }
-.fixed{
-	position: fixed;
-}
 .absolute{
 	position: absolute;
 }
 .relative{
 	position: relative;
+}
+.fixed{
+	position: fixed;
 }
 .left-0{
 	left: 0px;
@@ -586,9 +554,6 @@ video {
 .mr-6{
 	margin-right: 1.5rem;
 }
-.mr-2{
-	margin-right: 0.5rem;
-}
 .-mt-24{
 	margin-top: -6rem;
 }
@@ -622,11 +587,11 @@ video {
 .mb-0{
 	margin-bottom: 0px;
 }
+.mr-2{
+	margin-right: 0.5rem;
+}
 .-ml-4{
 	margin-left: -1rem;
-}
-.mr-4{
-	margin-right: 1rem;
 }
 .mb-14{
 	margin-bottom: 3.5rem;
@@ -646,6 +611,9 @@ video {
 .ml-2{
 	margin-left: 0.5rem;
 }
+.mr-4{
+	margin-right: 1rem;
+}
 .block{
 	display: block;
 }
@@ -664,14 +632,14 @@ video {
 .h-96{
 	height: 24rem;
 }
-.h-10{
-	height: 2.5rem;
-}
 .h-full{
 	height: 100%;
 }
 .h-screen{
 	height: 100vh;
+}
+.h-10{
+	height: 2.5rem;
 }
 .h-40{
 	height: 10rem;
@@ -691,14 +659,14 @@ video {
 .w-12{
 	width: 3rem;
 }
-.w-10{
-	width: 2.5rem;
-}
 .w-48{
 	width: 12rem;
 }
 .w-64{
 	width: 16rem;
+}
+.w-10{
+	width: 2.5rem;
 }
 .w-56{
 	width: 14rem;
@@ -716,7 +684,14 @@ video {
 	border-collapse: collapse;
 }
 .transform{
-	transform: var(--tw-transform);
+	--tw-translate-x: 0;
+	--tw-translate-y: 0;
+	--tw-rotate: 0;
+	--tw-skew-x: 0;
+	--tw-skew-y: 0;
+	--tw-scale-x: 1;
+	--tw-scale-y: 1;
+	transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .cursor-pointer{
 	cursor: pointer;
@@ -731,11 +706,11 @@ video {
 .grid-cols-1{
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.flex-row{
-	flex-direction: row;
-}
 .flex-col{
 	flex-direction: column;
+}
+.flex-row{
+	flex-direction: row;
 }
 .flex-wrap{
 	flex-wrap: wrap;
@@ -749,14 +724,14 @@ video {
 .items-stretch{
 	align-items: stretch;
 }
-.justify-end{
-	justify-content: flex-end;
+.justify-between{
+	justify-content: space-between;
 }
 .justify-center{
 	justify-content: center;
 }
-.justify-between{
-	justify-content: space-between;
+.justify-end{
+	justify-content: flex-end;
 }
 .gap-2{
 	gap: 0.5rem;
@@ -764,14 +739,14 @@ video {
 .gap-4{
 	gap: 1rem;
 }
-.overflow-hidden{
-	overflow: hidden;
-}
 .overflow-x-auto{
 	overflow-x: auto;
 }
 .overflow-y-auto{
 	overflow-y: auto;
+}
+.overflow-hidden{
+	overflow: hidden;
 }
 .whitespace-nowrap{
 	white-space: nowrap;
@@ -779,14 +754,14 @@ video {
 .rounded{
 	border-radius: 0.25rem;
 }
-.rounded-full{
-	border-radius: 9999px;
-}
 .rounded-xl{
 	border-radius: 0.75rem;
 }
 .rounded-lg{
 	border-radius: 0.5rem;
+}
+.rounded-full{
+	border-radius: 9999px;
 }
 .rounded-md{
 	border-radius: 0.375rem;
@@ -854,17 +829,13 @@ video {
 	padding-left: 4rem;
 	padding-right: 4rem;
 }
-.px-6{
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
+.px-2{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 }
 .py-3{
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
-}
-.px-2{
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
 }
 .py-4{
 	padding-top: 1rem;
@@ -873,6 +844,10 @@ video {
 .px-4{
 	padding-left: 1rem;
 	padding-right: 1rem;
+}
+.px-6{
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
 }
 .px-0{
 	padding-left: 0px;
@@ -887,17 +862,17 @@ video {
 .pl-4{
 	padding-left: 1rem;
 }
-.pb-4{
-	padding-bottom: 1rem;
-}
-.pl-1{
-	padding-left: 0.25rem;
-}
 .pt-14{
 	padding-top: 3.5rem;
 }
 .pb-28{
 	padding-bottom: 7rem;
+}
+.pb-4{
+	padding-bottom: 1rem;
+}
+.pl-1{
+	padding-left: 0.25rem;
 }
 .pt-4{
 	padding-top: 1rem;
@@ -961,6 +936,10 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
+.text-gray-900{
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
 .text-purple-500{
 	--tw-text-opacity: 1;
 	color: rgba(139, 92, 246, var(--tw-text-opacity));
@@ -968,10 +947,6 @@ video {
 .text-gray-500{
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
-}
-.text-gray-900{
-	--tw-text-opacity: 1;
-	color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 .text-gray-600{
 	--tw-text-opacity: 1;
@@ -994,7 +969,16 @@ video {
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .filter{
-	filter: var(--tw-filter);
+	--tw-blur: var(--tw-empty,/*!*/ /*!*/);
+	--tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+	--tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+	--tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+	--tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+	--tw-invert: var(--tw-empty,/*!*/ /*!*/);
+	--tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+	--tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+	--tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+	filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .transition-all{
 	transition-property: all;
@@ -1055,7 +1039,8 @@ Use a better box model (opinionated).
 Use a more readable tab size (opinionated).
 */
 html {
-	tab-size: 4;
+	-moz-tab-size: 4;
+	   tab-size: 4;
 }
 /**
 1. Correct the line height in all browsers.
@@ -2125,8 +2110,9 @@ video {
 .mt-input-outline:focus + label, .mt-input-outline:not(:placeholder-shown) + label{font-size:0.75rem !important;line-height:1rem !important;line-height:1.25 !important}
 .mt-input-outline + label:before,
     .mt-input-outline + label:after {
-        content: '';pointer-events:none;margin-top:0.375rem;box-sizing:border-box;display:block;height:0.5rem;width:0.625rem;border-width:1px;border-top-width:2px;border-bottom-width:0px;border-left-width:0px;border-right-width:0px;border-color:transparent;
+        content: '';
     }
+.mt-input-outline + label:before, .mt-input-outline + label:after{pointer-events:none;margin-top:0.375rem;box-sizing:border-box;display:block;height:0.5rem;width:0.625rem;border-width:1px;border-top-width:2px;border-bottom-width:0px;border-left-width:0px;border-right-width:0px;border-color:transparent}
 .mt-input-outline:not(:placeholder-shown) + label:before, .mt-input-outline:not(:placeholder-shown) + label:after{border-top-width:1px;--tw-border-opacity:1;border-color:rgba(224, 224, 224, var(--tw-border-opacity))}
 .mt-input-outline:focus + label::before, .mt-input-outline:focus + label::after{border-top-width:2px}
 .mt-input-outline + label:before{margin-right:0.25rem;border-top-left-radius:0.5rem}
@@ -2557,7 +2543,6 @@ video {
 .lg\:text-left{text-align:left}}
 .hover\:-translate-y-1:hover{
 	--tw-translate-y: -0.25rem;
-	transform: var(--tw-transform);
 }
 .hover\:text-gray-900:hover{
 	--tw-text-opacity: 1;
@@ -2641,15 +2626,6 @@ video {
 	}
 }
 @media (min-width: 1280px){
-	.xl\:col-start-1{
-		grid-column-start: 1;
-	}
-	.xl\:col-start-4{
-		grid-column-start: 4;
-	}
-	.xl\:col-start-5{
-		grid-column-start: 5;
-	}
 	.xl\:col-end-4{
 		grid-column-end: 4;
 	}
@@ -2661,6 +2637,15 @@ video {
 	}
 	.xl\:col-end-7{
 		grid-column-end: 7;
+	}
+	.xl\:col-start-1{
+		grid-column-start: 1;
+	}
+	.xl\:col-start-4{
+		grid-column-start: 4;
+	}
+	.xl\:col-start-5{
+		grid-column-start: 5;
 	}
 	.xl\:grid-cols-5{
 		grid-template-columns: repeat(5, minmax(0, 1fr));
