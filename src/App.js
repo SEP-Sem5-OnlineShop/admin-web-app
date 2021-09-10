@@ -12,6 +12,10 @@ import Footer from 'components/Footer';
 
 // Tailwind CSS Style Sheet
 import 'assets/styles/tailwind.css';
+import 'filepond/dist/filepond.min.css'
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+
+import RegisterVendor from 'pages/vendor/register/index';
 
 function App() {
     return (
@@ -23,6 +27,7 @@ function App() {
                         <Route exact path="/" component={Dashboard} />
                         <Route exact path="/settings" component={Settings} />
                         <Route exact path="/tables" component={Tables} />
+                        <Route exact path="/vendor/register" component={RegisterVendor} />
                         <Route exact path="/maps" component={Maps} />
                         <Redirect from="*" to="/" />
                     </Switch>
