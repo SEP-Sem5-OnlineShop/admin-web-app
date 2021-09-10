@@ -14,3 +14,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import '@material-tailwind/react/tailwind.css';
+
+.filepond--item {
+    width: calc(25% - 0.5em);
+}
