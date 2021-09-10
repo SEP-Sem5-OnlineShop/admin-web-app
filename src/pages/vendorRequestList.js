@@ -8,11 +8,11 @@ function VendorRequestList() {
 
   return (
     
-        <div class="container flex flex-col mx-auto px-2 sm:px-4 items-center justify-center">
+        <div className="container flex flex-col mx-auto px-2 sm:px-4 items-center justify-center">
 
             <h1 className='pb-4 sm:pb-6 pt-4 sm:pt-12 text-2xl sm:text-4xl'><b><u>Vendor Requests</u></b></h1>
             
-            <ul class="flex flex-col">
+            <ul className="flex flex-col">
             <VComponenet image={bread} name='John Perera' region='Gampaha' date='12/01/2021' />
             <VComponenet image={bread} name='John Perera' region='Gampaha' date='12/01/2021' />
             <VComponenet image={bread} name='John Perera' region='Gampaha' date='12/01/2021' />

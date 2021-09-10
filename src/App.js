@@ -17,13 +17,15 @@ function App() {
         <>
             <Sidebar />
             <div className="md:ml-64">
-                <Switch>
-                    <Route exact path="/" component={Dashboard} />
-                    <Route exact path="/settings" component={Settings} />
-                    <Route exact path="/tables" component={Tables} />
-                    <Route exact path="/maps" component={Maps} />
-                    <Redirect from="*" to="/" />
-                </Switch>
+                <div style={{minHeight: 'calc(100vh - 169px)'}}>
+                    <Switch>
+                        <Route exact path="/" component={Dashboard} />
+                        <Route exact path="/settings" component={Settings} />
+                        <Route exact path="/tables" component={Tables} />
+                        <Route exact path="/maps" component={Maps} />
+                        <Redirect from="*" to="/" />
+                    </Switch>
+                </div>
                 <Footer />
             </div>
         </>
