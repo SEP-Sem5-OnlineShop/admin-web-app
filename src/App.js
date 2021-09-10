@@ -3,9 +3,11 @@ import Sidebar from 'components/Sidebar';
 import Dashboard from 'pages/Dashboard';
 import Settings from 'pages/Settings';
 // import Tables from 'pages/Tables';
-// import Tables from 'pages/VendorList';
-// import Tables from 'pages/SngleVendor';
-import Tables from 'pages/vendorRequestList';
+
+
+import Tables from 'pages/VendorList';
+import singleVendor from 'pages/SngleVendor';
+import requestList from 'pages/vendorRequestList';
 import Maps from 'pages/Maps';
 import Footer from 'components/Footer';
 
@@ -22,6 +24,8 @@ function App() {
                         <Route exact path="/" component={Dashboard} />
                         <Route exact path="/settings" component={Settings} />
                         <Route exact path="/tables" component={Tables} />
+                        <Route exact path="/singleVendor" component={singleVendor} />
+                        <Route exact path="/requestList" component={requestList} />
                         <Route exact path="/maps" component={Maps} />
                         <Redirect from="*" to="/" />
                     </Switch>
