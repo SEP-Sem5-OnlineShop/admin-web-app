@@ -46,7 +46,7 @@ export default function Sidebar() {
                                     activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
                                     <Icon name="toc" size="2xl" />
-                                    Tables
+                                    Vendor List
                                 </NavLink>
                             </li>
                         </ul>
