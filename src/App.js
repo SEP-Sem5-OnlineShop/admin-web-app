@@ -5,7 +5,8 @@ import Settings from 'pages/Settings';
 // import Tables from 'pages/Tables';
 
 
-import Tables from 'pages/VendorList';
+import Tables from 'pages/TableFilter';
+// import Tables from 'pages/VendorList';
 import singleVendor from 'pages/SngleVendor';
 import requestList from 'pages/vendorRequestList';
 import Maps from 'pages/Maps';
