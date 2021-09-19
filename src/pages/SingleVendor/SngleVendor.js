@@ -2,16 +2,18 @@ import React from 'react';
 import ProfileCard from '../../components/singleVendor/SingleVendorProfile';
 import team from '../../assets/img/team-1-800x800.jpg';
 import {genApi} from '../../api/index'
+import {useParams} from "react-router"
 
 export default function SingleVendor() {
-
+        const {id} = useParams()
+        console.log(id)
      /////////////////////////////////////////
 
         const [vendor, setVendor] = React.useState( [] );
 
         React.useEffect(async () => {
             try{
-            const result = await genApi.getVendor();
+            const result = await genApi.getVendor(id);
         
             setVendor(result.data);
             console.log(result.data)

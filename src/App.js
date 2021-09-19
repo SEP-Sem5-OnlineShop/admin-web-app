@@ -88,9 +88,9 @@ import RegisterVendor from 'pages/vendor/register/index';
                          <Route exact path="/" component={Dashboard} />
                          <Route exact path="/settings" component={Settings} />
                          <Route exact path="/tables" component={Tables} />
-                         <Route exact path="/singleVendor" component={singleVendor} />
+                         <Route exact path="/singleVendor/:id" component={singleVendor} />
                          <Route exact path="/requestList" component={requestList} />
-                         <Route exact path="/vendor/register" component={RegisterVendor} />
+                         <Route exact path="/vendor/register/:id" component={RegisterVendor} />
                          {/* <Route exact path="/maps" component={Maps} /> */}
                         <Redirect from="*" to="/" />
                      </Switch>

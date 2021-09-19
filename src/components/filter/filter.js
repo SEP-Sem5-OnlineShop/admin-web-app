@@ -4,6 +4,7 @@ import { ChevronDoubleLeftIcon, ChevronLeftIcon, ChevronRightIcon, ChevronDouble
 import { Button, PageButton } from '../Button'
 import { classNames } from '../Utils'
 import { SortIcon, SortUpIcon, SortDownIcon } from '../Icons'
+import { useHistory } from "react-router"
 
 // Define a default UI for filtering
 function GlobalFilter({
@@ -107,6 +108,7 @@ export function AvatarCell({ value, column, row }) {
 }
 
 function Table({ columns, data }) {
+  const history = useHistory()
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
@@ -212,11 +214,11 @@ function Table({ columns, data }) {
                               className="px-6 py-4 whitespace-nowrap"
                               role="cell"
                             >
-                              <a href="/">
+                              
                               {cell.column.Cell.name === "defaultRenderer"
-                                ? <div className="text-sm text-gray-500">"{cell.render('Cell')}"</div>
+                                ? <div onClick={() => history.push(cell.row.original.link)} className="text-sm text-gray-500">"{cell.render('Cell')}"</div>
                                 : cell.render('Cell')
-                              }</a>
+                              }
                             </td>
                             // </a>
                           )

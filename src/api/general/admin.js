@@ -2,8 +2,8 @@ import axios from "axios";
 
 const admin = {
 
-    getVendor: async function () {
-        return await axios.get("/app/admin/vendor",{params:{id:4}})
+    getVendor: async function (id) {
+        return await axios.get(`/app/admin/vendor/${id}`)
     },
     
     getVendors: async function () {

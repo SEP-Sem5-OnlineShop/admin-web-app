@@ -60,6 +60,7 @@ vendors.map(vendor => data.push({
   email: vendor.address,
   shop: vendor.shopName,
   regionToBeCovered: vendor.regionToBeCovered,
+  link: `/vendor/register/${vendor._id}`
 }))
 
 //////////////////////////////////////////////////////
