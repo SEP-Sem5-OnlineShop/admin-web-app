@@ -8,12 +8,15 @@ import LeadText from '@material-tailwind/react/LeadText';
 import Button from '@material-tailwind/react/Button';
 
 
-export default function ProfileCard({data}) {
+export default function ProfileCard(data) {
+    console.log(data)
+    console.log(data.data)
+    
     const comProps = {
         // title: props.title || '',
-        name: {data}.name || '',
-        telephone: {data}.telephone || '',
-        shop: {data}.shop || '',
+        name: data.firstName || '',
+        telephone: data.telephone || '',
+        shop: data.shop || '',
         // price:{data}.price || '',
         // permit: {data}.permit || '',
         // address: {data}.address || '',
@@ -31,13 +34,13 @@ export default function ProfileCard({data}) {
                     
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        {data}.name
+                        {comProps.name}
                         </span>
                         <span className="text-sm text-gray-700">Rating</span>
                     </div>
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        {data}.telephone
+                        {comProps.telephone}
                         {/* {comProps.permit} */}
                         </span>
                         <span className="text-sm text-gray-700">Permit Number</span>
@@ -45,11 +48,11 @@ export default function ProfileCard({data}) {
                 </div>
             </div>
             <div className="text-center">
-                <H5 color="gray">{data}.name</H5>
+                <H5 color="gray">{comProps.name}</H5>
                 <div className="mt-0 mb-2 text-gray-700 flex items-center justify-center gap-2">
                     <Icon name="place" size="xl" />
                     {/* {comProps.address} */}
-                    {data}.shop
+                    {comProps.shop}
                 </div>
                 
             </div>

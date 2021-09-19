@@ -8,8 +8,10 @@ export default function SingleVendor() {
         const {id} = useParams()
         console.log(id)
      /////////////////////////////////////////
+    //  const data = genApi.getVendor(id);
 
-        const [vendor, setVendor] = React.useState( [] );
+
+        const [vendor, setVendor] = React.useState();
 
         React.useEffect(async () => {
             try{
@@ -50,7 +52,7 @@ export default function SingleVendor() {
                 <div className="container mx-auto max-w-full">
                     <div className="grid grid-cols-1 px-4 mb-16">
                         {/* <ProfileCard data={data} products={products}/> */}
-                        {/* <ProfileCard data={data}/> */}
+                        <ProfileCard data={vendor}/>
                     </div>
                 </div>
             </div>
