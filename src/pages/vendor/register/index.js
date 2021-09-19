@@ -161,8 +161,10 @@ export default function RegisterVendor() {
                         </div>
                     </CardBody>
                 </Card>
-                <div className="flex justify-end mt-4">
+                <div className="flex justify-center w-3/5">
+                <div className="flex justify-between mt-4 mr-4">
                     <Button
+                        id="Submit"
                         color="lightBlue"
                         buttonType="filled"
                         size="regular"
@@ -173,6 +175,22 @@ export default function RegisterVendor() {
                     >
                         Submit
                     </Button>
+                    
+                    </div>
+                    <div className="flex justify-between mt-4 ml-4">
+                    <Button
+                        id="Reject"
+                        color="lightBlue"
+                        buttonType="filled"
+                        size="regular"
+                        rounded={false}
+                        block={false}
+                        iconOnly={false}
+                        ripple="light"
+                    >
+                        Reject
+                    </Button>
+                </div>
                 </div>
             </form>
         </div>
