@@ -6,26 +6,21 @@ import {useParams} from "react-router"
 
 export default function SingleVendor() {
         const {id} = useParams()
-        console.log(id)
      /////////////////////////////////////////
     //  const data = genApi.getVendor(id);
 
 
-        const [vendor, setVendor] = React.useState();
-
+        const [vendor, setVendor] = React.useState({});
         React.useEffect(async () => {
             try{
             const result = await genApi.getVendor(id);
-        
-            setVendor(result.data);
-            console.log(result.data)
+            const testVendor = {...result.data.data}
+            setVendor(testVendor)
             }catch(e){
             console.log(e)
             }
             
         },[]);
-
-
         // const data=[]
         // vendor.map(v => data.push({
         // name: v.firstName,

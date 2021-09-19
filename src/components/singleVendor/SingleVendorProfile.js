@@ -8,15 +8,13 @@ import LeadText from '@material-tailwind/react/LeadText';
 import Button from '@material-tailwind/react/Button';
 
 
-export default function ProfileCard(data) {
-    console.log(data)
-    console.log(data.data)
+export default function ProfileCard(params) {
     
     const comProps = {
         // title: props.title || '',
-        name: data.firstName || '',
-        telephone: data.telephone || '',
-        shop: data.shop || '',
+        name: params.data.firstName || '',
+        telephone: params.data.telephone || '',
+        shop: params.data.shop || '',
         // price:{data}.price || '',
         // permit: {data}.permit || '',
         // address: {data}.address || '',
