@@ -8,57 +8,59 @@ import LeadText from '@material-tailwind/react/LeadText';
 import Button from '@material-tailwind/react/Button';
 
 
-export default function ProfileCard(props) {
+export default function ProfileCard({data}) {
     const comProps = {
         // title: props.title || '',
-        name: props.name || '',
-        rating: props.rating || '',
-        image: props.image || '',
-        price:props.price || '',
-        permit: props.permit || '',
-        address: props.address || '',
-        description: props.description || '',
-        products:props.products || '',
+        name: {data}.name || '',
+        telephone: {data}.telephone || '',
+        shop: {data}.shop || '',
+        // price:{data}.price || '',
+        // permit: {data}.permit || '',
+        // address: {data}.address || '',
+        // description: {data}.description || '',
+        // products:{data}.products || '',
         
     }
     return (
         <Card>
             <div className="flex flex-wrap justify-center">
                 <div className="w-48 px-4 -mt-24">
-                    <Image src={comProps.image} rounded raised />
+                    {/* <Image src={comProps.image} rounded raised /> */}
                 </div>
                 <div className="w-full flex justify-center py-4 lg:pt-4 pt-8">
                     
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        {comProps.rating}
+                        {data}.name
                         </span>
                         <span className="text-sm text-gray-700">Rating</span>
                     </div>
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        {comProps.permit}
+                        {data}.telephone
+                        {/* {comProps.permit} */}
                         </span>
                         <span className="text-sm text-gray-700">Permit Number</span>
                     </div>
                 </div>
             </div>
             <div className="text-center">
-                <H5 color="gray">{comProps.name}</H5>
+                <H5 color="gray">{data}.name</H5>
                 <div className="mt-0 mb-2 text-gray-700 flex items-center justify-center gap-2">
                     <Icon name="place" size="xl" />
-                    {comProps.address}
+                    {/* {comProps.address} */}
+                    {data}.shop
                 </div>
                 
             </div>
             <CardBody>
                 <div className="border-t border-lightBlue-200 text-center px-2 ">
-                    <LeadText color="blueGray">
+                    {/* <LeadText color="blueGray">
                        {comProps.description}
                         {comProps.products.map((product)=>
-                        <li>{product}</li>)}
+                        <li key={product}>{product}</li>)}
                        
-                    </LeadText>
+                    </LeadText> */}
                 </div>
             </CardBody>
             <CardFooter>

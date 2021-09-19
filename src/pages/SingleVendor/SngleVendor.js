@@ -1,10 +1,38 @@
-
+import React from 'react';
 import ProfileCard from '../../components/singleVendor/SingleVendorProfile';
 import team from '../../assets/img/team-1-800x800.jpg';
+import {genApi} from '../../api/index'
 
 export default function SingleVendor() {
+
+     /////////////////////////////////////////
+
+        const [vendor, setVendor] = React.useState( [] );
+
+        React.useEffect(async () => {
+            try{
+            const result = await genApi.getVendor();
+        
+            setVendor(result.data);
+            console.log(result.data)
+            }catch(e){
+            console.log(e)
+            }
+            
+        },[]);
+
+
+        // const data=[]
+        // vendor.map(v => data.push({
+        // name: v.firstName,
+        // telephone: v.telephone,
+        // shop: v.role,
+        // }))
+
+  /////////////////////////////////////////
+  
     
-    const products=['Pizza','Burger','Bread'];
+    // const products=['Pizza','Burger','Bread'];
 
     return (
         <>
@@ -19,11 +47,8 @@ export default function SingleVendor() {
             <div className="px-3 md:px-8 h-auto -mt-24">
                 <div className="container mx-auto max-w-full">
                     <div className="grid grid-cols-1 px-4 mb-16">
-                        <ProfileCard image={team} rating='10' permit='2' name='John' address='Los Angeles, California' description=' An artist of considerable range, Jenna the name taken by
-                        Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                        performs and records all of his own music, giving it a
-                        warm, intimate feel with a solid groove structure. An
-                        artist of considerable range.' products={products}/>
+                        {/* <ProfileCard data={data} products={products}/> */}
+                        {/* <ProfileCard data={data}/> */}
                     </div>
                 </div>
             </div>
