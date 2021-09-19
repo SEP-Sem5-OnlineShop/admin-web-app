@@ -1,9 +1,9 @@
 import React from 'react'
 import { useTable, useFilters, useGlobalFilter, useAsyncDebounce, useSortBy, usePagination } from 'react-table'
 import { ChevronDoubleLeftIcon, ChevronLeftIcon, ChevronRightIcon, ChevronDoubleRightIcon } from '@heroicons/react/solid'
-import { Button, PageButton } from '../components/Button'
-import { classNames } from '../components/Utils'
-import { SortIcon, SortUpIcon, SortDownIcon } from '../components/Icons'
+import { Button, PageButton } from '../Button'
+import { classNames } from '../Utils'
+import { SortIcon, SortUpIcon, SortDownIcon } from '../Icons'
 
 // Define a default UI for filtering
 function GlobalFilter({
@@ -170,7 +170,8 @@ function Table({ columns, data }) {
                       {headerGroup.headers.map(column => (
                         // Add the sorting props to control sorting. For this example
                         // we can add them into the header props
-                        <th
+                        
+                          <th
                           scope="col"
                           className="group px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                           {...column.getHeaderProps(column.getSortByToggleProps())}
@@ -201,19 +202,23 @@ function Table({ columns, data }) {
                   {page.map((row, i) => {  // new
                     prepareRow(row)
                     return (
+                      
                       <tr {...row.getRowProps()}>
                         {row.cells.map(cell => {
                           return (
+                            // <a href="/">
                             <td
                               {...cell.getCellProps()}
                               className="px-6 py-4 whitespace-nowrap"
                               role="cell"
                             >
+                              <a href="/">
                               {cell.column.Cell.name === "defaultRenderer"
                                 ? <div className="text-sm text-gray-500">"{cell.render('Cell')}"</div>
                                 : cell.render('Cell')
-                              }
+                              }</a>
                             </td>
+                            // </a>
                           )
                         })}
                       </tr>

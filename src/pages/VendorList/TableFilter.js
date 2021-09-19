@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from '../components/TableFilter';
+import Table from './Filter';
 
 export default function TableFilter() {
   return (

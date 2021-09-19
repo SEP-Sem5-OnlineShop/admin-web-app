@@ -1,8 +1,9 @@
 
-import ProfileCard from 'components/SingleVendorProfile';
-import team from '../assets/img/team-1-800x800.jpg';
+import ProfileCard from '../../components/singleVendor/SingleVendorProfile';
+import team from '../../assets/img/team-1-800x800.jpg';
 
 export default function SingleVendor() {
+    
     const products=['Pizza','Burger','Bread'];
 
     return (
