@@ -1,6 +1,7 @@
 import React from 'react'
 import Table, { AvatarCell, SelectColumnFilter } from '../../components/filter/filter'  // new
 import {genApi} from '../../api/index'
+import {useParams} from "react-router"
 
 
 
@@ -39,29 +40,33 @@ function TableFilter() {
 
 
 ////////////////////////////////////////////////
-  const [vendors, setVendors] = React.useState( [] );
+// const {id} = useParams()
+// const [vendor, setVendor] = React.useState({});
+//         React.useEffect(async () => {
+//             try{
+//             const result = await genApi.getVendor(id);
+//             const testVendor = {...result.data.data}
+            
+//             setVendor(testVendor)
+//             }catch(e){
+//             console.log(e)
+//             }
+            
+//         },[]);
 
-  React.useEffect(async () => {
-    try{
-      const result = await genApi.getVendors();
- 
-      setVendors(result.data.data);
-      console.log(result.data)
-    }catch(e){
-      console.log(e)
-    }
-    
-  },[]);
+//         console.log(vendor.products)
 
 
-const data=[]
-vendors.map(vendor => data.push({
-  name: vendor.firstName + vendor.lastName,
-  email: vendor.role,
-  title: vendor.telephone,
-  role: vendor.role,
-  link: `/singleVendor/${vendor._id}`
-}))
+// const data=[]
+// vendors.map(vendor => data.push({
+//   name: vendor.name,
+//   email: vendor.name,
+//   title: vendor.name,
+//   role: vendor.name,
+//   link: `/singleVendor/${vendor._id}`
+// }))
+
+// console.log(data)
 
 //////////////////////////////////////////////////////
 
@@ -69,10 +74,10 @@ vendors.map(vendor => data.push({
     <div className="min-h-screen bg-gray-100 text-gray-900">
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <div className="">
-          <h1 className="text-xl font-semibold">Vendor List</h1>
+          <h1 className="text-xl font-semibold">Product List</h1>
         </div>
         <div className="mt-6">
-          <Table columns={columns} data={data} />
+          {/* <Table columns={columns} data={vendor.products} /> */}
         </div>
       </main>
     </div>

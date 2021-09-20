@@ -8,11 +8,28 @@ import Team2 from 'assets/img/team-2-800x800.jpg';
 import Team3 from 'assets/img/team-3-800x800.jpg';
 import Team4 from 'assets/img/team-4-470x470.png';
 
-export default function CardTable() {
+export default function CardTable(params) {
+    console.log(params.data)
+    const comProps = {
+        // title: props.title || '',
+        // Image: team,
+
+        name: 'JAmini',
+        // price: params.data.price || '',
+        // rating: params.data.rating || '',
+
+        // price:{data}.price || '',
+        // permit: {data}.permit || '',
+        // address: {data}.address || '',
+        // description: {data}.description || '',
+        // products:{data}.products || '',
+        
+    }
+
     return (
         <Card>
             <CardHeader color="purple" contentPosition="left">
-                <h2 className="text-white text-2xl">Card Table</h2>
+                <h2 className="text-white text-2xl">Product Table</h2>
             </CardHeader>
             <CardBody>
                 <div className="overflow-x-auto">
@@ -20,13 +37,13 @@ export default function CardTable() {
                         <thead>
                             <tr>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Project
+                                    Product
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Budget
+                                    Price
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
-                                    Status
+                                    Stock
                                 </th>
                                 <th className="px-2 text-purple-500 align-middle border-b border-solid border-gray-200 py-3 text-sm whitespace-nowrap font-light text-left">
                                     Users
@@ -39,14 +56,14 @@ export default function CardTable() {
                         <tbody>
                             <tr>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    Argon Design System
+                                    {comProps.name}
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
-                                    $2,500 USD
+                                {comProps.name}
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     <i className="fas fa-circle fa-sm text-orange-500 mr-2"></i>{' '}
-                                    pending
+                                    {comProps.name}
                                 </th>
                                 <th className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                     <div className="flex">

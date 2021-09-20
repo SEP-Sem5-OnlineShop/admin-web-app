@@ -7,14 +7,17 @@ import Icon from '@material-tailwind/react/Icon';
 import LeadText from '@material-tailwind/react/LeadText';
 import Button from '@material-tailwind/react/Button';
 
+import team from '../../assets/img/team-1-800x800.jpg';
+
 
 export default function ProfileCard(params) {
     
     const comProps = {
         // title: props.title || '',
+        Image: team,
         name: params.data.firstName || '',
-        telephone: params.data.telephone || '',
-        shop: params.data.shop || '',
+        permitNumber: params.data.permitNumber || '',
+        coordinates: params.data.coordinates || '',
         // price:{data}.price || '',
         // permit: {data}.permit || '',
         // address: {data}.address || '',
@@ -22,11 +25,13 @@ export default function ProfileCard(params) {
         // products:{data}.products || '',
         
     }
+
+    
     return (
         <Card>
             <div className="flex flex-wrap justify-center">
                 <div className="w-48 px-4 -mt-24">
-                    {/* <Image src={comProps.image} rounded raised /> */}
+                    <Image src={comProps.Image} rounded raised />
                 </div>
                 <div className="w-full flex justify-center py-4 lg:pt-4 pt-8">
                     
@@ -38,7 +43,7 @@ export default function ProfileCard(params) {
                     </div>
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        {comProps.telephone}
+                        {comProps.permitNumber}
                         {/* {comProps.permit} */}
                         </span>
                         <span className="text-sm text-gray-700">Permit Number</span>
@@ -50,7 +55,7 @@ export default function ProfileCard(params) {
                 <div className="mt-0 mb-2 text-gray-700 flex items-center justify-center gap-2">
                     <Icon name="place" size="xl" />
                     {/* {comProps.address} */}
-                    {comProps.shop}
+                    {comProps.coordinates}
                 </div>
                 
             </div>
@@ -65,7 +70,10 @@ export default function ProfileCard(params) {
                 </div>
             </CardBody>
             <CardFooter>
+
                 <div className="w-full flex justify-center -mt-8">
+                    
+
                     <a
                         href="#pablo"
                         className="mt-5"
@@ -83,8 +91,13 @@ export default function ProfileCard(params) {
                             Remove the Vendor
                         </Button>
                     </a>
+
+                    
+                    
                 </div>
             </CardFooter>
+
+                    
         </Card>
     );
 }
