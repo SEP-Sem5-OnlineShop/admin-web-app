@@ -1,10 +1,10 @@
 import React from 'react';
-import ProfileCard from '../../components/singleVendor/SingleVendorProfile';
+import ProfileCard from '../../components/singleProduct/SingleVendorProfile';
 import team from '../../assets/img/team-1-800x800.jpg';
 import {genApi} from '../../api/index'
 import {useParams} from "react-router"
 // import Table from "../../pages/ProductList/TableFilter"
-import Table from "../../pages/ProductList/TableFilter"
+// import Table from "../../pages/ProductList/TableFilter"
 
 export default function SingleVendor() {
         const {id} = useParams()
@@ -18,7 +18,7 @@ export default function SingleVendor() {
         const [vendor, setVendor] = React.useState({});
         React.useEffect(async () => {
             try{
-            const result = await genApi.getVendor(id);
+            const result = await genApi.getProduct(id);
             const testVendor = {...result.data.data}
             
             setVendor(testVendor)
@@ -69,7 +69,7 @@ export default function SingleVendor() {
                     <div className="grid grid-cols-1 px-4 mb-16">
                         {/* <ProfileCard data={data} products={products}/> */}
                         <ProfileCard data={vendor}/>
-                        <Table />
+                        {/* <Table /> */}
 
                     </div>
                     {/* <div>{product}.</div> */}

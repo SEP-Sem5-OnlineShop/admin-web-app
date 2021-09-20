@@ -216,7 +216,7 @@ function Table({ columns, data }) {
                             >
                               
                               {cell.column.Cell.name === "defaultRenderer"
-                                ? <div onClick={() => history.push(cell.row.original.link)} className="text-sm text-gray-500">"{cell.render('Cell')}"</div>
+                                ? <div onClick={() => history.push(cell.row.original.link)} className="text-sm text-gray-500">{cell.render('Cell')}</div>
                                 : cell.render('Cell')
                               }
                             </td>

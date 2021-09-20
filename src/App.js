@@ -12,6 +12,9 @@ import Settings from 'pages/Settings';
 import Tables from 'pages/VendorList/TableFilter';
 // import Tables from 'pages/VendorList';
 import singleVendor from 'pages/SingleVendor/SngleVendor';
+
+import singleProduct from 'pages/singleProduct/SngleVendor';
+
 import requestList from 'pages/vendorRequestList/RequestList';
 // import Maps from 'pages/Maps';
 import Footer from 'components/Footer';
@@ -89,6 +92,9 @@ import RegisterVendor from 'pages/vendor/register/index';
                          <Route exact path="/settings" component={Settings} />
                          <Route exact path="/tables" component={Tables} />
                          <Route exact path="/singleVendor/:id" component={singleVendor} />
+
+                         <Route exact path="/singleProduct/:id" component={singleProduct} />
+
                          <Route exact path="/requestList" component={requestList} />
                          <Route exact path="/vendor/register/:id" component={RegisterVendor} />
                          {/* <Route exact path="/maps" component={Maps} /> */}

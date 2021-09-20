@@ -46,6 +46,7 @@ function TableFilter() {
       const result = await genApi.getVendors();
  
       setVendors(result.data.data);
+      console.log(typeof(result.data))
       console.log(result.data)
     }catch(e){
       console.log(e)

@@ -16,57 +16,62 @@ function TableFilter() {
       emailAccessor: "email",
     },
     {
-      Header: "Title",
-      accessor: 'title',
+      Header: "Price",
+      accessor: 'price',
     },
     // {
     //   Header: "Status",
     //   accessor: 'status',
     //   Cell: StatusPill,
     // },
-    // {
-    //   Header: "Age",
-    //   accessor: 'age',
-    // },
     {
-      Header: "Role",
-      accessor: 'role',
-      Filter: SelectColumnFilter,  // new
-      filter: 'includes',
+      Header: "Rating",
+      accessor: 'rating',
     },
+    // {
+    //   Header: "Image",
+    //   accessor: 'imageUrl',
+    //   Filter: SelectColumnFilter,  // new
+    //   filter: 'includes',
+    // },
   ], [])
 
-  // const data = React.useMemo(() => getData(), [])
+  
 
 
 ////////////////////////////////////////////////
-// const {id} = useParams()
-// const [vendor, setVendor] = React.useState({});
-//         React.useEffect(async () => {
-//             try{
-//             const result = await genApi.getVendor(id);
-//             const testVendor = {...result.data.data}
+const {id} = useParams()
+const [vendors, setVendor] = React.useState([]);
+        React.useEffect(async () => {
+            try{
+            const result = await genApi.getVendor(id);
+            const testVendor = {...result.data.data}
             
-//             setVendor(testVendor)
-//             }catch(e){
-//             console.log(e)
-//             }
+            setVendor(testVendor.products)
+            console.log(typeof(testVendor.products))
+            console.log(testVendor.products)
+            }catch(e){
+            console.log(e)
+            }
             
-//         },[]);
+        },[]);
 
-//         console.log(vendor.products)
+        const productList=vendors
+        console.log(typeof({productList}))
 
 
-// const data=[]
-// vendors.map(vendor => data.push({
-//   name: vendor.name,
-//   email: vendor.name,
-//   title: vendor.name,
-//   role: vendor.name,
-//   link: `/singleVendor/${vendor._id}`
-// }))
+        const data=[]
+  vendors.map(vendor => data.push({
+    name: vendor.name,
+    email:vendor._id,
+    price: vendor.price,
+    rating: vendor.rating,
+    imageUrl: vendor.imageUrl,
+  link: `/singleProduct/${vendor._id}`
+}))
 
-// console.log(data)
+console.log(data)
+        
 
 //////////////////////////////////////////////////////
 
@@ -77,7 +82,9 @@ function TableFilter() {
           <h1 className="text-xl font-semibold">Product List</h1>
         </div>
         <div className="mt-6">
-          {/* <Table columns={columns} data={vendor.products} /> */}
+          <Table columns={columns} data={data} />
+
+          
         </div>
       </main>
     </div>

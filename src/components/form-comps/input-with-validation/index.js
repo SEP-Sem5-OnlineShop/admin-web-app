@@ -35,7 +35,7 @@ export default function InputWithValidation (props) {
                         :
                         null
                 }
-                <input
+                <input readOnly
                     id={compProps.id}
                     name={compProps.name}
                     type={compProps.type}

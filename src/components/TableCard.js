@@ -9,7 +9,10 @@ import Team3 from 'assets/img/team-3-800x800.jpg';
 import Team4 from 'assets/img/team-4-470x470.png';
 
 export default function CardTable(params) {
-    console.log(params.data)
+    console.log(params)
+
+    
+
     const comProps = {
         // title: props.title || '',
         // Image: team,

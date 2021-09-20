@@ -9,10 +9,31 @@ import InputWithValidation from "components/form-comps/input-with-validation";
 import { FilePond, registerPlugin } from 'react-filepond'
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import {genApi} from '../../../api/index'
+import {useParams} from "react-router"
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
 export default function RegisterVendor() {
+        const {id} = useParams()
+        console.log(typeof(id))
+
+        const [vendor, setVendor] = React.useState({});
+        React.useEffect(async () => {
+            try{
+            const result = await genApi.getProduct(id);
+            const testVendor = {...result.data.data}
+            
+            setVendor(testVendor)
+            }catch(e){
+            console.log(e)
+            }
+            
+        },[]);
+
+        console.log(vendor)
+
+
     const [files, setFiles] = React.useState([])
     const formik = useFormik({
         initialValues: {
