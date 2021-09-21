@@ -11,19 +11,21 @@ import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import {genApi} from '../../../api/index'
 import {useParams} from "react-router"
+import { string } from "yup/lib/locale";
+import { waitFor } from "@testing-library/dom";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
+function Values(){
+    const {id} = useParams()
+        console.log(id)
 
-export default function RegisterVendor() {
-        const {id} = useParams()
-        console.log(typeof(id))
-
-        const [vendor, setVendor] = React.useState({});
+        
+        const [vendor, setVendor] = React.useState([]);
         React.useEffect(async () => {
             try{
-            const result = await genApi.getProduct(id);
+            const result = await genApi.getRequest(id);
             const testVendor = {...result.data.data}
-            
+            // console.log(result)
             setVendor(testVendor)
             }catch(e){
             console.log(e)
@@ -31,34 +33,52 @@ export default function RegisterVendor() {
             
         },[]);
 
-        console.log(vendor)
+        return vendor
+        ;
+}
 
+export default function RegisterVendor() {
+        const {id} = useParams()
+        console.log(id)
 
-    const [files, setFiles] = React.useState([])
+        
+        const [vendor, setVendor] = React.useState([]);
+        
+
+    const [files, setFiles] = React.useState([]);
+        
+    // console.log(Values())
+    // const n='kk';
+    // console.log(typeof(n))
+    // console.log(n)
     const formik = useFormik({
         initialValues: {
-            name: '',
-            telephoneNumber: '',
-            nicNumber: '',
-            region: '',
+            fullName: '',
+            telephone: '',
+            nic: '',
+            regionToBeCovered: '',
             permitId: '',
             shopName: '',
             address: '',
-            vehicles: '1',
-            vehicleNo1: '',
-            vehicleNo2: '',
+            // vehicles: '1',
+            vehicleNumber: '',
+            // vehicleNo2: '',
 
         },
+
+
+            
+        
         validationSchema: Yup.object({
-            name: Yup.string()
+            fullName: Yup.string()
                 .required('Required'),
-            telephoneNumber: Yup.string()
+            telephone: Yup.string()
                 .required('Required')
                 .matches('^(?:0|94|\\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\\d)\\d{6}$',
                     'Telephone number did not matched with requirements!'),
-            nicNumber: Yup.string()
+            nic: Yup.string()
                 .required('Required'),
-            region: Yup.string()
+            regionToBeCovered: Yup.string()
                 .required('Required'),
             permitId: Yup.string()
                 .required('Required'),
@@ -66,16 +86,40 @@ export default function RegisterVendor() {
                 .required('Required'),
             address: Yup.string()
                 .required('Required'),
-            vehicleNo1: Yup.string()
+                vehicleNumber: Yup.string()
                 .required('Required'),
-            vehicleNo2: Yup.string()
-                .required('Required'),
+            // vehicleNo2: Yup.string()
+            //     .required('Required'),
         }),
         onSubmit: async values => {
             // await dispatch(thunks.user.localSignIn(values.telephone, values.password))
-            console.log(values)
+            
         },
     });
+
+    React.useEffect(async () => {
+        try{
+        const result = await genApi.getRequest(id);
+        const testVendor = {...result.data.data}
+        // console.log(result)
+        setVendor(testVendor)
+        Object.keys(
+            testVendor
+            ).forEach(item =>  {
+                console.log(item)
+                formik.setFieldValue(`${item}`, testVendor[item])
+            })
+
+        }catch(e){
+        console.log(e)
+        }
+        
+    },[]);
+
+     console.log(vendor)
+    
+
+    
     return (
         <div className="p-6">
             <div className="mb-8">
@@ -90,22 +134,23 @@ export default function RegisterVendor() {
                         <div className="grid grid-cols-2 gap-y-3 gap-x-6">
                             <InputWithValidation 
                                 formik={formik}
-                                id="name"
-                                name="name"
+                                id="fullName"
+                                name="fullName"
                                 label="Name"
                                 type="text"
+                               
                             />
                             <InputWithValidation 
                                 formik={formik}
-                                id="telephoneNumber"
-                                name="telephoneNumber"
+                                id="telephone"
+                                name="telephone"
                                 label="Telephone Number"
                                 type="text"
                             />
                             <InputWithValidation
                                 formik={formik}
-                                id="nicNumber"
-                                name="nicNumber"
+                                id="nic"
+                                name="nic"
                                 label="NIC Number"
                                 type="text"
                             />
@@ -132,8 +177,8 @@ export default function RegisterVendor() {
                             />
                             <InputWithValidation
                                 formik={formik}
-                                id="region"
-                                name="region"
+                                id="regionToBeCovered"
+                                name="regionToBeCovered"
                                 label="Region to be Covered"
                                 type="text"
                             />
@@ -148,25 +193,25 @@ export default function RegisterVendor() {
                         <div className="grid grid-cols-2 gap-y-3 gap-x-6">
                             <InputWithValidation 
                                 formik={formik}
-                                id="vehicleNo1"
-                                name="vehicleNo1"
+                                id="vehicleNumber"
+                                name="vehicleNumber"
                                 label="Vehicle Number 1"
                                 type="text"
                             />
-                            <InputWithValidation 
+                            {/* <InputWithValidation 
                                 formik={formik}
                                 id="vehicleNo2"
                                 name="vehicleNo2"
                                 label="Vehicle Number 2"
                                 type="text"
-                            />
-                            <InputWithValidation
+                            /> */}
+                            {/* <InputWithValidation
                                 formik={formik}
                                 id="vehicleNo3"
                                 name="vehicleNo3"
                                 label="Vehicle Number 3"
                                 type="text"
-                            />
+                            /> */}
                         </div>
                         <div className="mt-4">
                             <label className='font-medium text-secondary text-sm xs:text-lg md:text-base'>Vehicle Images</label>
@@ -182,7 +227,7 @@ export default function RegisterVendor() {
                         </div>
                     </CardBody>
                 </Card>
-                <div className="flex justify-center w-3/5">
+                <div className="flex justify-center w-1/2">
                 <div className="flex justify-between mt-4 mr-4">
                     <Button
                         id="Submit"

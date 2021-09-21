@@ -1,3 +1,5 @@
+import React from 'react'
+
 import Card from '@material-tailwind/react/Card';
 import CardBody from '@material-tailwind/react/CardBody';
 import CardFooter from '@material-tailwind/react/CardFooter';
@@ -9,8 +11,38 @@ import Button from '@material-tailwind/react/Button';
 
 import team from '../../assets/img/team-1-800x800.jpg';
 
+import {genApi} from '../../api/index'
+import {useParams} from "react-router"
+import axios from 'axios';
+
+
+// function Id(){
+//     const {id} = useParams()
+//     return id
+//     console.log('this is:' ,id);}
+
+
+// function HandleClick (id) {
+    
+//     React.useEffect(async () => {
+//         try{
+//             console.log('removed')
+//         return await genApi.removeVendor(id);
+//         // console.log(testVendor.products)
+//         }catch(e){
+//         console.log(e)
+//         }
+        
+//     })
+//   }
 
 export default function ProfileCard(params) {
+    const {id} = useParams()
+    console.log('this is:' ,id);
+    const HandleClick=() =>{
+        // event.preventDefault();
+        genApi.removeVendor(id);
+    }
     
     const comProps = {
         // title: props.title || '',
@@ -75,9 +107,10 @@ export default function ProfileCard(params) {
                     
 
                     <a
-                        href="#pablo"
+                        // href="#removeVendor"
                         className="mt-5"
-                        onClick={(e) => e.preventDefault()}
+                        // onClick={(e) => e.preventDefault()}
+                        onClick={HandleClick}
                     >
                         <Button
                             color="lightBlue"

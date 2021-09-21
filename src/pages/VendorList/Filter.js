@@ -60,7 +60,7 @@ vendors.map(vendor => data.push({
   name: vendor.firstName + vendor.lastName,
   email: vendor.role,
   title: vendor.telephone,
-  role: vendor.role,
+  role: vendor.status,
   link: `/singleVendor/${vendor._id}`
 }))
 
