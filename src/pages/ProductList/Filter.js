@@ -41,13 +41,13 @@ function TableFilter() {
 
 ////////////////////////////////////////////////
 const {id} = useParams()
-const [vendors, setVendor] = React.useState([]);
+const [products, setProducts] = React.useState([]);
         React.useEffect(async () => {
             try{
             const result = await genApi.getVendor(id);
             const testVendor = {...result.data.data}
             
-            setVendor(testVendor.products)
+            setProducts(testVendor.vendor.products || [])
             console.log(typeof(testVendor.products))
             console.log(testVendor.products)
             }catch(e){
@@ -56,12 +56,17 @@ const [vendors, setVendor] = React.useState([]);
             
         },[]);
 
+<<<<<<< HEAD
         const productList=vendors
         console.log(({productList}))
+=======
+        const productList=products
+        console.log(typeof({productList}))
+>>>>>>> 70b5efc6fa7ae7bd5df828a05c20a9312f629af5
 
 
         const data=[]
-  vendors.map(vendor => data.push({
+  products.map(vendor => data.push({
     name: vendor.name,
     email:vendor._id,
     price: vendor.price,
