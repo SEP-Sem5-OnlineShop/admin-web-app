@@ -42,7 +42,7 @@ export default function RegisterVendor() {
         // console.log(id)
 
         
-        const [vendor, setVendor] = React.useState([]);
+        
         
 
     const [files, setFiles] = React.useState([]);
@@ -56,16 +56,25 @@ export default function RegisterVendor() {
             fullName: '',
             telephone: '',
             nic: '',
-            email:'',
-            address: '',
+            email:'g@gmail.com',
             address: '',
             permitId: '',
             regionToBeCovered: '',
             numberOfVehicles:1,
-            vehicles: '',
-            imageUrls: '',
+            plateNumber: '123',
+            // plateNumber2: '',
+            imageUrls: 'tt',
             // vehicles: '1',
-            status: 'pending',
+
+            vendor: [
+                {
+                    status: 'pending',
+                },],
+            
+            shopName:'',
+            password: 'OnTheWay@1234',
+            
+             // createdAt:Date().toLocaleString(),
             // vehicleNo2: '',
 
         },
@@ -90,27 +99,42 @@ export default function RegisterVendor() {
                 .required('Required'),
             address: Yup.string()
                 .required('Required'),
-            vehicleNumber: Yup.string()
-                .required('Required'),
+
+            password: Yup.string()
+                .required('Required')
+                .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                    "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+                ),
+            // vehicleNumber: Yup.string()
+            //     .required('Required'),
             // vehicleNo2: Yup.string()
             //     .required('Required'),
         }),
         onSubmit: async values => {
-                // await genApi.createVendor({
-                //     firstName: values.fullName,
-                //     lastName: values.nic,
-                //     telephone: values.telephone,
-                //     role: 'vendor',
-                //     permitId:values.permitId,
-                //     address: values.regionToBeCovered,
-                //     permitNumber:values.shopName,
-                //     status:"accepted",
-                //     vehicleNumber:"234"
-                // })
+            console.log(values.fullName)
+            await genApi.createVendor({
+                fullName: values.fullName,
+                telephone: values.telephone,
+                nic: values.nic,
+                address: values.address,
+                email: values.email,
+                permitId: values.permitId,
+                regionToBeCovered: values.regionToBeCovered,
+                numberOfVehicles: values.numberOfVehicles,
+                plateNumber: values.plateNumber,
+                vendor: values.vendor,
+                imageUrls: values.imageUrls,
+                shopName: values.shopName,
+                password: values.password,
 
+
+                
+                
+            })
         },
     });
 
+    const [vendor, setVendor] = React.useState([]);
     React.useEffect(async () => {
         try{
         const result = await genApi.getRequest(id);
@@ -139,7 +163,9 @@ export default function RegisterVendor() {
             <div className="mb-8">
                 <span className="text-2xl font-medium">Register a New Vendor</span>
             </div>
-            <form onSubmit={formik.handleSubmit} className="mt-8">
+            <form onSubmit={
+                formik.handleSubmit
+                } className="mt-8">
                 <Card>
                     <div color="lightBlue" size="sm">
                         <span className="text-xl font-medium">General Details</span>
@@ -175,13 +201,13 @@ export default function RegisterVendor() {
                                 label="Address"
                                 type="text"
                             />
-                            <InputWithValidation
+                            {/* <InputWithValidation
                                 formik={formik}
                                 id="shopName"
                                 name="shopName"
                                 label="Product Type"
                                 type="text"
-                            />
+                            /> */}
                             <InputWithValidation
                                 formik={formik}
                                 id="permitId"
@@ -196,6 +222,29 @@ export default function RegisterVendor() {
                                 label="Region to be Covered"
                                 type="text"
                             />
+                            <InputWithValidation
+                                formik={formik}
+                                id="email"
+                                name="email"
+                                label="Email"
+                                type="text"
+                            />
+
+                            <InputWithValidation
+                                formik={formik}
+                                id="status"
+                                name="status"
+                                label="status"
+                                type="text"
+                            />
+                            <InputWithValidation 
+                                formik={formik}
+                                id="shopName"
+                                name="shopName"
+                                label="shop Name"
+                                type="text"
+                               
+                            />
                         </div>
                     </CardBody>
                 </Card>
@@ -205,32 +254,32 @@ export default function RegisterVendor() {
                     </div>
                     <CardBody>
                         <div className="grid grid-cols-2 gap-y-3 gap-x-6">
-                            {/* <InputWithValidation 
+                            <InputWithValidation 
                                 formik={formik}
-                                id="vehicleNumber"
-                                name="vehicleNumber"
-                                label="Vehicle Number 1"
+                                id="numberOfVehicles"
+                                name="numberOfVehicles"
+                                label="number Of Vehicles"
                                 type="text"
                                 // value="234"
-                            /> */}
-                            {/* <InputWithValidation 
+                            /> 
+                            <InputWithValidation 
                                 formik={formik}
-                                id="vehicleNo2"
-                                name="vehicleNo2"
-                                label="Vehicle Number 2"
+                                id="plateNumber"
+                                name="plateNumber"
+                                label="plate Number"
                                 type="text"
-                            /> */}
+                            />
                             {/* <InputWithValidation
                                 formik={formik}
-                                id="vehicleNo3"
-                                name="vehicleNo3"
-                                label="Vehicle Number 3"
+                                id="vehicleNumber2"
+                                name="vehicleNumber2"
+                                label="vehicle Number 2"
                                 type="text"
                             /> */}
                         </div>
                         <div className="mt-4">
                             <label className='font-medium text-secondary text-sm xs:text-lg md:text-base'>Vehicle Images</label>
-                            {/* <FilePond
+                            <FilePond
                                 files={files}
                                 onupdatefiles={setFiles}
                                 allowMultiple={true}
@@ -238,13 +287,14 @@ export default function RegisterVendor() {
                                 server="/api"
                                 name="files"
                                 labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-                            /> */}
+                            />
                         </div>
                     </CardBody>
                 </Card>
-                <div className="flex justify-center w-1/2">
+                <div className="flex justify-center w-3/5">
                 <div className="flex justify-between mt-4 mr-4">
-                    <Button
+                    <Button type="submit"
+                        
                         id="Submit"
                         color="lightBlue"
                         buttonType="filled"
@@ -259,8 +309,9 @@ export default function RegisterVendor() {
                     
                     </div>
                     <div className="flex justify-between mt-4 ml-4">
-                    <Button
+                    <Button type="submit"
                         id="Reject"
+                        
                         color="lightBlue"
                         buttonType="filled"
                         size="regular"

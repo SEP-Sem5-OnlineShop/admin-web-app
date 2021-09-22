@@ -36,6 +36,7 @@ import axios from 'axios';
 //     })
 //   }
 
+
 export default function ProfileCard(params) {
     const {id} = useParams()
     console.log('this is:' ,id);
@@ -48,8 +49,9 @@ export default function ProfileCard(params) {
         // title: props.title || '',
         Image: team,
         name: params.data.firstName || '',
-        permitNumber: params.data.permitNumber || '',
+        // permitNumber: params.data.vendor.permitNumber || '',
         coordinates: params.data.coordinates || '',
+        vendor:params.data.vendor||'',
         // price:{data}.price || '',
         // permit: {data}.permit || '',
         // address: {data}.address || '',
@@ -69,13 +71,13 @@ export default function ProfileCard(params) {
                     
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        {comProps.name}
+                        0766126666
                         </span>
-                        <span className="text-sm text-gray-700">Rating</span>
+                        <span className="text-sm text-gray-700">Telephone</span>
                     </div>
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        {comProps.permitNumber}
+                        9873
                         {/* {comProps.permit} */}
                         </span>
                         <span className="text-sm text-gray-700">Permit Number</span>
@@ -83,11 +85,13 @@ export default function ProfileCard(params) {
                 </div>
             </div>
             <div className="text-center">
-                <H5 color="gray">{comProps.name}</H5>
+                <H5 color="gray">Darshana</H5>
                 <div className="mt-0 mb-2 text-gray-700 flex items-center justify-center gap-2">
                     <Icon name="place" size="xl" />
                     {/* {comProps.address} */}
-                    {comProps.coordinates}
+                    Gampaha
+                    
+                    {/* {ve.status} */}
                 </div>
                 
             </div>
@@ -99,12 +103,12 @@ export default function ProfileCard(params) {
                         <li key={product}>{product}</li>)}
                        
                     </LeadText> */}
+                    This vendor is from gampaha who sells bakery items.
                 </div>
             </CardBody>
             <CardFooter>
 
                 <div className="w-full flex justify-center -mt-8">
-                    
 
                     <a
                         // href="#removeVendor"

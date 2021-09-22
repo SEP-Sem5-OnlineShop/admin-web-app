@@ -34,7 +34,8 @@ const admin = {
         return await axios.get('/app/admin/')
     },
     createVendor:async function(formData){
-        return await axios.post('/app/admin/createeVendor',formData)
+        console.log(formData)
+        return await axios.post('/app/admin/createVendor',formData)
 
     }
     

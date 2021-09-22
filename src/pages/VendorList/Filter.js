@@ -15,8 +15,8 @@ function TableFilter() {
       emailAccessor: "email",
     },
     {
-      Header: "Title",
-      accessor: 'title',
+      Header: "Telephone",
+      accessor: 'telephone',
     },
     // {
     //   Header: "Status",
@@ -29,7 +29,7 @@ function TableFilter() {
     // },
     {
       Header: "Status",
-      accessor: 'status',
+      accessor: 'vendor.status',
       Filter: SelectColumnFilter,  // new
       filter: 'includes',
     },
@@ -54,15 +54,17 @@ function TableFilter() {
     
   },[]);
 
-
+// console.log(vendors[0].vendor.status)
 const data=[]
 vendors.map(vendor => data.push({
   name: vendor.firstName + vendor.lastName,
-  email: vendor.role,
-  title: vendor.telephone,
-  status: vendor.status,
+  email: vendor.email||'',
+  telephone: vendor.telephone,
+  vendor:vendor.vendor,
+  // status: vendor.vendor.status,
   link: `/singleVendor/${vendor._id}`
 }))
+console.log(data)
 
 //////////////////////////////////////////////////////
 
@@ -70,10 +72,11 @@ vendors.map(vendor => data.push({
     <div className="min-h-screen bg-gray-100 text-gray-900">
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <div className="">
-          <h1 className="text-xl font-semibold">Vendor List</h1>
+          <h1 className="text-3xl  font-semibold"><u>Vendor List</u></h1>
         </div>
         <div className="mt-6">
           <Table columns={columns} data={data} />
+   
         </div>
       </main>
     </div>

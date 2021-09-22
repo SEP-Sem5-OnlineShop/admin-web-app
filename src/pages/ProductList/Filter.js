@@ -56,13 +56,10 @@ const [products, setProducts] = React.useState([]);
             
         },[]);
 
-<<<<<<< HEAD
-        const productList=vendors
-        console.log(({productList}))
-=======
+        // const productList=vendors
+        // console.log(({productList}))
         const productList=products
         console.log(typeof({productList}))
->>>>>>> 70b5efc6fa7ae7bd5df828a05c20a9312f629af5
 
 
         const data=[]
