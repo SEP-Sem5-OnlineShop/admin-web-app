@@ -15,31 +15,31 @@ import { string } from "yup/lib/locale";
 import { waitFor } from "@testing-library/dom";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
-function Values(){
-    const {id} = useParams()
-        console.log(id)
+// function Values(){
+//     const {id} = useParams()
+//         // console.log(id)
 
         
-        const [vendor, setVendor] = React.useState([]);
-        React.useEffect(async () => {
-            try{
-            const result = await genApi.getRequest(id);
-            const testVendor = {...result.data.data}
-            // console.log(result)
-            setVendor(testVendor)
-            }catch(e){
-            console.log(e)
-            }
+//         const [vendor, setVendor] = React.useState([]);
+//         React.useEffect(async () => {
+//             try{
+//             const result = await genApi.getRequest(id);
+//             const testVendor = {...result.data.data}
+//             // console.log(result)
+//             setVendor(testVendor)
+//             }catch(e){
+//             console.log(e)
+//             }
             
-        },[]);
+//         },[]);
 
-        return vendor
-        ;
-}
+//         return vendor
+//         ;
+// }
 
 export default function RegisterVendor() {
         const {id} = useParams()
-        console.log(id)
+        // console.log(id)
 
         
         const [vendor, setVendor] = React.useState([]);
@@ -56,12 +56,16 @@ export default function RegisterVendor() {
             fullName: '',
             telephone: '',
             nic: '',
-            regionToBeCovered: '',
-            permitId: '',
-            shopName: '',
+            email:'',
             address: '',
+            address: '',
+            permitId: '',
+            regionToBeCovered: '',
+            numberOfVehicles:1,
+            vehicles: '',
+            imageUrls: '',
             // vehicles: '1',
-            vehicleNumber: '',
+            status: 'pending',
             // vehicleNo2: '',
 
         },
@@ -86,14 +90,24 @@ export default function RegisterVendor() {
                 .required('Required'),
             address: Yup.string()
                 .required('Required'),
-                vehicleNumber: Yup.string()
+            vehicleNumber: Yup.string()
                 .required('Required'),
             // vehicleNo2: Yup.string()
             //     .required('Required'),
         }),
         onSubmit: async values => {
-            // await dispatch(thunks.user.localSignIn(values.telephone, values.password))
-            
+                // await genApi.createVendor({
+                //     firstName: values.fullName,
+                //     lastName: values.nic,
+                //     telephone: values.telephone,
+                //     role: 'vendor',
+                //     permitId:values.permitId,
+                //     address: values.regionToBeCovered,
+                //     permitNumber:values.shopName,
+                //     status:"accepted",
+                //     vehicleNumber:"234"
+                // })
+
         },
     });
 
@@ -106,7 +120,7 @@ export default function RegisterVendor() {
         Object.keys(
             testVendor
             ).forEach(item =>  {
-                console.log(item)
+                // console.log(item)
                 formik.setFieldValue(`${item}`, testVendor[item])
             })
 
@@ -116,7 +130,7 @@ export default function RegisterVendor() {
         
     },[]);
 
-     console.log(vendor)
+    //  console.log(vendor)
     
 
     
@@ -125,7 +139,7 @@ export default function RegisterVendor() {
             <div className="mb-8">
                 <span className="text-2xl font-medium">Register a New Vendor</span>
             </div>
-            <form className="mt-8">
+            <form onSubmit={formik.handleSubmit} className="mt-8">
                 <Card>
                     <div color="lightBlue" size="sm">
                         <span className="text-xl font-medium">General Details</span>
@@ -191,13 +205,14 @@ export default function RegisterVendor() {
                     </div>
                     <CardBody>
                         <div className="grid grid-cols-2 gap-y-3 gap-x-6">
-                            <InputWithValidation 
+                            {/* <InputWithValidation 
                                 formik={formik}
                                 id="vehicleNumber"
                                 name="vehicleNumber"
                                 label="Vehicle Number 1"
                                 type="text"
-                            />
+                                // value="234"
+                            /> */}
                             {/* <InputWithValidation 
                                 formik={formik}
                                 id="vehicleNo2"
@@ -215,7 +230,7 @@ export default function RegisterVendor() {
                         </div>
                         <div className="mt-4">
                             <label className='font-medium text-secondary text-sm xs:text-lg md:text-base'>Vehicle Images</label>
-                            <FilePond
+                            {/* <FilePond
                                 files={files}
                                 onupdatefiles={setFiles}
                                 allowMultiple={true}
@@ -223,7 +238,7 @@ export default function RegisterVendor() {
                                 server="/api"
                                 name="files"
                                 labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-                            />
+                            /> */}
                         </div>
                     </CardBody>
                 </Card>

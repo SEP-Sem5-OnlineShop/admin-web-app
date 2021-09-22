@@ -50,7 +50,7 @@ export default function Sidebar() {
                                 </NavLink>
                             </li>
 
-                            <li className="rounded-lg mb-2 ">
+                            {/* <li className="rounded-lg mb-2 ">
                                 <NavLink
                                     to="/singleVendor"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -59,7 +59,7 @@ export default function Sidebar() {
                                     <Icon name="toc" size="2xl" />
                                     Single Vendor
                                 </NavLink>
-                            </li>
+                            </li> */}
 
                             <li className="rounded-lg mb-2 ">
                                 <NavLink
@@ -73,12 +73,12 @@ export default function Sidebar() {
                                     </li>
                             <li className="rounded-lg mb-2 ">
                                 <NavLink
-                                    to="/vendor/register"
+                                    to="/profile"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
                                     <Icon name="person" size="2xl" />
-                                    Vendor Register
+                                    My Profile
                                 </NavLink>
                             </li>
                         </ul>

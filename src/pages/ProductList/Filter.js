@@ -57,7 +57,7 @@ const [vendors, setVendor] = React.useState([]);
         },[]);
 
         const productList=vendors
-        console.log(typeof({productList}))
+        console.log(({productList}))
 
 
         const data=[]

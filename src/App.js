@@ -12,6 +12,7 @@ import Settings from 'pages/Settings';
 import Tables from 'pages/VendorList/TableFilter';
 // import Tables from 'pages/VendorList';
 import singleVendor from 'pages/SingleVendor/SngleVendor';
+import profile from 'pages/myProfile/profile';
 
 import singleProduct from 'pages/singleProduct/SngleVendor';
 
@@ -97,6 +98,8 @@ import RegisterVendor from 'pages/vendor/register/index';
 
                          <Route exact path="/requestList" component={requestList} />
                          <Route exact path="/vendor/register/:id" component={RegisterVendor} />
+                         <Route exact path="/profile" component={profile} />
+
                          {/* <Route exact path="/maps" component={Maps} /> */}
                         <Redirect from="*" to="/" />
                      </Switch>

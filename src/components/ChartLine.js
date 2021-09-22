@@ -10,24 +10,24 @@ export default function ChartLine() {
             type: 'line',
             data: {
                 labels: [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
+                    '',
                 ],
                 datasets: [
+                    // {
+                    //     label: new Date().getFullYear(),
+                    //     backgroundColor: '#03a9f4',
+                    //     borderColor: '#03a9f4',
+                    //     data: [65, 78, 66, 44, 56, 67, 75],
+                    //     fill: false,
+                    // },
                     {
-                        label: new Date().getFullYear(),
-                        backgroundColor: '#03a9f4',
-                        borderColor: '#03a9f4',
-                        data: [65, 78, 66, 44, 56, 67, 75],
-                        fill: false,
-                    },
-                    {
-                        label: new Date().getFullYear() - 1,
+                        // label: new Date().getFullYear() - 1,
                         fill: false,
                         backgroundColor: '#ff9800',
                         borderColor: '#ff9800',
@@ -116,7 +116,7 @@ export default function ChartLine() {
                 <h6 className="uppercase text-gray-200 text-xs font-medium">
                     Overview
                 </h6>
-                <h2 className="text-white text-2xl">Sales value</h2>
+                <h2 className="text-white text-2xl">Profit</h2>
             </CardHeader>
             <CardBody>
                 <div className="relative h-96">
