@@ -27,8 +27,11 @@ export default function SingleVendor() {
             }
             
         },[]);
+<<<<<<< HEAD
+=======
         console.log(vendor)
         // const status=(vendor.vendor.status||'')
+>>>>>>> d963443db99813b6aab1c379c33c8025a96d0c93
         // console.log(status)
 
         // const [Product, setProduct] = React.useState({});
@@ -71,6 +74,9 @@ export default function SingleVendor() {
                     <div className="grid grid-cols-1 px-4 mb-16">
                         {/* <ProfileCard data={data} products={products}/> */}
                         <ProfileCard data={vendor}/>
+                        {
+                            vendor.vendor ? vendor.vendor.status || "" : ""
+                        }
                         <Table />
 
                     </div>
