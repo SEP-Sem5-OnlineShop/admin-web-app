@@ -61,7 +61,7 @@ vendors.map(vendor => data.push({
   email: vendor.email||'',
   telephone: vendor.telephone,
   v: vendor.vendor||'',
-  status:vendor.vendor.status||'',
+  // status:vendor.vendor.status||'',
   link: `/singleVendor/${vendor._id}`
 }))
 // const status=data

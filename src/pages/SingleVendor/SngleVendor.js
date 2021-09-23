@@ -27,7 +27,7 @@ export default function SingleVendor() {
             }
             
         },[]);
-        // console.log(vendor.data.status)
+        console.log(vendor.vendor.status||'')
 
         // const [Product, setProduct] = React.useState({});
         // React.useEffect(async () => {
