@@ -33,10 +33,14 @@ const admin = {
     getMaxProducts: async function(){
         return await axios.get('/app/admin/')
     },
-    createVendor:async function(formData){
+    createVendor:async function(formData,id){
         console.log(formData)
         return await axios.post('/app/admin/createVendor',formData)
 
+    },
+    updateStatus:async function(id){
+        console.log("inside axios: ",id)
+        return await axios.put(`/app/admin/updateStatus`)
     }
     
 }

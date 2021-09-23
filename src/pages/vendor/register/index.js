@@ -125,12 +125,10 @@ export default function RegisterVendor() {
                 vendor: values.vendor,
                 imageUrls: values.imageUrls,
                 shopName: values.shopName,
-                password: values.password,
-
-
-                
-                
+                password: values.password,  
             })
+            console.log("status update on: ",id)
+            await genApi.updateStatus(id)
         },
     });
 
