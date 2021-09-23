@@ -1,6 +1,8 @@
 import React from 'react';
 
-
+import MainRouter from "./router";
+import { Provider } from "react-redux";
+import store from "./store/index";
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Sidebar from 'components/Sidebar';
@@ -27,93 +29,48 @@ import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 
 import RegisterVendor from 'pages/vendor/register/index';
 
-// function App() {
-//     return (
-//         <>
-//             <Sidebar />
-//             <div className="md:ml-64">
-//                 <div style={{minHeight: 'calc(100vh - 169px)'}}>
-//                     <Switch>
-//                         <Route exact path="/" component={Dashboard} />
-//                         <Route exact path="/settings" component={Settings} />
-//                         <Route exact path="/tables" component={Tables} />
-//                         <Route exact path="/singleVendor" component={singleVendor} />
-//                         <Route exact path="/requestList" component={requestList} />
-//                         <Route exact path="/maps" component={Maps} />
-//                         <Redirect from="*" to="/" />
-//                     </Switch>
-//                 </div>
-//                 <Footer />
-//             </div>
-//         </>
-//     );
-// }
-
-// export default App;
-
-
-
-
-
-
-
-// class App extends React.Component{
-//   constructor(props){
-//     super(props);
-//     this.state={apiResponse:''};
-
-//   }
-//   callApi(){
-//     fetch("http://localhost:9000/testApi")
-//     .then(res =>res.text())
-//     .then(res => this.setState({apiResponse:res}));
-//   }
-
-//   componentWillMount(){
-//     this.callApi();
-//   }
-
 
   function App() {
-// render(){
+
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-       
+    // <div className="App">
+    //   <header className="App-header">
+     
         
-      </header>
+    //   </header>
       
 
-      <Sidebar />
-             <div className="md:ml-64">
-                 <div style={{minHeight: 'calc(100vh - 169px)'}}>
-                     <Switch>
-                         <Route exact path="/" component={Dashboard} />
-                         <Route exact path="/settings" component={Settings} />
-                         <Route exact path="/tables" component={Tables} />
-                         <Route exact path="/singleVendor/:id" component={singleVendor} />
+    //   <Sidebar />
+    //          <div className="md:ml-64">
+    //              <div style={{minHeight: 'calc(100vh - 169px)'}}>
+    //                  <Switch>
+    //                      <Route exact path="/" component={Dashboard} />
+    //                      <Route exact path="/settings" component={Settings} />
+    //                      <Route exact path="/tables" component={Tables} />
+    //                      <Route exact path="/singleVendor/:id" component={singleVendor} />
 
-                         <Route exact path="/singleProduct/:id" component={singleProduct} />
+    //                      <Route exact path="/singleProduct/:id" component={singleProduct} />
 
-                         <Route exact path="/requestList" component={requestList} />
-                         <Route exact path="/vendor/register/:id" component={RegisterVendor} />
-                         <Route exact path="/profile" component={profile} />
+    //                      <Route exact path="/requestList" component={requestList} />
+    //                      <Route exact path="/vendor/register/:id" component={RegisterVendor} />
+    //                      <Route exact path="/profile" component={profile} />
 
-                         {/* <Route exact path="/maps" component={Maps} /> */}
-                        <Redirect from="*" to="/" />
-                     </Switch>
-                 </div>
-
-                 {/* <p>{this.state.apiResponse}</p> */}
+    //                     <Redirect from="*" to="/" />
+    //                  </Switch>
+    //              </div>
                  
-                 <Footer />
-             </div>
+    //              <Footer />
+    //          </div>
 
 
 
 
-    </div>
+    // </div>
+    <div className="App">
+          <Provider store={store}>
+              <MainRouter />
+          </Provider>
+      </div>
 
     
   );

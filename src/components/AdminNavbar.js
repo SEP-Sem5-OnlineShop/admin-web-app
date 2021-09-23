@@ -52,10 +52,14 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                     </h4>
 
                     <div className="flex">
-                        <NavbarInput placeholder="Search" />
+                        {/* <NavbarInput placeholder="Search" /> */}
 
                         <div className="-mr-4 ml-6">
-                            <Dropdown
+
+                        <div className="w-12">
+                                        <Image src={ProfilePicture} rounded />
+                                    </div>
+                            {/* <Dropdown
                                 color="transparent"
                                 buttonText={
                                     <div className="w-12">
@@ -67,8 +71,8 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                                     padding: 0,
                                     color: 'transparent',
                                 }}
-                            >
-                                <DropdownItem color="lightBlue">
+                            > */}
+                                {/* <DropdownItem color="lightBlue">
                                     Action
                                 </DropdownItem>
                                 <DropdownItem color="lightBlue">
@@ -76,8 +80,8 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                                 </DropdownItem>
                                 <DropdownItem color="lightBlue">
                                     Something Else
-                                </DropdownItem>
-                            </Dropdown>
+                                </DropdownItem> */}
+                            {/* </Dropdown> */}
                         </div>
                     </div>
                 </div>

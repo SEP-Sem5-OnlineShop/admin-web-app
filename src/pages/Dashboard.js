@@ -5,9 +5,12 @@ import ChartBar from 'components/BarChart/chartPage';
 // import PageVisitsCard from 'components/PageVisitsCard';
 // import TrafficCard from 'components/TrafficCard';
 import {genApi} from '../api/index'
+import { useSelector } from "react-redux"
 
 export default function Dashboard() {
-    
+
+    const dashboardStrings = useSelector(state => state.language.languageFile.dashboard)
+    console.log(dashboardStrings)
 
     return (
         <div className="p-4">
