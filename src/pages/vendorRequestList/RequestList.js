@@ -18,11 +18,11 @@ function RequestList() {
       Header: "Shop",
       accessor: 'shop',
     },
-    // {
-    //   Header: "Status",
-    //   accessor: 'status',
-    //   Cell: StatusPill,
-    // },
+    {
+      Header: "Status",
+      accessor: 'status',
+      // Cell: StatusPill,
+    },
     // {
     //   Header: "Age",
     //   accessor: 'age',
@@ -59,7 +59,8 @@ vendors.map(vendor => data.push({
   name: vendor.fullName,
   email: vendor.address,
   shop: vendor.shopName,
-  regionToBeCovered: vendor.regionToBeCovered,
+  regionToBeCovered:vendor.regionToBeCovered,
+  status: vendor.status||'',
   link: `/vendor/register/${vendor._id}`
 }))
 
