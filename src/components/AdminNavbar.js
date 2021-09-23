@@ -6,6 +6,7 @@ import Image from '@material-tailwind/react/Image';
 import Dropdown from '@material-tailwind/react/Dropdown';
 import DropdownItem from '@material-tailwind/react/DropdownItem';
 import ProfilePicture from 'assets/img/team-1-800x800.jpg';
+import logo from 'assets/svg/logo/logo-new.svg';
 
 export default function AdminNavbar({ showSidebar, setShowSidebar }) {
     const location = useLocation().pathname;
@@ -56,8 +57,8 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
 
                         <div className="-mr-4 ml-6">
 
-                        <div className="w-12">
-                                        <Image src={ProfilePicture} rounded />
+                        <div className="w-48">
+                                        <Image src={logo} rounded />
                                     </div>
                             {/* <Dropdown
                                 color="transparent"

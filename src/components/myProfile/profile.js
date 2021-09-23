@@ -36,60 +36,50 @@ import axios from 'axios';
 //     })
 //   }
 
-export default function ProfileCard() {
-    // const {id} = useParams()
-    // console.log('this is:' ,id);
-    // const HandleClick=() =>{
-    //     // event.preventDefault();
-    //     genApi.removeVendor(id);
-    // }
-    
-    // const comProps = {
-    //     // title: props.title || '',
-    //     Image: team,
-    //     name: params.data.firstName || '',
-    //     permitNumber: params.data.permitNumber || '',
-    //     coordinates: params.data.coordinates || '',
-    //     // price:{data}.price || '',
-    //     // permit: {data}.permit || '',
-    //     // address: {data}.address || '',
-    //     // description: {data}.description || '',
-    //     // products:{data}.products || '',
+export default function ProfileCard(params) {
+    const {id} = useParams()
+
+    const comProps = {
+        // title: props.title || '',
+        Image: team,
+        name: params.data.firstName +' '+params.data.lastName || '',
+        telephone: params.data.telephone || '',
         
-    // }
+        // price:{data}.price || '',
+        // permit: {data}.permit || '',
+        // address: {data}.address || '',
+        // description: {data}.description || '',
+        // products:{data}.products || '',
+        
+    }
+    
 
     
     return (
         <Card>
             <div className="flex flex-wrap justify-center">
                 <div className="w-48 px-4 -mt-24">
-                    <Image src='' rounded raised />
+                    <Image src={comProps.Image} rounded raised />
                 </div>
                 <div className="w-full flex justify-center py-4 lg:pt-4 pt-8">
                     
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        LLL
+                        {comProps.telephone}
                         </span>
-                        <span className="text-sm text-gray-700">Rating</span>
+                        <span className="text-sm text-gray-700">Telephone</span>
                     </div>
-                    <div className="p-4 text-center">
+                    {/* <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
                        123
-                        {/* {comProps.permit} */}
                         </span>
                         <span className="text-sm text-gray-700">Permit Number</span>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="text-center">
-                <H5 color="gray">kkk</H5>
-                <div className="mt-0 mb-2 text-gray-700 flex items-center justify-center gap-2">
-                    <Icon name="place" size="xl" />
-                    {/* {comProps.address} */}
-                    {/* {comProps.coordinates} */}
-                    jkld
-                </div>
+                <H5 color="gray">{comProps.name}</H5>
+                
                 
             </div>
             <CardBody>

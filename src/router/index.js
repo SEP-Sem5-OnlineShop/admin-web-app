@@ -31,6 +31,7 @@ import singleProduct from 'pages/singleProduct/SngleVendor';
 import requestList from 'pages/vendorRequestList/RequestList';
 // import Maps from 'pages/Maps';
 import Footer from 'components/Footer';
+import modal from 'components/popup/Modal'
 
 // Tailwind CSS Style Sheet
 import 'assets/styles/tailwind.css';

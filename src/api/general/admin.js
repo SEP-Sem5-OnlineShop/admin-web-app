@@ -41,7 +41,11 @@ const admin = {
     updateStatus:async function(id){
         console.log("inside axios: ",id)
         return await axios.put(`/app/admin/updateStatus`)
-    }
+    },
+
+    getAdmin: async function (id) {
+        return await axios.get(`/app/admin/adminProfile/${id}`)
+    },
     
 }
 
