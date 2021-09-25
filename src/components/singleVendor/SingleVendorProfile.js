@@ -38,15 +38,21 @@ import axios from 'axios';
 
 
 export default function ProfileCard(params) {
+
+    const [showSuccessfulModal, setshowSuccessfulModal] = React.useState(false);
+    const [showFailedlModal, setshowFailedlModal] = React.useState(false);
     const {id} = useParams()
     console.log('this is:' ,id);
     const HandleClick=() =>{
-        // event.preventDefault();
-        genApi.removeVendor(id);
+        if(genApi.removeVendor(id)){
+            {setshowSuccessfulModal(true)}
+        }else{
+            {setshowFailedlModal(true)}
+        }
     }
     
     const comProps = {
-        // title: props.title || '',
+
         Image: team,
         name: params.data.firstName || '',
         telephone: params.data.telephone || '',
@@ -54,11 +60,7 @@ export default function ProfileCard(params) {
         vendor:params.data.vendor||'',
         status:params.data.vendor ? params.data.vendor.status || "" : "",
         permitNumber:params.data.vendor ? params.data.vendor.permitNumber || "" : "",
-        // price:{data}.price || '',
-        // permit: {data}.permit || '',
-        // address: {data}.address || '',
-        // description: {data}.description || '',
-        // products:{data}.products || '',
+        
         
     }
 
@@ -101,7 +103,7 @@ export default function ProfileCard(params) {
                     <div className="p-4 text-center">
                         <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
                         {comProps.permitNumber}
-                        {/* {comProps.permit} */}
+                        
                         </span>
                         <span className="text-sm text-gray-700">Permit Number</span>
                     </div>
@@ -111,21 +113,16 @@ export default function ProfileCard(params) {
                 <H5 color="gray">Darshana</H5>
                 <div className="mt-0 mb-2 text-gray-700 flex items-center justify-center gap-2">
                     <Icon name="place" size="xl" />
-                    {/* {comProps.address} */}
+                    
                     Gampaha
                     
-                    {/* {ve.status} */}
+                    
                 </div>
                 
             </div>
             <CardBody>
                 <div className="border-t border-lightBlue-200 text-center px-2 ">
-                    {/* <LeadText color="blueGray">
-                       {comProps.description}
-                        {comProps.products.map((product)=>
-                        <li key={product}>{product}</li>)}
-                       
-                    </LeadText> */}
+                    
                     This vendor is from gampaha who sells bakery items.
                 </div>
             </CardBody>
@@ -135,26 +132,84 @@ export default function ProfileCard(params) {
                         <div className="w-full flex justify-center -mt-8">
 
                         <a
-                            // href="#removeVendor"
+                            
                             className="mt-5"
-                            // onClick={(e) => e.preventDefault()}
+                            
                             onClick={HandleClick}
                         >
                             {button}
-                            {/* <Button
-                                color="lightBlue"
-                                buttonType="filled"
-                                size="regular"
-                                rounded={false}
-                                block={false}
-                                iconOnly={false}
-                                ripple="light"
-                            >
-                                Remove the Vendor
-                            </Button> */}
+                            
                         </a>
     
-                        
+                        {showSuccessfulModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-sm">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                  
+                </div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                    Successfully removed!!!!!!!!!!
+                  </p>
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                  <button
+                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setshowSuccessfulModal(false)}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
+
+{showFailedlModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-sm">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                  
+                </div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                    This is a bad request!!!
+                  </p>
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                  <button
+                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setshowFailedlModal(false)}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
                         
                     </div>
                     
@@ -165,5 +220,7 @@ export default function ProfileCard(params) {
 
                     
         </Card>
+
+        
     );
 }

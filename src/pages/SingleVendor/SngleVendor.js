@@ -11,8 +11,7 @@ export default function SingleVendor() {
 
         
         console.log(typeof(id))
-     /////////////////////////////////////////
-    //  const data = genApi.getVendor(id);
+     
 
 
         const [vendor, setVendor] = React.useState({});
@@ -28,33 +27,10 @@ export default function SingleVendor() {
             
         },[]);
         console.log(vendor)
-        // const status=(vendor.vendor.status||'')
+        
         console.log(vendor.vendor ? vendor.vendor.status || "" : "")
 
-        // const [Product, setProduct] = React.useState({});
-        // React.useEffect(async () => {
-        //     try{
-        //     const result = await genApi.getProduct(id);
-        //     const testProduct = {...result.data.data}
-        //     setProduct(testProduct)
-        //     }catch(e){
-        //     console.log(e)
-        //     }
-            
-        // },[]);
-
-
-        // const data=[]
-        // vendor.map(v => data.push({
-        // name: v.firstName,
-        // telephone: v.telephone,
-        // shop: v.role,
-        // }))
-
-  /////////////////////////////////////////
-  
-    
-    // const products=['Pizza','Burger','Bread'];
+        
 
     return (
         <>

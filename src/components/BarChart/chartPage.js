@@ -32,7 +32,7 @@ console.log(names)
 
 const ratings=[]
 vendors.map( vendor =>  ratings.push({
-// name: vendor.product_name,
+name: vendor.product_name,
 rating: vendor.rating,
 }))
 
@@ -47,7 +47,7 @@ console.log(ratings)
           <h1 className="text-xl font-semibold">Products with maximum ratings</h1>
         </div>
         <div className="mt-6">
-          <Chart names={names}/>
+          <Chart names={ratings}/>
         </div>
       </main>
     </div>

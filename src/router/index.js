@@ -37,9 +37,10 @@ import modal from 'components/popup/Modal'
 import 'assets/styles/tailwind.css';
 import 'filepond/dist/filepond.min.css'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+import admin from 'pages/adminAdd/index'
 
 import RegisterVendor from 'pages/vendor/register/index';
-
+import login from '../pages/auth/login'
 
 import { actions } from "../store"
 
@@ -80,7 +81,9 @@ export default function MainRouter() {
 
                          <Route exact path="/requestList" component={requestList} />
                          <Route exact path="/vendor/register/:id" component={RegisterVendor} />
+                         {/* <Route exact path="/profile" component={login} /> */}
                          <Route exact path="/profile" component={profile} />
+                         <Route exact path="/adminCreate" component={admin} />
 
                          {/* <Route exact path="/maps" component={Maps} /> */}
                         {/* <Redirect from="*" to="/" /> */}

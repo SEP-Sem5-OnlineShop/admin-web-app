@@ -1,169 +1,87 @@
-import React from 'react'
-
-import Card from '@material-tailwind/react/Card';
-import CardBody from '@material-tailwind/react/CardBody';
-import CardFooter from '@material-tailwind/react/CardFooter';
-import Image from '@material-tailwind/react/Image';
-import H5 from '@material-tailwind/react/Heading5';
-import Icon from '@material-tailwind/react/Icon';
-import LeadText from '@material-tailwind/react/LeadText';
-import Button from '@material-tailwind/react/Button';
-
+import React from 'react';
+import ProfileCard from '../singleVendor/SingleVendorProfile';
 import team from '../../assets/img/team-1-800x800.jpg';
-
 import {genApi} from '../../api/index'
 import {useParams} from "react-router"
-import axios from 'axios';
+// import Table from "../../pages/ProductList/TableFilter"
+import Table from "../../pages/ProductList/TableFilter"
 
+export default function SingleVendor() {
+        const {id} = useParams()
 
-// function Id(){
-//     const {id} = useParams()
-//     return id
-//     console.log('this is:' ,id);}
-
-
-// function HandleClick (id) {
-    
-//     React.useEffect(async () => {
-//         try{
-//             console.log('removed')
-//         return await genApi.removeVendor(id);
-//         // console.log(testVendor.products)
-//         }catch(e){
-//         console.log(e)
-//         }
         
-//     })
-//   }
+        console.log(typeof(id))
+     /////////////////////////////////////////
+    //  const data = genApi.getVendor(id);
 
 
-export default function ProfileCard(params) {
-    const {id} = useParams()
-    console.log('this is:' ,id);
-    const HandleClick=() =>{
-        // event.preventDefault();
-        genApi.removeVendor(id);
-    }
+        const [vendor, setVendor] = React.useState({});
+        React.useEffect(async () => {
+            try{
+            const result = await genApi.getVendor(id);
+            const testVendor = {...result.data.data}
+            
+            setVendor(testVendor)
+            }catch(e){
+            console.log(e)
+            }
+            
+        },[]);
+        console.log(vendor)
+        // const status=(vendor.vendor.status||'')
+        console.log(vendor.vendor ? vendor.vendor.status || "" : "")
+
+        // const [Product, setProduct] = React.useState({});
+        // React.useEffect(async () => {
+        //     try{
+        //     const result = await genApi.getProduct(id);
+        //     const testProduct = {...result.data.data}
+        //     setProduct(testProduct)
+        //     }catch(e){
+        //     console.log(e)
+        //     }
+            
+        // },[]);
+
+
+        // const data=[]
+        // vendor.map(v => data.push({
+        // name: v.firstName,
+        // telephone: v.telephone,
+        // shop: v.role,
+        // }))
+
+  /////////////////////////////////////////
+  
     
-    const comProps = {
-        // title: props.title || '',
-        Image: team,
-        name: params.data.firstName || '',
-        telephone: params.data.telephone || '',
-        coordinates: params.data.coordinates || '',
-        vendor:params.data.vendor||'',
-        status:params.data.vendor ? params.data.vendor.status || "" : "",
-        permitNumber:params.data.vendor ? params.data.vendor.permitNumber || "" : "",
-        // price:{data}.price || '',
-        // permit: {data}.permit || '',
-        // address: {data}.address || '',
-        // description: {data}.description || '',
-        // products:{data}.products || '',
-        
-    }
+    // const products=['Pizza','Burger','Bread'];
 
-    console.log(params.data.vendor ? params.data.vendor.permitNumber || "" : "")
-
-    const status = comProps.status;
-    let button;
-    if (status=='accepted') {
-      button = 
-      <Button
-      color="lightBlue"
-      buttonType="filled"
-      size="regular"
-      rounded={false}
-      block={false}
-      iconOnly={false}
-      ripple="light"
-  >
-      Remove the Vendor
-  </Button>;
-    } else {
-      button = <div></div>;
-    }
-
-    
     return (
-        <Card>
-            <div className="flex flex-wrap justify-center">
-                <div className="w-48 px-4 -mt-24">
-                    <Image src={comProps.Image} rounded raised />
-                </div>
-                <div className="w-full flex justify-center py-4 lg:pt-4 pt-8">
-                    
-                    <div className="p-4 text-center">
-                        <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        {comProps.telephone}
-                        </span>
-                        <span className="text-sm text-gray-700">Telephone</span>
-                    </div>
-                    <div className="p-4 text-center">
-                        <span className="text-xl font-medium block uppercase tracking-wide text-gray-900">
-                        {comProps.permitNumber}
-                        {/* {comProps.permit} */}
-                        </span>
-                        <span className="text-sm text-gray-700">Permit Number</span>
+        <>
+            <div className="bg-light-blue-500 pt-14 pb-28 px-3 md:px-8 h-auto">
+                <div className="container mx-auto max-w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
+                        
                     </div>
                 </div>
             </div>
-            <div className="text-center">
-                <H5 color="gray">Darshana</H5>
-                <div className="mt-0 mb-2 text-gray-700 flex items-center justify-center gap-2">
-                    <Icon name="place" size="xl" />
-                    {/* {comProps.address} */}
-                    Gampaha
-                    
-                    {/* {ve.status} */}
-                </div>
-                
-            </div>
-            <CardBody>
-                <div className="border-t border-lightBlue-200 text-center px-2 ">
-                    {/* <LeadText color="blueGray">
-                       {comProps.description}
-                        {comProps.products.map((product)=>
-                        <li key={product}>{product}</li>)}
-                       
-                    </LeadText> */}
-                    This vendor is from gampaha who sells bakery items.
-                </div>
-            </CardBody>
-            <CardFooter>
 
-                    
-                        <div className="w-full flex justify-center -mt-8">
+            <div className="px-3 md:px-8 h-auto -mt-24">
+                <div className="container mx-auto max-w-full">
+                    <div className="grid grid-cols-1 px-4 mb-16">
+                        {/* <ProfileCard data={data} products={products}/> */}
+                        <ProfileCard data={vendor}/>
+                        {/* {
+                            vendor.vendor ? vendor.vendor.status || "" : ""
+                        } */}
+                        <Table />
 
-                        <a
-                            // href="#removeVendor"
-                            className="mt-5"
-                            // onClick={(e) => e.preventDefault()}
-                            onClick={HandleClick}
-                        >
-                            {button}
-                            {/* <Button
-                                color="lightBlue"
-                                buttonType="filled"
-                                size="regular"
-                                rounded={false}
-                                block={false}
-                                iconOnly={false}
-                                ripple="light"
-                            >
-                                Remove the Vendor
-                            </Button> */}
-                        </a>
-    
-                        
-                        
                     </div>
-                    
-                    
-
-                
-            </CardFooter>
+                    {/* <div>{product}.</div> */}
 
                     
-        </Card>
+                </div>
+            </div>
+        </>
     );
 }

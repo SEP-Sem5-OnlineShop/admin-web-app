@@ -5,11 +5,7 @@ import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 
-// import { useEffect } from 'react';
-// import Chart from 'chart.js';
-// import Card from '@material-tailwind/react/Card';
-// import CardHeader from '@material-tailwind/react/CardHeader';
-// import CardBody from '@material-tailwind/react/CardBody';
+
 
 export default function ChartBar(names) {
     // console.log((String(names.names[0].name)))
@@ -26,11 +22,11 @@ export default function ChartBar(names) {
                     // names.names[2],
                     // names.names[3],
                     // names.names[4],
-                    'June',
-                    'July',
-                    'June',
-                    'July',
-                    'June',
+                    'Darshana',
+                    'Darshana',
+                    'Darshana',
+                    'Darshana',
+                    'Darshana',
                 
                 ],
                 datasets: [
@@ -47,7 +43,7 @@ export default function ChartBar(names) {
                         fill: false,
                         backgroundColor: '#f44336',
                         borderColor: '#f44336',
-                        data: [27, 68, 66, 74, 10, 4, 67],
+                        data: [4.8,4.5,4.5,4.4,4.6,4],
                         barThickness: 8,
                     },
                 ],

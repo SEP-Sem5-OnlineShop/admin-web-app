@@ -40,11 +40,20 @@ const admin = {
     },
     updateStatus:async function(id){
         console.log("inside axios: ",id)
-        return await axios.put(`/app/admin/updateStatus`)
+        return await axios.put(`/app/admin/updateStatus/${id}`)
     },
 
     getAdmin: async function (id) {
         return await axios.get(`/app/admin/adminProfile/${id}`)
+    },
+    createAdmin:async function(formData){
+        console.log(formData)
+        return await axios.post('/app/admin/createAdmin',formData)
+
+    },
+    rejectRequest:async function(id){
+        console.log("inside axios: ",id)
+        return await axios.put(`/app/admin/rejectRequest/${id}`)
     },
     
 }

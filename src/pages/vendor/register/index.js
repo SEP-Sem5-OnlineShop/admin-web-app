@@ -15,42 +15,31 @@ import { string } from "yup/lib/locale";
 import { waitFor } from "@testing-library/dom";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
-// function Values(){
-//     const {id} = useParams()
-//         // console.log(id)
 
-        
-//         const [vendor, setVendor] = React.useState([]);
-//         React.useEffect(async () => {
-//             try{
-//             const result = await genApi.getRequest(id);
-//             const testVendor = {...result.data.data}
-//             // console.log(result)
-//             setVendor(testVendor)
-//             }catch(e){
-//             console.log(e)
-//             }
-            
-//         },[]);
 
-//         return vendor
-//         ;
-// }
 
 export default function RegisterVendor() {
-        const {id} = useParams()
-        // console.log(id)
 
+    const [showSuccessfulModal, setshowSuccessfulModal] = React.useState(false);
+    const [showRejectModal, setshowRejectModal] = React.useState(false);
+    const [showFailedlModal, setshowFailedlModal] = React.useState(false);
+
+
+        const {id} = useParams()
         
-        
+        const RejectRequest=()=>{
+            console.log('reject function')
+            if(genApi.rejectRequest(id)){
+                setshowRejectModal(true)
+            }else{
+                setshowFailedlModal(true)
+            }
+        }
         
 
     const [files, setFiles] = React.useState([]);
         
-    // console.log(Values())
-    // const n='kk';
-    // console.log(typeof(n))
-    // console.log(n)
+    
     const formik = useFormik({
         initialValues: {
             fullName: '',
@@ -62,9 +51,8 @@ export default function RegisterVendor() {
             regionToBeCovered: '',
             numberOfVehicles:1,
             plateNumber: '123',
-            // plateNumber2: '',
             imageUrls: 'tt',
-            // vehicles: '1',
+
 
             vendor: [
                 {
@@ -72,14 +60,12 @@ export default function RegisterVendor() {
                 },],
             
             shopName:'',
-            password: 'OnTheWay@1234',
+            password: 'User123#',
             
-             // createdAt:Date().toLocaleString(),
-            // vehicleNo2: '',
 
         },
 
-
+        
             
         
         validationSchema: Yup.object({
@@ -100,19 +86,22 @@ export default function RegisterVendor() {
             address: Yup.string()
                 .required('Required'),
 
-            password: Yup.string()
+                password: Yup.string()
                 .required('Required')
                 .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
                     "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
                 ),
-            // vehicleNumber: Yup.string()
-            //     .required('Required'),
-            // vehicleNo2: Yup.string()
-            //     .required('Required'),
+           
         }),
+
+        
+        
+
         onSubmit: async values => {
             console.log(values.fullName)
-            await genApi.createVendor({
+            console.log("status update on: ",id)
+            genApi.updateStatus(id)
+            if(await genApi.createVendor({
                 fullName: values.fullName,
                 telephone: values.telephone,
                 nic: values.nic,
@@ -125,11 +114,14 @@ export default function RegisterVendor() {
                 vendor: values.vendor,
                 imageUrls: values.imageUrls,
                 shopName: values.shopName,
-                password: values.password,  
-            })
-            console.log("status update on: ",id)
-            await genApi.updateStatus(id)
+                password: values.password,  })){setshowSuccessfulModal(true)}
+                else{setshowFailedlModal(true)}
         },
+
+
+
+        
+
     });
 
     const [vendor, setVendor] = React.useState([]);
@@ -142,7 +134,6 @@ export default function RegisterVendor() {
         Object.keys(
             testVendor
             ).forEach(item =>  {
-                // console.log(item)
                 formik.setFieldValue(`${item}`, testVendor[item])
             })
 
@@ -152,18 +143,14 @@ export default function RegisterVendor() {
         
     },[]);
 
-    //  console.log(vendor)
-    
-
     
     return (
         <div className="p-6">
             <div className="mb-8">
                 <span className="text-2xl font-medium">Register a New Vendor</span>
             </div>
-            <form onSubmit={
-                formik.handleSubmit
-                } className="mt-8">
+            <form onSubmit={formik.handleSubmit} className="mt-8">
+            {/* <form className="App" onSubmit={onSubmit()}> */}
                 <Card>
                     <div color="lightBlue" size="sm">
                         <span className="text-xl font-medium">General Details</span>
@@ -199,13 +186,7 @@ export default function RegisterVendor() {
                                 label="Address"
                                 type="text"
                             />
-                            {/* <InputWithValidation
-                                formik={formik}
-                                id="shopName"
-                                name="shopName"
-                                label="Product Type"
-                                type="text"
-                            /> */}
+                            
                             <InputWithValidation
                                 formik={formik}
                                 id="permitId"
@@ -243,6 +224,14 @@ export default function RegisterVendor() {
                                 type="text"
                                
                             />
+                            <InputWithValidation 
+                                formik={formik}
+                                id="password"
+                                name="password"
+                                label="Password"
+                                type="text"
+                               
+                            />
                         </div>
                     </CardBody>
                 </Card>
@@ -258,7 +247,7 @@ export default function RegisterVendor() {
                                 name="numberOfVehicles"
                                 label="number Of Vehicles"
                                 type="text"
-                                // value="234"
+                               
                             /> 
                             <InputWithValidation 
                                 formik={formik}
@@ -267,13 +256,7 @@ export default function RegisterVendor() {
                                 label="plate Number"
                                 type="text"
                             />
-                            {/* <InputWithValidation
-                                formik={formik}
-                                id="vehicleNumber2"
-                                name="vehicleNumber2"
-                                label="vehicle Number 2"
-                                type="text"
-                            /> */}
+                            
                         </div>
                         <div className="mt-4">
                             <label className='font-medium text-secondary text-sm xs:text-lg md:text-base'>Vehicle Images</label>
@@ -289,10 +272,10 @@ export default function RegisterVendor() {
                         </div>
                     </CardBody>
                 </Card>
-                <div className="flex justify-center w-3/5">
-                <div className="flex justify-between mt-4 mr-4">
-                    <Button type="submit"
-                        
+                <div className="flex justify-center w-full">
+                <div className="flex justify-center mt-4 mr-4">
+                    <Button 
+                        type="submit"
                         id="Submit"
                         color="lightBlue"
                         buttonType="filled"
@@ -306,10 +289,13 @@ export default function RegisterVendor() {
                     </Button>
                     
                     </div>
-                    <div className="flex justify-between mt-4 ml-4">
-                    <Button type="submit"
+                    </div>
+                    </form>
+                    <div className="flex justify-center w-full">
+                <div className="flex justify-center mt-4 mr-4">
+                    <Button onClick={RejectRequest}
                         id="Reject"
-                        
+                        // type="submit"
                         color="lightBlue"
                         buttonType="filled"
                         size="regular"
@@ -320,9 +306,120 @@ export default function RegisterVendor() {
                     >
                         Reject
                     </Button>
+                    </div>
                 </div>
+
+
+                {showSuccessfulModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-sm">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                  
                 </div>
-            </form>
-        </div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                    Successfully added as a vendor!!!!!!!!!
+                  </p>
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                  <button
+                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setshowSuccessfulModal(false)}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
+
+{showFailedlModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-sm">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                  
+                </div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                    This is a bad request!!!
+                  </p>
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                  <button
+                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setshowFailedlModal(false)}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
+
+
+
+{showRejectModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-sm">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                  
+                </div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                    This vendor request is successfully rejected....
+                  </p>
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                  <button
+                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setshowRejectModal(false)}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
+
+
+                </div>
+            
+        
     )
 }
