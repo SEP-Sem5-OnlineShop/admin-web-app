@@ -9,7 +9,7 @@ import CardBody from '@material-tailwind/react/CardBody';
 
 export default function ChartBar(names) {
     // console.log((String(names.names[0].name)))
-    console.log(names.ratings[1])
+    // console.log(names.ratings[1])
     // const t=String(names.names[0].name)
     useEffect(() => {
         // <h1>{names.names[0]}</h1>

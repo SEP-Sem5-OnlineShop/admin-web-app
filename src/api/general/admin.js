@@ -55,6 +55,12 @@ const admin = {
         console.log("inside axios: ",id)
         return await axios.put(`/app/admin/rejectRequest/${id}`)
     },
+
+    createPassword:async function(formData,token){
+        console.log(formData)
+        return await axios.post(`/app/admin/create_password/${token}`,formData)
+
+    },
     
 }
 

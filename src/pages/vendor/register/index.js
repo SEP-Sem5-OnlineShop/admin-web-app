@@ -45,7 +45,7 @@ export default function RegisterVendor() {
             fullName: '',
             telephone: '',
             nic: '',
-            email:'g@gmail.com',
+            email:'',
             address: '',
             permitId: '',
             regionToBeCovered: '',
@@ -60,7 +60,7 @@ export default function RegisterVendor() {
                 },],
             
             shopName:'',
-            password: 'User123#',
+            // password: 'User123#',
             
 
         },
@@ -86,11 +86,11 @@ export default function RegisterVendor() {
             address: Yup.string()
                 .required('Required'),
 
-                password: Yup.string()
-                .required('Required')
-                .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-                    "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-                ),
+                // password: Yup.string()
+                // .required('Required')
+                // .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                //     "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+                // ),
            
         }),
 
@@ -114,7 +114,8 @@ export default function RegisterVendor() {
                 vendor: values.vendor,
                 imageUrls: values.imageUrls,
                 shopName: values.shopName,
-                password: values.password,  })){setshowSuccessfulModal(true)}
+                // password: values.password,  
+              })){setshowSuccessfulModal(true)}
                 else{setshowFailedlModal(true)}
         },
 
@@ -224,14 +225,14 @@ export default function RegisterVendor() {
                                 type="text"
                                
                             />
-                            <InputWithValidation 
+                            {/* <InputWithValidation 
                                 formik={formik}
                                 id="password"
                                 name="password"
                                 label="Password"
                                 type="text"
                                
-                            />
+                            /> */}
                         </div>
                     </CardBody>
                 </Card>
