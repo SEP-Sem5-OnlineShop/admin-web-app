@@ -5,34 +5,9 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-
-import Sidebar from 'components/Sidebar';
-import Dashboard from 'pages/Dashboard';
-import Settings from 'pages/Settings';
-// import Tables from 'pages/Tables';
-// import Tables from 'components/Table'
-
-import Tables from 'pages/VendorList/TableFilter';
-// import Tables from 'pages/VendorList';
-import singleVendor from 'pages/SingleVendor/SngleVendor';
-import profile from 'pages/myProfile/profile';
-
-import singleProduct from 'pages/singleProduct/SngleVendor';
-
-import requestList from 'pages/vendorRequestList/RequestList';
-// import Maps from 'pages/Maps';
-import Footer from 'components/Footer';
-import modal from 'components/popup/Modal'
-
-// Tailwind CSS Style Sheet
-import 'assets/styles/tailwind.css';
-import 'filepond/dist/filepond.min.css'
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
-import admin from 'pages/adminAdd/index'
-
-import RegisterVendor from 'pages/vendor/register/index';
-import createPassword from '../pages/createPassword/register-form'
-
+import AppRouter from "./app";
+import AuthRouter from "./auth";
+import InnerPageLayout from "../layout/inner-page-layout"
 import { actions } from "../store"
 
 export default function MainRouter() {
@@ -41,52 +16,54 @@ export default function MainRouter() {
 
     useEffect(() => {
         // Set language when page refreshing
-        const selectedLanguage = window.localStorage.getItem("language")
-        dispatch(actions.language.setLanguage(selectedLanguage))
+        // const selectedLanguage = window.localStorage.getItem("language")
+        // dispatch(actions.language.setLanguage(selectedLanguage))
 
         // Set user data, token and role when page refreshing
-        // const userData = JSON.parse(window.localStorage.getItem("userData"))
-        // const token = window.localStorage.getItem("token")
-        // const role = window.localStorage.getItem("role")
-        // dispatch(actions.user.setUserData(userData))
-        // dispatch(actions.user.setAuthToken(token))
-        // dispatch(actions.user.setRole(role))
+        const userData = JSON.parse(window.localStorage.getItem("userData"))
+        const token = window.localStorage.getItem("token")
+        const role = window.localStorage.getItem("role")
+        const isLogin = window.localStorage.getItem("isLogin")
+        dispatch(actions.user.setUserData(userData))
+        dispatch(actions.user.setAuthToken(token))
+        dispatch(actions.user.setRole(role))
+        dispatch(actions.user.setIsLogin(isLogin))
 
-    }, [])
+    }, [dispatch])
 
     return (
         <Router>
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      </header>
-            <Sidebar />
-             <div className="md:ml-64">
-                 <div style={{minHeight: 'calc(100vh - 169px)'}}>
-                     <Switch>
-                         <Route exact path="/" component={Dashboard} />
-                         <Route exact path="/settings" component={Settings} />
-                         <Route exact path="/tables" component={Tables} />
-                         <Route exact path="/singleVendor/:id" component={singleVendor} />
-
-                         <Route exact path="/singleProduct/:id" component={singleProduct} />
-
-                         <Route exact path="/requestList" component={requestList} />
-                         <Route exact path="/vendor/register/:id" component={RegisterVendor} />
-                         {/* <Route exact path="/profile" component={login} /> */}
-                         <Route exact path="/profile" component={profile} />
-                         <Route exact path="/create_password" component={createPassword} />
-                         <Route exact path="/adminCreate" component={admin} />
-
-                         {/* <Route exact path="/maps" component={Maps} /> */}
-                        {/* <Redirect from="*" to="/" /> */}
-
-                     </Switch>
-                 </div>
-
-                 {/* <p>{this.state.apiResponse}</p> */}
-                 
-                 <Footer />
-             </div>
+            <Switch>
+                {/* <Route exact path="/">
+                    <MainLayout>
+                        <HomeDsand />
+                    </MainLayout>
+                </Route> */}
+                <Route path="/auth">
+                    <AuthRouter />
+                </Route>
+                <Route path="/">
+                    {/* <AppRouter /> */}
+                    <InnerPageLayout>
+                        <AppRouter />
+                    </InnerPageLayout>
+                </Route>
+                {/* <Route path="/404">
+                    <InnerPageLayout><Page404 /></InnerPageLayout>
+                </Route>
+                <Route path={"/register/vendor/:token"}>
+                    <InnerPageLayout><VendorRegistration /></InnerPageLayout>
+                </Route>
+                <Route exact={true} path={`/register/vendor`}>
+                    <InnerPageLayout><VendorRegistration /></InnerPageLayout>
+                </Route>
+                <Route path={`/vendor_:id`} exact>
+                    <InnerPageLayout><VendorScreen /></InnerPageLayout>
+                </Route>
+                <Route path={`/vendor_:id/product_:pid`} exact>
+                    <InnerPageLayout><ProductScreen /></InnerPageLayout>
+                </Route> */}
+            </Switch>
         </Router>
     )
 }

@@ -1,6 +1,14 @@
 import axios from "axios";
 
 const admin = {
+    login: async function (telephone, password) {
+        return await axios.post("/auth/login", {
+            telephone: telephone,
+            password: password
+        })
+    },
+
+    
 
     getVendor: async function (id) {
         return await axios.get(`/app/admin/vendor/${id}`)

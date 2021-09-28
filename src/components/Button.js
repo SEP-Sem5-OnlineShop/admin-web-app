@@ -3,7 +3,7 @@ import { classNames } from './Utils'
 
 export function Button({ children, className, ...rest }) {
   return (
-    <button
+    <button data-testid='button-1'
       type="button"
       className={
         classNames(
@@ -19,7 +19,7 @@ export function Button({ children, className, ...rest }) {
 
 export function PageButton({ children, className, ...rest }) {
   return (
-    <button
+    <button data-testid='button-2'
       type="button"
       className={
         classNames(

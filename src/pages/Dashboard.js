@@ -9,8 +9,8 @@ import { useSelector } from "react-redux"
 
 export default function Dashboard() {
 
-    const dashboardStrings = useSelector(state => state.language.languageFile.dashboard)
-    console.log(dashboardStrings)
+    // const dashboardStrings = useSelector(state => state.language.languageFile.dashboard)
+    // console.log(dashboardStrings)
 
     return (
         <div className="p-4">

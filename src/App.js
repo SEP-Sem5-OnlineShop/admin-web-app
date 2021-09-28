@@ -1,9 +1,9 @@
 import React from 'react';
 
-import MainRouter from "./router";
+import AppRouter from "./router/app";
 import { Provider } from "react-redux";
 import store from "./store/index";
-
+import MainRouter from 'router/index';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Sidebar from 'components/Sidebar';
 import Dashboard from 'pages/Dashboard';
@@ -39,7 +39,6 @@ import RegisterVendor from 'pages/vendor/register/index';
         
     //   </header>
       
-
     //   <Sidebar />
     //          <div className="md:ml-64">
     //              <div style={{minHeight: 'calc(100vh - 169px)'}}>
@@ -67,7 +66,11 @@ import RegisterVendor from 'pages/vendor/register/index';
 
     // </div>
     <div className="App">
-          <Provider store={store}>
+          {/* <Provider store={store}>
+              <AppRouter />
+          </Provider> */}
+
+        <Provider store={store}>
               <MainRouter />
           </Provider>
       </div>

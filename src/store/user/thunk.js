@@ -1,5 +1,5 @@
 import userSlice from "./index"
-import {genApi} from '../../api/index'
+import {authApi} from '../../api/index'
 
 /**
  * Thunk action
@@ -11,7 +11,7 @@ import {genApi} from '../../api/index'
 export function localSignIn(username, password) {
     return async (dispatch) => {
         try {
-            const {status, data} = await genApi.login(username, password)
+            const {status, data} = await authApi.login(username, password)
             if (status === 200) {
                 dispatch(userSlice.actions.setUserData(data.data))
                 dispatch(userSlice.actions.setAuthToken(data.accessToken))
@@ -29,7 +29,7 @@ export function localSignIn(username, password) {
 export function signOUt() {
     return async (dispatch) => {
         try {
-            const {status, data} = await genApi.logout()
+            const {status, data} = await authApi.logout()
             dispatch(userSlice.actions.setUserData({}))
             dispatch(userSlice.actions.setAuthToken(""))
             dispatch(userSlice.actions.setRole("guest"))

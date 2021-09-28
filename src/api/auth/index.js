@@ -2,7 +2,7 @@ import {axios} from "../index";
 
 const auth = {
     login: async function (telephone, password) {
-        return await axios.post("/login", {
+        return await axios.post("/login-admin", {
             telephone: telephone,
             password: password
         })

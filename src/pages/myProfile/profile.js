@@ -1,5 +1,6 @@
 import React from 'react';
 import ProfileCard from '../../components/myProfile/profile';
+import { useSelector } from "react-redux"
 import team from '../../assets/img/team-1-800x800.jpg';
 import {genApi} from '../../api/index'
 import {useParams} from "react-router"
@@ -7,15 +8,18 @@ import {useParams} from "react-router"
 import Table from "../../pages/ProductList/TableFilter"
 
 export default function Profile() {
-
-    const {id} = useParams()
+    const Id = useSelector(state => state.user.userData._id)
+    console.log(Id)
+    console.log(Id)
+    // const {id} = useParams()
+    // const {id}=Id
 
         
-        console.log(typeof(id))
+        // console.log(typeof(id))
         const [vendor, setVendor] = React.useState({});
         React.useEffect(async () => {
             try{
-            const result = await genApi.getAdmin(id);
+            const result = await genApi.getAdmin(Id);
             const testVendor = {...result.data.data}
             
             setVendor(testVendor)

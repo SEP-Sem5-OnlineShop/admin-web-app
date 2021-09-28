@@ -4,12 +4,12 @@
   "private": true,
   "homepage": "https://demos.creative-tim.com/material-tailwind-dashboard-react/#/",
   "dependencies": {
+    "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
     "@material-tailwind/react": "^0.3.4",
     "@react-google-maps/api": "^2.1.1",
     "@reduxjs/toolkit": "^1.6.1",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.4",
     "chart.js": "2.9.4",
@@ -17,6 +17,7 @@
     "filepond-plugin-image-exif-orientation": "^1.0.11",
     "filepond-plugin-image-preview": "^4.6.9",
     "formik": "^2.2.9",
+    "framer-motion": "^4.1.17",
     "nodemailer": "^6.6.3",
     "react": "^17.0.2",
     "react-data-table-component": "^7.0.0",
@@ -62,10 +63,16 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^11.2.7",
     "autoprefixer": "^10.2.5",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest-dom": "^4.0.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.2.13",
     "postcss-cli": "^8.3.1",
+    "react-test-render": "^1.1.2",
+    "react-test-renderer": "^17.0.2",
     "tailwindcss": "^2.1.4"
   },
   "optionalDependencies": {

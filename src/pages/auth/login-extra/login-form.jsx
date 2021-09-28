@@ -29,12 +29,9 @@ const LoginForm = (props, ref) => {
                 .required('Required')
         }),
         onSubmit: async values => {
-            console.log("inside")
             setLoading(true)
             try {
-                // console.log("inside thunks")
-                if(await dispatch(thunks.user.localSignIn(values.telephone, values.password))){
-                history.push(`/`)}
+                await dispatch(thunks.user.localSignIn(values.telephone, values.password))
             }
             catch(e) {
                 console.log("error")
@@ -46,8 +43,8 @@ const LoginForm = (props, ref) => {
 
     return (
 
-        // <motion.form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}>
-             <form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}> 
+        <motion.form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}>
+            <form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}>
             <InputWithValidation
                 label='Telephone Number'
                 id='telephone'
@@ -65,12 +62,11 @@ const LoginForm = (props, ref) => {
                 className='w-full'
             />
             <button type="submit" className="w-full py-3 mt-2 rounded-xl bg-primary text-black font-bold">
-                {/* {loading ? 'Loading...' : 'Submit'} */}
-                Log In
+                {loading ? 'Loading...' : 'Submit'}
             </button>
 
             </form>
-        //  </motion.form> 
+         </motion.form> 
     );
 };
 export default forwardRef(LoginForm)
