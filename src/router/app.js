@@ -45,12 +45,12 @@ export default function AppRouter() {
         // dispatch(actions.language.setLanguage(selectedLanguage))
 
         // Set user data, token and role when page refreshing
-        // const userData = JSON.parse(window.localStorage.getItem("userData"))
-        // const token = window.localStorage.getItem("token")
-        // const role = window.localStorage.getItem("role")
-        // dispatch(actions.user.setUserData(userData))
-        // dispatch(actions.user.setAuthToken(token))
-        // dispatch(actions.user.setRole(role))
+        const userData = JSON.parse(window.localStorage.getItem("userData"))
+        const token = window.localStorage.getItem("token")
+        const role = window.localStorage.getItem("role")
+        dispatch(actions.user.setUserData(userData))
+        dispatch(actions.user.setAuthToken(token))
+        dispatch(actions.user.setRole(role))
 
     }, [])
 
