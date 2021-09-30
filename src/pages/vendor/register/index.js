@@ -111,7 +111,7 @@ export default function RegisterVendor() {
                         shopName: values.shopName,
                         // password: values.password,  
                     })
-                if (status === 200) {
+                if (status === 201) {
                     setshowSuccessfulModal(true)
     
                 }
