@@ -2,7 +2,7 @@ import Axios  from 'axios'
 import general from './general/admin'
 import auth from './auth/index'
 import store, {actions} from "../store/index"
-
+import admin from './general/admin'
 
 
 
@@ -92,7 +92,7 @@ export const fullURL = (path) => {
 export const authApi = auth
 export const axios = Axios
 export const baseURL = BASE_URL;
-
+export const adminApi = admin
 export const genApi = general
 
 

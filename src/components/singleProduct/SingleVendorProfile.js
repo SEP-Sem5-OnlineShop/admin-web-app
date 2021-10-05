@@ -7,7 +7,7 @@ import Icon from '@material-tailwind/react/Icon';
 import LeadText from '@material-tailwind/react/LeadText';
 import Button from '@material-tailwind/react/Button';
 
-import team from '../../assets/img/team-1-800x800.jpg';
+import team from '../../assets/img/food9.jpg';
 
 
 export default function ProfileCard(params) {
@@ -25,7 +25,7 @@ export default function ProfileCard(params) {
         // products:{data}.products || '',
         
     }
-
+console.log({comProps})
     
     return (
         <Card>

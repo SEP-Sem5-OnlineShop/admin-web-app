@@ -56,7 +56,7 @@ function RequestList() {
 
 const data=[]
 vendors.map(vendor => data.push({
-  name: vendor.fullName,
+  name: vendor.firstName,
   email: vendor.address,
   shop: vendor.shopName,
   regionToBeCovered:vendor.regionToBeCovered,

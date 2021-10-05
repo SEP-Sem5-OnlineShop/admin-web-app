@@ -9,7 +9,7 @@ import Icon from '@material-tailwind/react/Icon';
 import LeadText from '@material-tailwind/react/LeadText';
 import Button from '@material-tailwind/react/Button';
 
-import team from '../../assets/img/team-1-800x800.jpg';
+import team from '../../assets/img/food9.jpg';
 
 import {genApi} from '../../api/index'
 import {useParams} from "react-router"
@@ -110,7 +110,7 @@ export default function ProfileCard(params) {
                 </div>
             </div>
             <div className="text-center">
-                <H5 color="gray">Darshana</H5>
+                <H5 color="gray">{comProps.name}</H5>
                 <div className="mt-0 mb-2 text-gray-700 flex items-center justify-center gap-2">
                     <Icon name="place" size="xl" />
                     

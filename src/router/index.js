@@ -9,6 +9,7 @@ import AppRouter from "./app";
 import AuthRouter from "./auth";
 import InnerPageLayout from "../layout/inner-page-layout"
 import { actions } from "../store"
+import CreatePassword from '../pages/createPassword/register-form'
 
 export default function MainRouter() {
 
@@ -48,6 +49,10 @@ export default function MainRouter() {
                         <AppRouter />
                     </InnerPageLayout>
                 </Route>
+
+               < Route path="/create_password/:token">
+                            < CreatePassword />
+                        </Route>
                 {/* <Route path="/404">
                     <InnerPageLayout><Page404 /></InnerPageLayout>
                 </Route>

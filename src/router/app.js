@@ -12,6 +12,8 @@ import Settings from 'pages/Settings';
 // import Tables from 'pages/Tables';
 // import Tables from 'components/Table'
 
+import { useSelector } from "react-redux"
+
 import Tables from 'pages/VendorList/TableFilter';
 // import Tables from 'pages/VendorList';
 import singleVendor from 'pages/SingleVendor/SngleVendor';
@@ -36,6 +38,10 @@ import createPassword from '../pages/createPassword/register-form'
 import { actions } from "../store"
 
 export default function AppRouter() {
+    const Role = useSelector(state => state.user.userData.role)
+    // console.log(Role)
+
+
 
     const dispatch = useDispatch()
 
@@ -74,8 +80,18 @@ export default function AppRouter() {
                          <Route exact path="/vendor/register/:id" component={RegisterVendor} />
                          {/* <Route exact path="/profile" component={login} /> */}
                          <Route exact path="/profile" component={profile} />
-                         <Route exact path="/create_password" component={createPassword} />
-                         <Route exact path="/adminCreate" component={admin} />
+                         <Route exact path="/create_password/:token" component={createPassword} />
+                         
+                         {Role=='superAdmin' ? (
+                             <Route exact path="/adminCreate" component={admin} />
+
+                        ) : (
+                           ''
+                        )}
+
+
+
+                         {/* <Route exact path="/adminCreate" component={admin} /> */}
 
                          {/* <Route exact path="/maps" component={Maps} /> */}
                         {/* <Redirect from="*" to="/" /> */}

@@ -88,8 +88,9 @@ export default function RegisterVendor() {
             console.log(vehicles)
             console.log(values.fullName)
             console.log("status update on: ", id)
-            genApi.updateStatus(id)
+            // genApi.updateStatus(id)
             try {
+                
                 const {data, status} = await genApi.createVendor(
                     {
                         firstName: values.firstName,
@@ -106,11 +107,13 @@ export default function RegisterVendor() {
                             regionToBeCovered: values.regionToBeCovered,
                             shopName: values.shopName,
                             address: values.address,
-                            vehicles: vehicles
+                            vehicles: vehicles,
+                            status:'accepted'
                         },
                         shopName: values.shopName,
                         // password: values.password,  
                     })
+                    genApi.updateStatus(id)
                 if (status === 201) {
                     setshowSuccessfulModal(true)
     

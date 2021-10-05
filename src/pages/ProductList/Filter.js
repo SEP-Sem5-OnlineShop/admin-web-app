@@ -65,7 +65,7 @@ const [products, setProducts] = React.useState([]);
         const data=[]
   products.map(vendor => data.push({
     name: vendor.name,
-    email:vendor._id,
+    id:vendor._id,
     price: vendor.price,
     rating: vendor.rating,
     imageUrl: vendor.imageUrl,

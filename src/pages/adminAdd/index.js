@@ -51,11 +51,7 @@ export default function RegisterVendor() {
             email: Yup.string()
                 .required('Required'),
 
-            // password: Yup.string()
-            //     .required('Required')
-            //     .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-            //         "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-            //     ),
+           
             
         }),
         onSubmit: async values => {
@@ -65,7 +61,7 @@ export default function RegisterVendor() {
                 telephone: values.telephone,
                 email: values.email,
                 lastName: values.lastName,
-                // password: values.password,  
+        
             }))
             {setshowSuccessfulModal(true)}
             else{
@@ -123,14 +119,7 @@ export default function RegisterVendor() {
                                 label="email"
                                 type="text"
                             />
-                            {/* <InputWithValidation 
-                                formik={formik}
-                                id="password"
-                                name="password"
-                                label="Password"
-                                type="text"
-                               
-                            /> */}
+                            
                             
                         </div>
                     </CardBody>

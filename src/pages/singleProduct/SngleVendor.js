@@ -10,7 +10,7 @@ export default function SingleVendor() {
         const {id} = useParams()
 
         
-        console.log(typeof(id))
+        console.log(id)
      /////////////////////////////////////////
     //  const data = genApi.getVendor(id);
 

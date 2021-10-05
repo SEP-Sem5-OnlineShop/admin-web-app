@@ -7,10 +7,10 @@ import CardBody from "@material-tailwind/react/CardBody";
 import Button from "@material-tailwind/react/Button";
 // import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
-import {genApi} from "../../api/index"
+import {adminApi} from "../../api/index"
 
-export default function RegisterForm() {
-
+export default function CreatePassword() {
+    
     const formik = useFormik({
         initialValues: {
             password: '',
@@ -26,19 +26,20 @@ export default function RegisterForm() {
                 .required('Required').oneOf([Yup.ref('password'), null], 'Password not matched!'),
         }),
         onSubmit: async values => {
-            if(await genApi.createPassword()){
+            if(await adminApi.createPassword()){
                 console.log('succesfully created password')
             }else{
                 console.log('error')
             }
-            // await genApi.register({
+            // await adminApi.register({
             //     password: values.password,
             //     password_confirmation: values.confirmPassword
             // })
         },
     });
-
+    console.log("inside creqtePasswod")
     return (
+        
         <form onSubmit={
             formik.handleSubmit
             } className="mt-8">
