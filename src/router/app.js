@@ -35,6 +35,7 @@ import admin from 'pages/adminAdd/index'
 import RegisterVendor from 'pages/vendor/register/index';
 import createPassword from '../pages/createPassword/register-form'
 
+import report from '../pages/Report/reprot'
 import { actions } from "../store"
 
 export default function AppRouter() {
@@ -73,7 +74,8 @@ export default function AppRouter() {
                          <Route exact path="/settings" component={Settings} />
                          <Route exact path="/tables" component={Tables} />
                          <Route exact path="/singleVendor/:id" component={singleVendor} />
-
+                         <Route exact path="/reports" component={report} />
+                         
                          <Route exact path="/singleProduct/:id" component={singleProduct} />
 
                          <Route exact path="/requestList" component={requestList} />

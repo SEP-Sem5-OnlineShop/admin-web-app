@@ -7,9 +7,28 @@ import CardBody from '@material-tailwind/react/CardBody';
 
 
 
-export default function ChartBar(names) {
+export default function ChartBar(params) {
+    console.log(params)
+    const comProps = {
+        firstName:params.params[0]?params.params[0].name||"":"Pizza",
+        firstRating:params.params[0]?params.params[0].rating||"":"3",
+        secName:params.params[1]?params.params[1].name||"":"Burger",
+        secRating:params.params[1]?params.params[1].rating||"":"4",
+        thirdName:params.params[2]?params.params[2].name||"":"Bread",
+        thirdRating:params.params[2]?params.params[2].rating||"":"4.5",
+        fourthName:params.params[3]?params.params[3].name||"":"Pizza",
+        fourthRating:params.params[3]?params.params[3].rating||"":"3.5",
+        fifthName:params.params[4]?params.params[4].name||"":"Veggie burger",
+        fifthRating:params.params[4]?params.params[4].rating||"":"4.8",
+        
+    }
+
+    
+
+
+
     // console.log((String(names.names[0].name)))
-    // console.log(names.ratings[1])
+    // console.log(params.data.names)
     // const t=String(names.names[0].name)
     useEffect(() => {
         // <h1>{names.names[0]}</h1>
@@ -18,15 +37,11 @@ export default function ChartBar(names) {
             data: {
                 labels: [
                     // t,
-                    // names.names[1],
-                    // names.names[2],
-                    // names.names[3],
-                    // names.names[4],
-                    'Darshana',
-                    'Darshana',
-                    'Darshana',
-                    'Darshana',
-                    'Darshana',
+                    comProps.firstName,
+                    comProps.secName,
+                    comProps.thirdName,
+                    comProps.fourthName,
+                    comProps.fifthName,
                 
                 ],
                 datasets: [
@@ -43,7 +58,12 @@ export default function ChartBar(names) {
                         fill: false,
                         backgroundColor: '#f44336',
                         borderColor: '#f44336',
-                        data: [4.8,4.5,4.5,4.4,4.6,4],
+                        data: [comProps.firstRating,
+                            comProps.secRating,
+                            comProps.thirdRating,
+                            comProps.fourthRating,
+                            comProps.fifthRating,
+                            0],
                         barThickness: 8,
                     },
                 ],

@@ -8,7 +8,7 @@ import H5 from '@material-tailwind/react/Heading5';
 import Icon from '@material-tailwind/react/Icon';
 import LeadText from '@material-tailwind/react/LeadText';
 import Button from '@material-tailwind/react/Button';
-
+import { getFileUrl } from "../../api/azure-storage-blob";
 import team from '../../assets/img/food9.jpg';
 
 import {genApi} from '../../api/index'
@@ -53,7 +53,7 @@ export default function ProfileCard(params) {
     
     const comProps = {
 
-        Image: team,
+        Image: params.data.vendor ? getFileUrl(params.data.vendor.imageUrl)||'':'',
         name: params.data.firstName || '',
         telephone: params.data.telephone || '',
         coordinates: params.data.coordinates || '',

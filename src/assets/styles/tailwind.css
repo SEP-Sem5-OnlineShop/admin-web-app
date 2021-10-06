@@ -1119,13 +1119,13 @@ video {
 	font-size: 1.25rem;
 	line-height: 1.75rem;
 }
-.text-lg{
-	font-size: 1.125rem;
-	line-height: 1.75rem;
-}
 .text-3xl{
 	font-size: 1.875rem;
 	line-height: 2.25rem;
+}
+.text-lg{
+	font-size: 1.125rem;
+	line-height: 1.75rem;
 }
 .font-medium{
 	font-weight: 500;
@@ -2971,11 +2971,11 @@ video {
 	.xl\:col-end-7{
 		grid-column-end: 7;
 	}
-	.xl\:grid-cols-5{
-		grid-template-columns: repeat(5, minmax(0, 1fr));
-	}
 	.xl\:grid-cols-4{
 		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+	.xl\:grid-cols-5{
+		grid-template-columns: repeat(5, minmax(0, 1fr));
 	}
 	.xl\:grid-cols-6{
 		grid-template-columns: repeat(6, minmax(0, 1fr));

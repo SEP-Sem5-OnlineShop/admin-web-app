@@ -1,6 +1,6 @@
 import React from 'react'
 import {genApi} from '../../api/index'
-import Chart from '../ChartBar'
+import Chart from './ChartBar'
 
 
 function TableFilter() {
@@ -47,7 +47,7 @@ console.log(ratings)
           <h1 className="text-xl font-semibold">Products with maximum ratings</h1>
         </div>
         <div className="mt-6">
-          <Chart names={ratings}/>
+          <Chart params={ratings}/>
         </div>
       </main>
     </div>

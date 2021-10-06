@@ -66,6 +66,7 @@ import RegisterVendor from 'pages/vendor/register/index';
 
     // </div>
     <div className="App">
+      
           {/* <Provider store={store}>
               <AppRouter />
           </Provider> */}
