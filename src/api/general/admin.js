@@ -66,7 +66,7 @@ const admin = {
 
     createPassword:async function(formData,token){
         console.log(formData)
-        return await axios.post(`/admin/create_password`,formData)
+        return await axios.post(`/app/admin/create_password/${token}`,formData)
 
     },
     
