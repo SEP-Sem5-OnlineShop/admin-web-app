@@ -8,6 +8,7 @@ import {genApi} from '../api/index'
 import { useSelector } from "react-redux"
 
 export default function Dashboard() {
+    
 
     // const dashboardStrings = useSelector(state => state.language.languageFile.dashboard)
     // console.log(dashboardStrings)

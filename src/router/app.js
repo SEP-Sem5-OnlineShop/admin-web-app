@@ -35,7 +35,7 @@ import admin from 'pages/adminAdd/index'
 import RegisterVendor from 'pages/vendor/register/index';
 import createPassword from '../pages/createPassword/register-form'
 
-import report from '../pages/Report/reprot'
+import report from '../pages/Report/ReportPage'
 import { actions } from "../store"
 
 export default function AppRouter() {

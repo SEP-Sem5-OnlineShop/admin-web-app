@@ -34,6 +34,13 @@ const admin = {
         return await axios.get("/app/admin/vendorRequests")
     },
 
+    getNumberOfVendors:async function () {
+        return await axios.get("/app/admin/NumberOfVendors")
+    },
+    getPurchaseCount:async function () {
+        return await axios.get("/app/admin/getPurchaseCount")
+    },
+
     removeVendor: async function (id) {
         return await axios.put(`/app/admin/singleVendor/${id}`)
         

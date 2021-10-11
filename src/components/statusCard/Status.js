@@ -1,8 +1,29 @@
 import React from 'react';
 import StatusCard from './StatusCard';
+import {genApi} from '../../api/index'
+import { createEnumMember } from 'typescript';
 
+function getNumber(value){
+    const number=value;
+    // console.log(number);
+    return number;
+}
 export default function Status() {
-
+    
+    const [vendorCount, setNumber] = React.useState(0);
+    const count=genApi.getNumberOfVendors();
+   
+    count.then(
+        function(value) { 
+            setNumber(value.data.count)
+            // num=numbers;
+            // console.log(typeof(numbers))
+        },
+        function(error) { 
+            console.log(error) }
+    )
+    console.log(genApi.getPurchaseCount());
+    console.log(vendorCount);
 
     return (
         <div className="p-4">
@@ -17,7 +38,7 @@ export default function Status() {
                             color="orange"
                             icon="groups"
                             title="Vendors"
-                            amount="2,356"
+                            amount={vendorCount}
                             
                         />
                         <StatusCard

@@ -892,6 +892,9 @@ video {
 .justify-between{
 	justify-content: space-between;
 }
+.justify-items-center{
+	justify-items: center;
+}
 .gap-2{
 	gap: 0.5rem;
 }
@@ -1090,6 +1093,9 @@ video {
 }
 .pt-4{
 	padding-top: 1rem;
+}
+.pb-6{
+	padding-bottom: 1.5rem;
 }
 .text-left{
 	text-align: left;
@@ -2934,6 +2940,9 @@ video {
 	}
 	.lg\:w-4\/12{
 		width: 33.333333%;
+	}
+	.lg\:w-1\/2{
+		width: 50%;
 	}
 	.lg\:grid-cols-2{
 		grid-template-columns: repeat(2, minmax(0, 1fr));
