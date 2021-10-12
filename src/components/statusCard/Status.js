@@ -12,6 +12,9 @@ export default function Status() {
     
     const [vendorCount, setNumber] = React.useState(0);
     const count=genApi.getNumberOfVendors();
+
+    const [purchaseCount, setPurchaseNumber] = React.useState(0);
+    const purchases=genApi.getPurchaseCount();
    
     count.then(
         function(value) { 
@@ -22,9 +25,21 @@ export default function Status() {
         function(error) { 
             console.log(error) }
     )
-    console.log(genApi.getPurchaseCount());
+    
     console.log(vendorCount);
 
+
+    purchases.then(
+        function(value) { 
+            setPurchaseNumber(value.data.count)
+            // num=numbers;
+            // console.log(value)
+        },
+        function(error) { 
+            console.log(error) }
+    )
+   
+    console.log(purchaseCount);
     return (
         <div className="p-4">
             
@@ -44,17 +59,17 @@ export default function Status() {
                         <StatusCard
                             color="purple"
                             icon="paid"
-                            title="Sales"
-                            amount="924"
+                            title="Today Purchases"
+                            amount={purchaseCount}
                             
                         />
-                        <StatusCard
+                        {/* <StatusCard
                             color="blue"
                             icon="poll"
                             title="Performance"
                             amount="49,65%"
                             
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>
