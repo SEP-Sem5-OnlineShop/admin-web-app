@@ -104,6 +104,17 @@ export default function Sidebar() {
                                         Reports
                                     </NavLink>
                                     </li>
+
+                                    <li className="rounded-lg mb-2 ">
+                                <NavLink
+                                    to="/profileSettings"
+                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
+                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+                                >
+                                    <Icon name="person" size="2xl" />
+                                    Profile Settings
+                                </NavLink>
+                            </li>
                         </ul>
                     </div>
                 </div>

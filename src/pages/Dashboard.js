@@ -4,6 +4,7 @@ import ChartLine from 'components/ChartLine';
 import ChartBar from 'components/BarChart/chartPage';
 // import PageVisitsCard from 'components/PageVisitsCard';
 // import TrafficCard from 'components/TrafficCard';
+import DashboardCard from 'components/dashboard/profile'
 import {genApi} from '../api/index'
 import { useSelector } from "react-redux"
 
@@ -17,6 +18,7 @@ export default function Dashboard() {
         <div className="p-4">
             <h2 className="text-3xl py-4">Welcome To The OnTheWay Admin Panel</h2>
             <br></br>
+            <DashboardCard/>
 
             {/* <div className="px-3 md:px-8">
                 <div className="container mx-auto max-w-full">

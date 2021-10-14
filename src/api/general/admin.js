@@ -76,6 +76,10 @@ const admin = {
         return await axios.post(`/app/admin/create_password/${token}`,formData)
 
     },
+
+    updateAdmin:async function (formData) {
+        return await axios.put(`/app/admin/updateAdmin`, formData)
+    },
     
 }
 

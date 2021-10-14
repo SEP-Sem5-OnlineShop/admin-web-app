@@ -15,6 +15,9 @@ const auth = {
     },
     token: async function() {
         return await axios.get("/token")
+    },
+    updatePassword: async function(formData) {
+        return await axios.post("/update-password", formData)
     }
 }
 

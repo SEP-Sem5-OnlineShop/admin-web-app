@@ -65,17 +65,17 @@ export default function AuthTemplate(props) {
                             {props.children}
                         </div>
 
-                        <div className="text-sm text-text flex justify-center mt-0 md:mt-5 relative z-index-10">Or Login with Email</div>
+                        {/* <div className="text-sm text-text flex justify-center mt-0 md:mt-5 relative z-index-10">Or Login with Email</div> */}
 
                         {/*google and facebook login buttons*/}
-                        <div className="flex justify-center mt-3 relative z-index-10">
+                        {/* <div className="flex justify-center mt-3 relative z-index-10">
                             <button className="rounded-xl w-14 h-14 flex justify-center items-center p-1 bg-white ">
                                 <img width={32} src={googleLogo} alt="google-logo"/>
                             </button>
                             <button className="rounded-xl w-14 h-14 ml-5 flex justify-center items-center p-1 bg-white">
                                 <img width={14} src={facebookLogo} alt="google-logo"/>
                             </button>
-                        </div>
+                        </div> */}
 
                         <div className="mt-4 relative z-index-10">
                             {/* <div className="flex justify-center">
@@ -85,14 +85,14 @@ export default function AuthTemplate(props) {
                                     onClick={() => location.pathname === '/auth/register' ? history.push('/auth/login') : history.push('/auth/register')}
                                     className="text-secondary cursor-pointer font-semibold text-xs xxs:text-sm xs:text-base ml-2">{props.bottomText2 || 'Register'}</span>
                             </div> */}
-                            {
+                            {/* {
                                 props.login ?
                                     <div className="flex justify-center">
                                         <span className="text-secondary text-xs xxs:text-sm xs:text-base">Forgot password?</span>
                                         <span
                                             className="text-secondary font-semibold text-xs xxs:text-sm xs:text-base ml-2">Change password</span>
                                     </div> : ""
-                            }
+                            } */}
                         </div>
                     </div>
                 </div>

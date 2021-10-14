@@ -8,7 +8,7 @@ import {
 
 import Sidebar from 'components/Sidebar';
 import Dashboard from 'pages/Dashboard';
-import Settings from 'pages/Settings';
+import ProfileSettings from 'pages/settings/profileSettings';
 // import Tables from 'pages/Tables';
 // import Tables from 'components/Table'
 
@@ -71,7 +71,7 @@ export default function AppRouter() {
                  <div style={{minHeight: 'calc(100vh - 169px)'}}>
                      <Switch>
                          <Route exact path="/" component={Dashboard} />
-                         <Route exact path="/settings" component={Settings} />
+                         <Route exact path="/profileSettings" component={ProfileSettings} />
                          <Route exact path="/tables" component={Tables} />
                          <Route exact path="/singleVendor/:id" component={singleVendor} />
                          <Route exact path="/reports" component={report} />
