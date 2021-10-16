@@ -1,10 +1,78 @@
+import React from 'react';
 import { useEffect } from 'react';
 import Chart from 'chart.js';
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
+import {genApi} from '../api/index'
 
 export default function ChartLine() {
+    const [purchaseCount1, setpurchaseCount1] = React.useState(0);
+    const [purchaseCount2, setpurchaseCount2] = React.useState(0);
+    const [purchaseCount3, setpurchaseCount3] = React.useState(1);
+    const [purchaseCount4, setpurchaseCount4] = React.useState(1);
+    const [purchaseCount5, setpurchaseCount5] = React.useState(0);
+
+    const count1=genApi.getLastPurchaseDay1();
+    const count2=genApi.getLastPurchaseDay2();
+    const count3=genApi.getLastPurchaseDay3();
+    const count4=genApi.getLastPurchaseDay4();
+    const count5=genApi.getLastPurchaseDay5();
+
+    
+
+    count1.then(
+        function(value) { 
+            setpurchaseCount1(value.data.count)
+        },
+        function(error) { 
+            console.log(error) }
+    )
+    
+    
+    count2.then(
+        function(value) { 
+            setpurchaseCount2(value.data.count)
+        },
+        function(error) { 
+            console.log(error) }
+    )
+
+    
+    count3.then(
+        function(value) { 
+            setpurchaseCount3(value.data.count)
+        },
+        function(error) { 
+            console.log(error) }
+    )
+
+    
+    count4.then(
+        function(value) { 
+            setpurchaseCount4(value.data.count)
+        },
+        function(error) { 
+            console.log(error) }
+    )
+
+    
+    count5.then(
+        function(value) { 
+            setpurchaseCount5(value.data.count)
+        },
+        function(error) { 
+            console.log(error) }
+    )
+
+    const data1=[]
+    data1.push(purchaseCount1);
+    data1.push(purchaseCount2);
+    data1.push(purchaseCount3);
+    data1.push(purchaseCount4);
+    data1.push(purchaseCount5);
+    console.log(data1)
+
     useEffect(() => {
         var config = {
             type: 'line',
@@ -19,6 +87,7 @@ export default function ChartLine() {
                     '',
                 ],
                 datasets: [
+                    
                     // {
                     //     label: new Date().getFullYear(),
                     //     backgroundColor: '#03a9f4',
@@ -27,11 +96,13 @@ export default function ChartLine() {
                     //     fill: false,
                     // },
                     {
+                        
                         // label: new Date().getFullYear() - 1,
                         fill: false,
                         backgroundColor: '#ff9800',
                         borderColor: '#ff9800',
-                        data: [40, 68, 86, 74, 56, 60, 87],
+                        data: data1,
+                        
                     },
                 ],
             },
@@ -116,7 +187,7 @@ export default function ChartLine() {
                 <h6 className="uppercase text-gray-200 text-xs font-medium">
                     Overview
                 </h6>
-                <h2 className="text-white text-2xl">Number of registered vendors</h2>
+                <h2 className="text-white text-2xl">Purchases of Last 5 days</h2>
             </CardHeader>
             <CardBody>
                 <div className="relative h-96">

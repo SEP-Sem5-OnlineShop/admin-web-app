@@ -9,24 +9,16 @@ import {
 import Sidebar from 'components/Sidebar';
 import Dashboard from 'pages/Dashboard';
 import ProfileSettings from 'pages/settings/profileSettings';
-// import Tables from 'pages/Tables';
-// import Tables from 'components/Table'
-
 import { useSelector } from "react-redux"
 
 import Tables from 'pages/VendorList/TableFilter';
-// import Tables from 'pages/VendorList';
 import singleVendor from 'pages/SingleVendor/SngleVendor';
 import profile from 'pages/myProfile/profile';
 
 import singleProduct from 'pages/singleProduct/SngleVendor';
 
 import requestList from 'pages/vendorRequestList/RequestList';
-// import Maps from 'pages/Maps';
 import Footer from 'components/Footer';
-import modal from 'components/popup/Modal'
-
-// Tailwind CSS Style Sheet
 import 'assets/styles/tailwind.css';
 import 'filepond/dist/filepond.min.css'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
@@ -40,10 +32,7 @@ import { actions } from "../store"
 
 export default function AppRouter() {
     const Role = useSelector(state => state.user.userData.role)
-    // console.log(Role)
-
-
-
+    
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -64,7 +53,7 @@ export default function AppRouter() {
     return (
         <Router>
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+       
       </header>
             <Sidebar />
              <div className="md:ml-64">
@@ -80,7 +69,6 @@ export default function AppRouter() {
 
                          <Route exact path="/requestList" component={requestList} />
                          <Route exact path="/vendor/register/:id" component={RegisterVendor} />
-                         {/* <Route exact path="/profile" component={login} /> */}
                          <Route exact path="/profile" component={profile} />
                          <Route exact path="/create_password/:token" component={createPassword} />
                          
@@ -91,17 +79,8 @@ export default function AppRouter() {
                            ''
                         )}
 
-
-
-                         {/* <Route exact path="/adminCreate" component={admin} /> */}
-
-                         {/* <Route exact path="/maps" component={Maps} /> */}
-                        {/* <Redirect from="*" to="/" /> */}
-
                      </Switch>
                  </div>
-
-                 {/* <p>{this.state.apiResponse}</p> */}
                  
                  <Footer />
              </div>

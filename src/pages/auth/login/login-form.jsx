@@ -4,12 +4,12 @@ import {useFormik} from "formik";
 import * as Yup from "yup";
 import {thunks} from "../../../store/index";
 import {useDispatch} from "react-redux";
-import {motion} from "framer-motion";
-
 import { useHistory } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginForm = (props, ref) => {
-
+    const notify = () => toast("There is an error");
     const history = useHistory();
     const dispatch = useDispatch()
 
@@ -32,7 +32,6 @@ const LoginForm = (props, ref) => {
             console.log("inside")
             setLoading(true)
             try {
-                // console.log("inside thunks")
                 if(await dispatch(thunks.user.localSignIn(values.telephone, values.password))){
                 history.push(`/`)}
             }
@@ -40,14 +39,13 @@ const LoginForm = (props, ref) => {
                 console.log("error")
             }
             setLoading(false)
-            // history.push("/")
         },
     });
 
     return (
-
-        // <motion.form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}>
+        
              <form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}> 
+             <ToastContainer />
             <InputWithValidation
                 label='Telephone Number'
                 id='telephone'
@@ -64,13 +62,11 @@ const LoginForm = (props, ref) => {
                 formik={formik}
                 className='w-full'
             />
-            <button type="submit" className="w-full py-3 mt-2 rounded-xl bg-primary text-black font-bold">
-                {/* {loading ? 'Loading...' : 'Submit'} */}
+            <button onClick={notify} type="submit" className="w-full py-3 mt-2 rounded-xl bg-primary text-black font-bold">
                 Log In
             </button>
-
+            
             </form>
-        //  </motion.form> 
     );
 };
 export default forwardRef(LoginForm)

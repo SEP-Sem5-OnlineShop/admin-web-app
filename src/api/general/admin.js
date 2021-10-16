@@ -41,6 +41,26 @@ const admin = {
         return await axios.get("/app/admin/getPurchaseCount")
     },
 
+    getLastPurchaseDay1:async function () {
+        return await axios.get("/app/admin/getLastPurchaseDay1")
+    },
+
+    getLastPurchaseDay2:async function () {
+        return await axios.get("/app/admin/getLastPurchaseDay2")
+    },
+
+    getLastPurchaseDay3:async function () {
+        return await axios.get("/app/admin/getLastPurchaseDay3")
+    },
+
+    getLastPurchaseDay4:async function () {
+        return await axios.get("/app/admin/getLastPurchaseDay4")
+    },
+
+    getLastPurchaseDay5:async function () {
+        return await axios.get("/app/admin/getLastPurchaseDay5")
+    },
+
     removeVendor: async function (id) {
         return await axios.put(`/app/admin/singleVendor/${id}`)
         

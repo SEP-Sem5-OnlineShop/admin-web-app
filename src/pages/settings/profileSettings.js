@@ -144,9 +144,9 @@ export default function ProfileSettings() {
                                     {
                                         disabled ?
                                             <button onClick={(e) => { e.preventDefault(); setDisabled(false) }} type="button"
-                                                className="rounded-lg p-2 text-accent bg-textLight">Update Details</button> :
+                                                className="rounded-lg p-2 text-black bg-textLight">Update Details</button> :
                                             <button onClick={(e) => { e.preventDefault(); formik.handleSubmit(); setDisabled(true) }} type="submit"
-                                                className="rounded-lg p-2 text-accent bg-textLight">Submit</button>
+                                                className="rounded-lg p-2 text-black bg-textLight">Submit</button>
                                     }
                                 </div>
                             </CardTemplate>
@@ -156,7 +156,7 @@ export default function ProfileSettings() {
                                 {
                                     passwordDisabled ?
                                         <button onClick={(e) => { e.preventDefault(); setPasswordDisabled(false) }} type="button"
-                                            className="rounded-lg p-2 text-accent bg-textLight">Update Password</button> :
+                                            className="rounded-lg p-2 text-black bg-textLight">Update Password</button> :
                                         <form>
                                             <div className="text-text font-medium">Password</div>
                                             <InputWithValidation
@@ -185,7 +185,7 @@ export default function ProfileSettings() {
                                             />
                                             <div className="mt-8 flex justify-end">
                                                 <button onClick={(e) => { e.preventDefault(); formik2.handleSubmit(); }} type="submit"
-                                                    className="rounded-lg p-2 text-accent bg-textLight">Submit</button>
+                                                    className="rounded-lg p-2 text-black bg-textLight">Submit</button>
                                             </div>
                                         </form>
                                 }
