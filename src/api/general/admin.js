@@ -100,6 +100,14 @@ const admin = {
     updateAdmin:async function (formData) {
         return await axios.put(`/app/admin/updateAdmin`, formData)
     },
+
+
+
+
+    getVendorPurchaseList: async function (vendor_id) {
+        // axios.defaults.headers.common['Authorization'] = `Bearer ${window.localStorage.getItem("token")}`
+        return await axios.get(`/app/vendor/purchases/${vendor_id}`)
+    },
     
 }
 

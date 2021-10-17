@@ -30,6 +30,8 @@ import createPassword from '../pages/createPassword/register-form'
 import report from '../pages/Report/ReportPage'
 import { actions } from "../store"
 
+import VendorReport from '../pages/Noneed/vendorReport'
+
 export default function AppRouter() {
     const Role = useSelector(state => state.user.userData.role)
     
@@ -78,6 +80,10 @@ export default function AppRouter() {
                         ) : (
                            ''
                         )}
+
+
+
+            <Route exact path="/vendorReports" component={VendorReport} />
 
                      </Switch>
                  </div>

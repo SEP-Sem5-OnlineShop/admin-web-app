@@ -758,6 +758,9 @@ video {
 .h-5{
 	height: 1.25rem;
 }
+.h-12{
+	height: 3rem;
+}
 .h-0{
 	height: 0px;
 }
@@ -1128,10 +1131,6 @@ video {
 	font-size: 1.25rem;
 	line-height: 1.75rem;
 }
-.text-3xl{
-	font-size: 1.875rem;
-	line-height: 2.25rem;
-}
 .text-4xl{
 	font-size: 2.25rem;
 	line-height: 2.5rem;
@@ -1140,11 +1139,18 @@ video {
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 }
+.text-3xl{
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+}
 .font-medium{
 	font-weight: 500;
 }
 .font-light{
 	font-weight: 300;
+}
+.font-extrabold{
+	font-weight: 800;
 }
 .font-semibold{
 	font-weight: 600;
@@ -1171,10 +1177,6 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(29, 78, 216, var(--tw-text-opacity));
 }
-.text-accent{
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
-}
 .text-danger{
 	--tw-text-opacity: 1;
 	color: rgba(220, 38, 38, var(--tw-text-opacity));
@@ -1187,9 +1189,6 @@ video {
 }
 .opacity-100{
 	opacity: 1;
-}
-.opacity-40{
-	opacity: 0.4;
 }
 .shadow-lg{
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -3003,11 +3002,11 @@ video {
 	.xl\:col-end-7{
 		grid-column-end: 7;
 	}
-	.xl\:grid-cols-4{
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-	}
 	.xl\:grid-cols-5{
 		grid-template-columns: repeat(5, minmax(0, 1fr));
+	}
+	.xl\:grid-cols-4{
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 	.xl\:grid-cols-6{
 		grid-template-columns: repeat(6, minmax(0, 1fr));
