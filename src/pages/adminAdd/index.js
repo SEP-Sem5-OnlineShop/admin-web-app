@@ -89,6 +89,7 @@ export default function RegisterVendor() {
                     </div>
                     <CardBody>
                         <div className="grid grid-cols-2 gap-y-3 gap-x-6">
+                        {/* <label for="firstName">firstName</label> */}
                             <InputWithValidation 
                                 formik={formik}
                                 id="firstName"
@@ -97,6 +98,8 @@ export default function RegisterVendor() {
                                 type="text"
                                
                             />
+
+                        {/* <label for="firstName">lastName</label> */}
                             <InputWithValidation
                                 formik={formik}
                                 id="lastName"
@@ -104,6 +107,9 @@ export default function RegisterVendor() {
                                 label="Last Name"
                                 type="text"
                             />
+
+                        {/* <label for="firstName">telephone</label> */}
+
                             <InputWithValidation 
                                 formik={formik}
                                 id="telephone"
@@ -112,6 +118,8 @@ export default function RegisterVendor() {
                                 type="text"
                             />
                             
+
+                            {/* <label for="firstName">email</label> */}
                             <InputWithValidation
                                 formik={formik}
                                 id="email"
@@ -126,9 +134,9 @@ export default function RegisterVendor() {
                 </Card>
                 {/*  */}
                 {/* <div className="flex justify-center w-3/5"> */}
-                <div className="flex justify-center mt-4 mr-4">
+                <div className="flex justify-center mt-4 mr-4" >
                     <Button type="submit"
-                        
+                        data-testid="Submit"
                         id="Submit"
                         color="lightBlue"
                         buttonType="filled"

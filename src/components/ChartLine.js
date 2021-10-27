@@ -7,13 +7,40 @@ import CardBody from '@material-tailwind/react/CardBody';
 import {genApi} from '../api/index'
 
 export default function ChartLine() {
-    const [purchaseCount1, setpurchaseCount1] = React.useState(0);
-    const [purchaseCount2, setpurchaseCount2] = React.useState(0);
-    const [purchaseCount3, setpurchaseCount3] = React.useState(1);
-    const [purchaseCount4, setpurchaseCount4] = React.useState(1);
-    const [purchaseCount5, setpurchaseCount5] = React.useState(0);
+    const [purchaseCount1, setpurchaseCount1] = React.useState(3);
+    const [purchaseCount2, setpurchaseCount2] = React.useState(3);
+    const [purchaseCount3, setpurchaseCount3] = React.useState(0);
+    const [purchaseCount4, setpurchaseCount4] = React.useState(2);
+    const [purchaseCount5, setpurchaseCount5] = React.useState(1);
 
-    const count1=genApi.getLastPurchaseDay1();
+    const data1=[]
+
+    React.useEffect(async () => {
+        try{
+            const count1=await genApi.getLastPurchaseDay1();
+            setpurchaseCount1(count1.data.count || 0)
+            console.log(count1.data.count)
+            // count1.then(
+            //     function(value) { 
+            //         setpurchaseCount1(value.data.count)
+            //         console.log((value.data.count))
+            //     },
+            //     function(error) { 
+            //         console.log(error) }
+            // )
+            
+        
+        }catch(e){
+        console.log(e)
+        }
+        
+    },0);
+    console.log(purchaseCount1)
+
+
+
+
+    // const count1=genApi.getLastPurchaseDay1();
     const count2=genApi.getLastPurchaseDay2();
     const count3=genApi.getLastPurchaseDay3();
     const count4=genApi.getLastPurchaseDay4();
@@ -21,13 +48,13 @@ export default function ChartLine() {
 
     
 
-    count1.then(
-        function(value) { 
-            setpurchaseCount1(value.data.count)
-        },
-        function(error) { 
-            console.log(error) }
-    )
+    // count1.then(
+    //     function(value) { 
+    //         setpurchaseCount1(value.data.count)
+    //     },
+    //     function(error) { 
+    //         console.log(error) }
+    // )
     
     
     count2.then(
@@ -65,15 +92,35 @@ export default function ChartLine() {
             console.log(error) }
     )
 
-    const data1=[]
-    data1.push(purchaseCount1);
+    
+    // data1.push(purchaseCount1);
     data1.push(purchaseCount2);
     data1.push(purchaseCount3);
     data1.push(purchaseCount4);
     data1.push(purchaseCount5);
     console.log(data1)
 
-    useEffect(() => {
+    useEffect(async () => {
+        try{
+            const count1= await genApi.getLastPurchaseDay1();
+            setpurchaseCount1(count1.data.count || 0)
+            console.log(count1.data.count)
+            // count1.then(
+            //     function(value) { 
+            //         setpurchaseCount1(value.data.count)
+            //         console.log((value.data.count))
+            //     },
+            //     function(error) { 
+            //         console.log(error) }
+            // )
+            
+        
+        }catch(e){
+        console.log(e)
+        }
+        console.log(purchaseCount1)
+        data1.push(purchaseCount1);
+
         var config = {
             type: 'line',
             data: {
@@ -177,8 +224,8 @@ export default function ChartLine() {
                 },
             },
         };
-        var ctx = document.getElementById('line-chart').getContext('2d');
-        window.myLine = new Chart(ctx, config);
+        // var ctx = document.getElementById('line-chart').getContext('2d');
+        // window.myLine = new Chart(ctx, config);
     }, []);
 
     return (
