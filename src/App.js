@@ -28,7 +28,7 @@ import 'filepond/dist/filepond.min.css'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 
 import RegisterVendor from 'pages/vendor/register/index';
-
+import { ToastContainer } from "react-toastify"
 
   function App() {
 
@@ -72,6 +72,17 @@ import RegisterVendor from 'pages/vendor/register/index';
           </Provider> */}
 
         <Provider store={store}>
+        <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
               <MainRouter />
           </Provider>
       </div>

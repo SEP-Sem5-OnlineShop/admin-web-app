@@ -83,7 +83,7 @@ export default function AppRouter() {
 
 
 
-            <Route exact path="/vendorReports" component={VendorReport} />
+            {/* <Route exact path="/vendorReports" component={VendorReport} /> */}
 
                      </Switch>
                  </div>

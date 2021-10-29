@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const LoginForm = (props, ref) => {
-    const notify = () => toast("There is an error");
+    // const notify = () => toast("There is an error");
     const history = useHistory();
     const dispatch = useDispatch()
 
@@ -45,7 +45,7 @@ const LoginForm = (props, ref) => {
     return (
         
              <form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}> 
-             <ToastContainer />
+             {/* <ToastContainer /> */}
             <InputWithValidation
                 label='Telephone Number'
                 id='telephone'
@@ -62,7 +62,7 @@ const LoginForm = (props, ref) => {
                 formik={formik}
                 className='w-full'
             />
-            <button onClick={notify} type="submit" className="w-full py-3 mt-2 rounded-xl bg-primary text-black font-bold">
+            <button  type="submit" className="w-full py-3 mt-2 rounded-xl bg-primary text-black font-bold">
                 Log In
             </button>
             

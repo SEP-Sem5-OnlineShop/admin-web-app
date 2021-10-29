@@ -29,6 +29,7 @@
     "react-datepicker": "^4.2.1",
     "react-dom": "^17.0.2",
     "react-filepond": "^7.1.1",
+    "react-google-charts": "^3.0.15",
     "react-redux": "^7.2.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -72,6 +73,7 @@
   "devDependencies": {
     "@testing-library/react": "^11.2.7",
     "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "jest-dom": "^4.0.0",
