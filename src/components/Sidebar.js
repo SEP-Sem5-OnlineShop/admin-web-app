@@ -119,7 +119,7 @@ export default function Sidebar() {
 
 
 
-                            {/* <li className="rounded-lg mb-2 ">
+                            <li className="rounded-lg mb-2 ">
                                 <NavLink
                                     to="/vendorReports"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -128,7 +128,7 @@ export default function Sidebar() {
                                     <Icon name="person" size="2xl" />
                                     vendor Reports
                                 </NavLink>
-                            </li> */}
+                            </li>
                         </ul>
                     </div>
                 </div>

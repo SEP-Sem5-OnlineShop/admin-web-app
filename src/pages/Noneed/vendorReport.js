@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import { CSVLink } from "react-csv";
 import { array } from 'yup';
+import * as Yup from "yup";
 import {genApi} from '../../api/index'
 import {useParams} from "react-router"
+import {useFormik} from "formik";
 import "react-datepicker/dist/react-datepicker.css";
 
 function convert(str) {
@@ -31,13 +33,28 @@ export default function VendorReport(){
   const [EndDate, setEndDate] = useState(new Date());
   var sdate =(convert(startDate.toString()))
   var edate =(convert(EndDate.toString()))
+  var today=convert((new Date()).toString())
+
+
+
+  /////////////////////////////////
+  const validationSchema = Yup.object({
+    sdate: Yup.date().default(() => new Date()),
+    edate: Yup.date().default(() => new Date()),
+  });
+
+  const initialValues = {
+    sdate: convert(startDate.toString()),
+    edate: convert(startDate.toString()),
+  };
+/////////////////////////
 
 
   const [purchases, setpurchases] = React.useState( [] );
 
   React.useEffect(async () => {
     try{
-      const result = await genApi.getVendorPurchaseList('613eb365af0d5b2c142fa326');
+      const result = await genApi.getVendorPurchaseList('613eb365af0d5b2c142fa326'); /////////change this into params id
  
       setpurchases(result.data);
       console.log(typeof(result.data))
@@ -65,9 +82,11 @@ const header = [
     const purchase=[];
     var date = (element.createdAt.substr(0,10))
     console.log(element.createdAt)
-    console.log(element.products)
+    console.log(date)
+    console.log(convert((new Date()).toString()))
     console.log(sdate<=date && date<edate)
-    if(sdate<=date && date<edate){
+    if(edate<=(convert((new Date()).toString())) && sdate<=edate){
+    if(sdate<=date && date<=edate){
     
         purchase.push((element.vendor_id).toString())
         purchase.push((element.totalItems).toString())
@@ -80,13 +99,22 @@ const header = [
         }
     
     csvData.push(purchase);
+    }else{
+      console.log("No det")
     }
+  }else{
+    console.log("Wrong date")
+  }
   }
       
       console.log(csvData)
 
   console.log(sdate);
   console.log(edate);
+
+
+
+
   return (
       <div>
           <div>
@@ -99,9 +127,17 @@ const header = [
           </div>
             <DatePicker selected={EndDate} onChange={(date) => setEndDate(date)} />
             <div>
-<li><CSVLink data={csvData}>
-                Vendor Request Details - Today
+            {(sdate<=edate && edate<=today)?(
+              <li><CSVLink data={csvData}>
+                Purchase Details
             </CSVLink></li>
+            ):(
+              ""
+            )}
+
+
+
+
 </div>
     </div>
 
