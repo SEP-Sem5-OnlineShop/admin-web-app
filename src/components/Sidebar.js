@@ -3,9 +3,11 @@ import { NavLink } from 'react-router-dom';
 import AdminNavbar from './AdminNavbar';
 import Icon from '@material-tailwind/react/Icon';
 import H6 from '@material-tailwind/react/Heading6';
+import { useSelector } from "react-redux"
 
 export default function Sidebar() {
     const [showSidebar, setShowSidebar] = useState('-left-64');
+    const isLoggedIn = useSelector(state => state.user.isLogin);
     return (
         <>
             <AdminNavbar
@@ -39,7 +41,12 @@ export default function Sidebar() {
                                     Dashboard
                                 </NavLink>
                             </li>
+
+
+                            
+
                             <li className="rounded-lg mb-2 ">
+                            {isLoggedIn !='no' ? (
                                 <NavLink
                                     to="/tables"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -48,20 +55,13 @@ export default function Sidebar() {
                                     <Icon name="toc" size="2xl" />
                                     Vendor List
                                 </NavLink>
+                                ):("")}
                             </li>
 
-                            {/* <li className="rounded-lg mb-2 ">
-                                <NavLink
-                                    to="/singleVendor"
-                                    className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
-                                >
-                                    <Icon name="toc" size="2xl" />
-                                    Single Vendor
-                                </NavLink>
-                            </li> */}
+                           
 
                             <li className="rounded-lg mb-2 ">
+                            {isLoggedIn !='no' ? (
                                 <NavLink
                                     to="/requestList"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -70,8 +70,11 @@ export default function Sidebar() {
                                     <Icon name="toc" size="2xl" />
                                     Vendor Request List
                                     </NavLink>
+                                    ):("")}
                                     </li>
+
                             <li className="rounded-lg mb-2 ">
+                                {isLoggedIn !='no' ? (
                                 <NavLink
                                     to="/profile"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -80,9 +83,11 @@ export default function Sidebar() {
                                     <Icon name="person" size="2xl" />
                                     My Profile
                                 </NavLink>
+                                ):("")}
                             </li>
 
                             <li className="rounded-lg mb-2 ">
+                                {isLoggedIn !='no' ? (
                                 <NavLink
                                     to="/adminCreate"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -91,10 +96,12 @@ export default function Sidebar() {
                                     <Icon name="person" size="2xl" />
                                     New Admin
                                 </NavLink>
+                                ):("")}
                             </li>
 
 
                             <li className="rounded-lg mb-2 ">
+                                {isLoggedIn !='no' ? (
                                 <NavLink
                                     to="/reports"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -103,9 +110,12 @@ export default function Sidebar() {
                                     <Icon name="toc" size="2xl" />
                                         Reports
                                     </NavLink>
+                                    ):("")}
                                     </li>
 
+
                                     <li className="rounded-lg mb-2 ">
+                                        {isLoggedIn !='no' ? (
                                 <NavLink
                                     to="/profileSettings"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -114,12 +124,14 @@ export default function Sidebar() {
                                     <Icon name="person" size="2xl" />
                                     Profile Settings
                                 </NavLink>
+                                ):("")}
                             </li>
 
 
 
 
                             <li className="rounded-lg mb-2 ">
+                                {isLoggedIn !='no' ? (
                                 <NavLink
                                     to="/vendorReports"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -128,7 +140,13 @@ export default function Sidebar() {
                                     <Icon name="person" size="2xl" />
                                     vendor Reports
                                 </NavLink>
+                                ):("")}
                             </li>
+
+
+
+
+
                         </ul>
                     </div>
                 </div>

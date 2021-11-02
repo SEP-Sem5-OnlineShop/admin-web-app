@@ -18,7 +18,7 @@ export default function Status() {
    
     count.then(
         function(value) { 
-            setNumber(value.data.count)
+            setNumber(value.data?value.data.count||"":"")
             // num=numbers;
             // console.log(typeof(numbers))
         },
@@ -31,7 +31,7 @@ export default function Status() {
 
     purchases.then(
         function(value) { 
-            setPurchaseNumber(value.data.count)
+            setPurchaseNumber(value.data?value.data.count||0:0)
             // num=numbers;
             // console.log(value)
         },
