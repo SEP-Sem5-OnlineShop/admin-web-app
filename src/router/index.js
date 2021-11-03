@@ -10,6 +10,7 @@ import AuthRouter from "./auth";
 import InnerPageLayout from "../layout/inner-page-layout"
 import { actions } from "../store"
 import CreatePassword from '../pages/createPassword/register-form'
+import Dashboard from "../pages/Dashboard";
 
 export default function MainRouter() {
 
@@ -46,7 +47,7 @@ export default function MainRouter() {
                 <Route path="/">
                     {/* <AppRouter /> */}
                     <InnerPageLayout>
-                        <AppRouter />
+                        <Route exact path="/" component={Dashboard} />
                     </InnerPageLayout>
                 </Route>
 
