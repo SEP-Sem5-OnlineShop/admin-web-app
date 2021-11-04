@@ -213,12 +213,13 @@ function Table({ columns, data }) {
                             // <a href="/">
                             <td
                               {...cell.getCellProps()}
-                              className="px-6 py-4 whitespace-nowrap"
+                              className="px-6 py-4 whitespace-nowrap "
                               role="cell"
+                              
                             >
                               
                               {cell.column.Cell.name === "defaultRenderer"
-                                ? <div onClick={() => history.push(cell.row.original.link)} className="text-sm text-blue-500">{cell.render('Cell')}</div>
+                                ? <div  onClick={() => history.push(cell.row.original.link)} className="text-sm text-blue-500 cursor-pointer">{cell.render('Cell')}</div>
                                 : cell.render('Cell')
                               }
                             </td>

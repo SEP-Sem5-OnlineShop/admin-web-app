@@ -1,21 +1,18 @@
 import React from 'react';
 import ProfileCard from '../../components/myProfile/profile';
 import { useSelector } from "react-redux"
-import team from '../../assets/img/team-1-800x800.jpg';
+
 import {genApi} from '../../api/index'
-import {useParams} from "react-router"
-// import Table from "../../pages/ProductList/TableFilter"
-import Table from "../../pages/ProductList/TableFilter"
+
 
 export default function Profile() {
     const Id = useSelector(state => state.user.userData._id)
     console.log(Id)
     console.log(Id)
-    // const {id} = useParams()
-    // const {id}=Id
+    
 
         
-        // console.log(typeof(id))
+        
         const [vendor, setVendor] = React.useState({});
         React.useEffect(async () => {
             try{
@@ -44,12 +41,11 @@ export default function Profile() {
             <div className="px-3 md:px-8 h-auto -mt-24">
                 <div className="container mx-auto max-w-full">
                     <div className="grid grid-cols-1 px-4 mb-16">
-                        {/* <ProfileCard data={data} products={products}/> */}
+                        
                         <ProfileCard data={vendor}/>
-                        {/* <Table /> */}
-
+                        
                     </div>
-                    {/* <div>{product}.</div> */}
+                    
 
                     
                 </div>

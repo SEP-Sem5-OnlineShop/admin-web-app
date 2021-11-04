@@ -35,11 +35,7 @@ export default function MainRouter() {
     return (
         <Router>
             <Switch>
-                {/* <Route exact path="/">
-                    <MainLayout>
-                        <HomeDsand />
-                    </MainLayout>
-                </Route> */}
+                
                 <Route path="/auth">
                     <AuthRouter />
                 </Route>
@@ -53,21 +49,7 @@ export default function MainRouter() {
                < Route path="/create_password/:token">
                             < CreatePassword />
                         </Route>
-                {/* <Route path="/404">
-                    <InnerPageLayout><Page404 /></InnerPageLayout>
-                </Route>
-                <Route path={"/register/vendor/:token"}>
-                    <InnerPageLayout><VendorRegistration /></InnerPageLayout>
-                </Route>
-                <Route exact={true} path={`/register/vendor`}>
-                    <InnerPageLayout><VendorRegistration /></InnerPageLayout>
-                </Route>
-                <Route path={`/vendor_:id`} exact>
-                    <InnerPageLayout><VendorScreen /></InnerPageLayout>
-                </Route>
-                <Route path={`/vendor_:id/product_:pid`} exact>
-                    <InnerPageLayout><ProductScreen /></InnerPageLayout>
-                </Route> */}
+                
             </Switch>
         </Router>
     )

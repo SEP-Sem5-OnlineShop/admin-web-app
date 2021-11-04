@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
-import { getFileUrl, deleteBlobFile } from "../../api/azure-storage-blob"
+import { getFileUrl } from "../../api/azure-storage-blob"
 
-import FileUploader from "./index"
+
 
 export default function FileUploaderWithPreview(props) {
     const [showFilePreview, setShowFilePreview] = useState(true)
-    const [image, setImage] = useState(null)
+    // const [image, setImage] = useState(null)
     useEffect(() => {
         if (!props.imageUrl) {
             setShowFilePreview(false)

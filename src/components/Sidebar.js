@@ -46,7 +46,7 @@ export default function Sidebar() {
                             
 
                             <li className="rounded-lg mb-2 ">
-                            {isLoggedIn !='no' ? (
+                            {isLoggedIn !=='no' ? (
                                 <NavLink
                                     to="/tables"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -61,7 +61,7 @@ export default function Sidebar() {
                            
 
                             <li className="rounded-lg mb-2 ">
-                            {isLoggedIn !='no' ? (
+                            {isLoggedIn !=='no' ? (
                                 <NavLink
                                     to="/requestList"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -74,7 +74,7 @@ export default function Sidebar() {
                                     </li>
 
                             <li className="rounded-lg mb-2 ">
-                                {isLoggedIn !='no' ? (
+                                {isLoggedIn !=='no' ? (
                                 <NavLink
                                     to="/profile"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -87,7 +87,7 @@ export default function Sidebar() {
                             </li>
 
                             <li className="rounded-lg mb-2 ">
-                                {isLoggedIn !='no' ? (
+                                {isLoggedIn !=='no' ? (
                                 <NavLink
                                     to="/adminCreate"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -101,7 +101,7 @@ export default function Sidebar() {
 
 
                             <li className="rounded-lg mb-2 ">
-                                {isLoggedIn !='no' ? (
+                                {isLoggedIn !=='no' ? (
                                 <NavLink
                                     to="/reports"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -115,7 +115,7 @@ export default function Sidebar() {
 
 
                                     <li className="rounded-lg mb-2 ">
-                                        {isLoggedIn !='no' ? (
+                                        {isLoggedIn !=='no' ? (
                                 <NavLink
                                     to="/profileSettings"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -131,7 +131,7 @@ export default function Sidebar() {
 
 
                             <li className="rounded-lg mb-2 ">
-                                {isLoggedIn !='no' ? (
+                                {isLoggedIn !=='no' ? (
                                 <NavLink
                                     to="/vendorReports"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"

@@ -2,11 +2,11 @@ import React from 'react'
 
 import Report from './reprot'
 import DailyVendor from './DailyVendor'
-import {genApi} from '../../api/index'
+
 import AllRequests from './AllVendorRequests'
 import Card from '@material-tailwind/react/Card';
 import CardBody from '@material-tailwind/react/CardBody';
-import CardFooter from '@material-tailwind/react/CardFooter';
+
 
 function REport() {
 

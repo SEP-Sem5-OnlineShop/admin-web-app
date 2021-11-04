@@ -1,13 +1,8 @@
 import React from 'react';
 import StatusCard from './StatusCard';
 import {genApi} from '../../api/index'
-import { createEnumMember } from 'typescript';
 
-function getNumber(value){
-    const number=value;
-    // console.log(number);
-    return number;
-}
+
 export default function Status() {
     
     const [vendorCount, setNumber] = React.useState(0);

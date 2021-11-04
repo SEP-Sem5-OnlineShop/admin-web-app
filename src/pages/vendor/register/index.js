@@ -1,12 +1,11 @@
 import React from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import Card from "@material-tailwind/react/Card";
 import CardBody from "@material-tailwind/react/CardBody";
 import Button from "@material-tailwind/react/Button";
 
 import InputWithValidation from "components/form-comps/input-with-validation";
-import { FilePond, registerPlugin } from 'react-filepond'
+import {  registerPlugin } from 'react-filepond'
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import { genApi } from '../../../api/index'
@@ -72,7 +71,7 @@ export default function RegisterVendor() {
     }
 
 
-    const [files, setFiles] = React.useState([]);
+    // const [files, setFiles] = React.useState([]);
 
 
     const formik = useFormik({
@@ -126,7 +125,7 @@ export default function RegisterVendor() {
         },
     });
 
-    const [vendor, setVendor] = React.useState([]);
+    // const [vendor, setVendor] = React.useState([]);
     React.useEffect(async () => {
         try {
             const { data, status } = await genApi.getRequest(id);

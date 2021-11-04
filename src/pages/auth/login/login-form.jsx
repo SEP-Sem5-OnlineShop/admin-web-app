@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import {thunks} from "../../../store/index";
 import {useDispatch} from "react-redux";
 import { useHistory } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const LoginForm = (props, ref) => {
@@ -41,6 +40,7 @@ const LoginForm = (props, ref) => {
             setLoading(false)
         },
     });
+    console.log(loading);
 
     return (
         

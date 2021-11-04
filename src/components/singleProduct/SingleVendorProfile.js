@@ -3,11 +3,7 @@ import CardBody from '@material-tailwind/react/CardBody';
 import CardFooter from '@material-tailwind/react/CardFooter';
 import Image from '@material-tailwind/react/Image';
 import H5 from '@material-tailwind/react/Heading5';
-import Icon from '@material-tailwind/react/Icon';
-import LeadText from '@material-tailwind/react/LeadText';
-import Button from '@material-tailwind/react/Button';
 import { getFileUrl } from "../../api/azure-storage-blob";
-import team from '../../assets/img/food9.jpg';
 
 
 export default function ProfileCard(params) {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { CSVLink } from "react-csv";
-import { array } from 'yup';
 import {genApi} from '../../api/index'
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CSVLink } from "react-csv";
-import { array } from 'yup';
+
 import {genApi} from '../../api/index'
 
 
@@ -21,21 +21,16 @@ export default function DailyVendor() {
   },[]);
 
   console.log(vendors)
-//   console.log(vendors ? vendors.vendor|| "" : "")
+
 const header = [
     ["firstname"],[ "lastname"], ["email"],["telephone"],["nic"], ["address"],["shop name"],["date"]
     
   ];
 
     const csvData = [
-      // array={1,2,3};
+      
         header,
-        
-        
-        // ["firstname", "lastname", "email"],
-        // ["Ahmed", "Tomi", "ah@smthing.co.com"],
-        // ["Raed", "Labes", "rl@smthing.co.com"],
-        // ["Yezzi", "Min l3b", "ymin@cocococo.com"]
+ 
       ];
       var myCurrentDate = new Date();
       var date = myCurrentDate.getFullYear()+'-'+(myCurrentDate.getMonth()+1)+'-'+myCurrentDate.getDate() ;

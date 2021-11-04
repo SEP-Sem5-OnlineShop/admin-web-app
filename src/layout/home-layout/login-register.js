@@ -1,10 +1,9 @@
 import { Menu, Transition } from '@headlessui/react'
 import { useSelector, useDispatch } from "react-redux"
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { thunks } from "../../store"
-import { Link } from 'react-router-dom'
 
 export default function Example() {
   const userData = useSelector(state => state.user.userData)

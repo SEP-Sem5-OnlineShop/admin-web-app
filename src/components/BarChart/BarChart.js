@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from "react-dom";
 import Chart from "react-google-charts";
 import {genApi} from '../../api/index'
 import Card from '@material-tailwind/react/Card';
@@ -82,11 +81,11 @@ export default function BarChart() {
         [name5,rating5],
         
       ];
-      const options = {
-        title: "Ratings",
-        curveType: "function",
-        legend: { position: "bottom" }
-      };
+    //   const options = {
+    //     title: "Ratings",
+    //     curveType: "function",
+    //     legend: { position: "bottom" }
+    //   };
   
     return (
         <Card>
@@ -111,17 +110,8 @@ export default function BarChart() {
 
 
 
-    //   <div className="App">
-    //     <Chart
-    //       chartType="LineChart"
-    //       width="100%"
-    //       height="400px"
-    //       data={data}
-    //       options={options}
-    //     />
-    //   </div>
+    
     );
   
 }
 
-// export default ChartLine;

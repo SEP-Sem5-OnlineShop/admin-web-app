@@ -1,28 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { FilePond } from 'react-filepond';
 import InputWithValidation from "../../components/add-admin/input-with-validation/index";
 import CardTemplate from '@material-tailwind/react/Card';
 import { useDispatch, useSelector } from "react-redux";
-import { getFileUrl } from "../../api/azure-storage-blob";
 import {genApi,authApi} from '../../api/index'
-// import { driverApi, authApi } from "../."
-import { actions } from "../../store/index"
-// import FileUploader from "../../../../components/file-uploader"
 
 export default function ProfileSettings() {
 
 
 
         const userData = useSelector(state => state.user.userData) || {}
-        const dispatch = useDispatch()
+        // const dispatch = useDispatch()
     
        
         const [disabled, setDisabled] = useState(true)
         const [passwordDisabled, setPasswordDisabled] = useState(true)
     
-        const ref = useRef()
+        // const ref = useRef()
         const formik = useFormik({
             enableReinitialize: true,
             initialValues: userData || {

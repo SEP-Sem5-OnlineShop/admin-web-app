@@ -1,8 +1,6 @@
 import React from 'react';
 import StatusCard from 'components/statusCard/Status';
-// import ChartLine from 'components/ChartLine.js';
 import ChartLine from '../components/chart/ChartLine.js'
-import ChartBar from 'components/BarChart/chartPage';
 import BarChart from 'components/BarChart/BarChart';
 import DashboardCard from 'components/dashboard/profile'
 import { useSelector } from "react-redux"
@@ -17,9 +15,9 @@ export default function Dashboard() {
            
             <h2 className="text-4xl font-extrabold text-center py-4">Welcome To The OnTheWay Admin Panel</h2>
             <br></br>
-            {isLoggedIn !='no' ? (
+            {isLoggedIn !=='no' ? (
             <DashboardCard/>):("")}
-                    {isLoggedIn !='no' ? (    <StatusCard />):(
+                    {isLoggedIn !=='no' ? (    <StatusCard />):(
                         <h2 className="text-3xl text-red-500 font-extrabold text-center py-4">You Should Log as an admin to use admin Pannel</h2>
                     )}
                         
@@ -30,10 +28,10 @@ export default function Dashboard() {
                     <div className="grid grid-cols-1 xl:grid-cols-5">
                         <div className="xl:col-start-1 xl:col-end-4 px-4 mb-14">
                             {/* <ChartLine data={data1}/> */}
-                            {isLoggedIn !='no' ? (<ChartLine/> ):("")}
+                            {isLoggedIn !=='no' ? (<ChartLine/> ):("")}
                         </div>
                         <div className="xl:col-start-4 xl:col-end-6 px-4 mb-14">
-                        {isLoggedIn !='no' ? (<BarChart/> ):("")}
+                        {isLoggedIn !=='no' ? (<BarChart/> ):("")}
                             {/* <BarChart /> */}
                         </div>
                         <div>

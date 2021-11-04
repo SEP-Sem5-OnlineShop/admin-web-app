@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import { CSVLink } from "react-csv";
-import { array } from 'yup';
-import * as Yup from "yup";
 import {genApi} from '../../api/index'
-import {useParams} from "react-router"
-import {useFormik} from "formik";
+
 import "react-datepicker/dist/react-datepicker.css";
 
 function convert(str) {
@@ -38,15 +35,15 @@ export default function VendorReport(){
 
 
   /////////////////////////////////
-  const validationSchema = Yup.object({
-    sdate: Yup.date().default(() => new Date()),
-    edate: Yup.date().default(() => new Date()),
-  });
+  // const validationSchema = Yup.object({
+  //   sdate: Yup.date().default(() => new Date()),
+  //   edate: Yup.date().default(() => new Date()),
+  // });
 
-  const initialValues = {
-    sdate: convert(startDate.toString()),
-    edate: convert(startDate.toString()),
-  };
+  // const initialValues = {
+  //   sdate: convert(startDate.toString()),
+  //   edate: convert(startDate.toString()),
+  // };
 /////////////////////////
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Table, { AvatarCell, SelectColumnFilter } from '../../components/filter/filter'  // new
+import Table, { AvatarCell } from '../../components/filter/filter'  // new
 import {genApi} from '../../api/index'
 import {useParams} from "react-router"
 
@@ -19,21 +19,12 @@ function TableFilter() {
       Header: "Price",
       accessor: 'price',
     },
-    // {
-    //   Header: "Status",
-    //   accessor: 'status',
-    //   Cell: StatusPill,
-    // },
+    
     {
       Header: "Rating",
       accessor: 'rating',
     },
-    // {
-    //   Header: "Image",
-    //   accessor: 'imageUrl',
-    //   Filter: SelectColumnFilter,  // new
-    //   filter: 'includes',
-    // },
+    
   ], [])
 
   
@@ -56,8 +47,7 @@ const [products, setProducts] = React.useState([]);
             
         },[]);
 
-        // const productList=vendors
-        // console.log(({productList}))
+        
         const productList=products
         console.log(typeof({productList}))
 
@@ -75,7 +65,6 @@ const [products, setProducts] = React.useState([]);
 console.log(data)
         
 
-//////////////////////////////////////////////////////
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">

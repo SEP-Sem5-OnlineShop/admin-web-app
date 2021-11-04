@@ -6,13 +6,11 @@ import CardBody from "@material-tailwind/react/CardBody";
 import Button from "@material-tailwind/react/Button";
 
 import InputWithValidation from "../../components/add-admin/input-with-validation/index";
-import { FilePond, registerPlugin } from 'react-filepond'
+import { registerPlugin } from 'react-filepond'
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import {genApi} from '../../api/index'
-import {useParams} from "react-router"
-import { string } from "yup/lib/locale";
-import { waitFor } from "@testing-library/dom";
+
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
@@ -22,7 +20,7 @@ export default function RegisterVendor() {
     const [showSuccessfulModal, setshowSuccessfulModal] = React.useState(false);
     const [showFailedlModal, setshowFailedlModal] = React.useState(false);
         
-    const [files, setFiles] = React.useState([]);
+    // const [files, setFiles] = React.useState([]);
         
     
     const formik = useFormik({

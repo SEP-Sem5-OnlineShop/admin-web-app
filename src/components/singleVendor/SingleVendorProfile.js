@@ -6,35 +6,13 @@ import CardFooter from '@material-tailwind/react/CardFooter';
 import Image from '@material-tailwind/react/Image';
 import H5 from '@material-tailwind/react/Heading5';
 import Icon from '@material-tailwind/react/Icon';
-import LeadText from '@material-tailwind/react/LeadText';
 import Button from '@material-tailwind/react/Button';
 import { getFileUrl } from "../../api/azure-storage-blob";
-import team from '../../assets/img/food9.jpg';
 
 import {genApi} from '../../api/index'
 import {useParams} from "react-router"
-import axios from 'axios';
 
 
-// function Id(){
-//     const {id} = useParams()
-//     return id
-//     console.log('this is:' ,id);}
-
-
-// function HandleClick (id) {
-    
-//     React.useEffect(async () => {
-//         try{
-//             console.log('removed')
-//         return await genApi.removeVendor(id);
-//         // console.log(testVendor.products)
-//         }catch(e){
-//         console.log(e)
-//         }
-        
-//     })
-//   }
 
 
 export default function ProfileCard(params) {

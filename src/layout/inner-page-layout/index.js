@@ -2,20 +2,20 @@ import React from "react"
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { motion, useCycle, AnimatePresence } from "framer-motion";
-import { actions } from "../../store"
 
-import SideNavigation from "../mobile-navigation"
+
+
 import LoginRegister from "../home-layout/login-register"
 
-import logo from "../../assets/svg/logo/logo-new.svg";
+
 
 export default function InnerPageLayout(props) {
     const [isOpen, toggleOpen] = useCycle(false, true);
     let history = useHistory()
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     // const selectedLanguage = useSelector(state => state.language.language)
     const isLogin = useSelector(state => state.user.isLogin)
-    const token = useSelector(state => state.user.token)
+    // const token = useSelector(state => state.user.token)
     return (
         <React.Fragment>
             <div className="w-screen min-h-screen overflow-x-hidden">

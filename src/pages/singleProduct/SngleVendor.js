@@ -1,10 +1,7 @@
 import React from 'react';
 import ProfileCard from '../../components/singleProduct/SingleVendorProfile';
-import team from '../../assets/img/team-1-800x800.jpg';
 import {genApi} from '../../api/index'
 import {useParams} from "react-router"
-// import Table from "../../pages/ProductList/TableFilter"
-// import Table from "../../pages/ProductList/TableFilter"
 
 export default function SingleVendor() {
         const {id} = useParams()
@@ -27,32 +24,7 @@ export default function SingleVendor() {
             }
             
         },[]);
-        // console.log(vendor)
-
-        // const [Product, setProduct] = React.useState({});
-        // React.useEffect(async () => {
-        //     try{
-        //     const result = await genApi.getProduct(id);
-        //     const testProduct = {...result.data.data}
-        //     setProduct(testProduct)
-        //     }catch(e){
-        //     console.log(e)
-        //     }
-            
-        // },[]);
-
-
-        // const data=[]
-        // vendor.map(v => data.push({
-        // name: v.firstName,
-        // telephone: v.telephone,
-        // shop: v.role,
-        // }))
-
-  /////////////////////////////////////////
-  
-    
-    // const products=['Pizza','Burger','Bread'];
+        
 
     return (
         <>
@@ -67,12 +39,12 @@ export default function SingleVendor() {
             <div className="px-3 md:px-8 h-auto -mt-24">
                 <div className="container mx-auto max-w-full">
                     <div className="grid grid-cols-1 px-4 mb-16">
-                        {/* <ProfileCard data={data} products={products}/> */}
+                       
                         <ProfileCard data={vendor}/>
-                        {/* <Table /> */}
+                        
 
                     </div>
-                    {/* <div>{product}.</div> */}
+                   
 
                     
                 </div>
