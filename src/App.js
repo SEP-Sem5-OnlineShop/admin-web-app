@@ -10,6 +10,14 @@ import 'assets/styles/tailwind.css';
 import 'filepond/dist/filepond.min.css'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 
+// Import Swiper styles
+// import 'swiper/swiper-bundle.css'
+
+// Import FilePond styles
+import 'filepond/dist/filepond.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 import { ToastContainer } from "react-toastify"
 
   function App() {

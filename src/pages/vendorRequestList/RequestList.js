@@ -46,7 +46,7 @@ function RequestList() {
       const result = await genApi.getRequests();
  
       setVendors(result.data.data);
-      console.log(result.data)
+      // console.log(result.data)
     }catch(e){
       console.log(e)
     }

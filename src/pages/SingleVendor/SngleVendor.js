@@ -9,7 +9,7 @@ export default function SingleVendor() {
         const {id} = useParams()
 
         
-        console.log(typeof(id))
+        // console.log(typeof(id))
      
 
 
@@ -25,9 +25,9 @@ export default function SingleVendor() {
             }
             
         },[]);
-        console.log(vendor)
+        // console.log(vendor)
         
-        console.log(vendor.vendor ? vendor.vendor.status || "" : "")
+        // console.log(vendor.vendor ? vendor.vendor.status || "" : "")
 
         
 

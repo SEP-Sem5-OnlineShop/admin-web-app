@@ -10,7 +10,7 @@ import { registerPlugin } from 'react-filepond'
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import {genApi} from '../../api/index'
-
+import { toast } from "react-toastify";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
@@ -53,17 +53,20 @@ export default function RegisterVendor() {
             
         }),
         onSubmit: async values => {
-            console.log(values.firstName)
-            if (await genApi.createAdmin({
+            
+            try{
+              if (await genApi.createAdmin({
                 firstName: values.firstName,
                 telephone: values.telephone,
                 email: values.email,
                 lastName: values.lastName,
         
             }))
-            {setshowSuccessfulModal(true)}
-            else{
-                {setshowFailedlModal(true)}
+            toast.success("Successfully added as an admin........")
+            // {setshowSuccessfulModal(true)}
+          }catch(e){
+                // {setshowFailedlModal(true)}
+              toast.error("Bad Request")
                 console.log("Bad Request")
             }
             

@@ -16,8 +16,7 @@ export default function BarChart() {
     day3.setDate(day3.getDate() - 1);
     day4.setDate(day4.getDate() - 1);
     day5.setDate(day5.getDate() - 1);
-    console.log(day2.toDateString());
-    console.log(day1.toDateString());
+    
 
 
 
@@ -35,7 +34,7 @@ export default function BarChart() {
         }
         
         },[]);
-        console.log(vendors)
+        
 
         const names=[]
         vendors.map( vendor =>  names.push({
@@ -43,7 +42,7 @@ export default function BarChart() {
         // rating: vendor.rating,
         }))
 
-        console.log(names)
+        
 
         const ratings=[]
         vendors.map( vendor =>  ratings.push({

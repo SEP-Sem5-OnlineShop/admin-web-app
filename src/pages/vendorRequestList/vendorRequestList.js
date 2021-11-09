@@ -15,7 +15,7 @@ function VendorRequestList() {
       const result = await genApi.getRequests();
  
       setVendorrequests(result.data.data);
-      console.log(result.data)
+      // console.log(result.data)
     }catch(e){
       console.log(e)
     }

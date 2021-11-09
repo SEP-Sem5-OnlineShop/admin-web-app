@@ -8,7 +8,7 @@ import CardBody from '@material-tailwind/react/CardBody';
 
 
 export default function ChartBar(params) {
-    console.log(params)
+    
     const comProps = {
         firstName:params.params[0]?params.params[0].name||"":"Pizza",
         firstRating:params.params[0]?params.params[0].rating||"":"3",

@@ -21,7 +21,7 @@ export default function ProfileCard(params) {
         // products:{data}.products || '',
         
     }
-console.log({comProps})
+// console.log({comProps})
     
     return (
         <Card>

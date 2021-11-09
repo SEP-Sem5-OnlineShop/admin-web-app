@@ -8,6 +8,7 @@ import { useSelector } from "react-redux"
 export default function Sidebar() {
     const [showSidebar, setShowSidebar] = useState('-left-64');
     const isLoggedIn = useSelector(state => state.user.isLogin);
+    const role=useSelector(state => state.user.role);
     return (
         <>
             <AdminNavbar
@@ -87,7 +88,7 @@ export default function Sidebar() {
                             </li>
 
                             <li className="rounded-lg mb-2 ">
-                                {isLoggedIn !=='no' ? (
+                                {(isLoggedIn !=='no' && role ==='superAdmin') ?(
                                 <NavLink
                                     to="/adminCreate"
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
@@ -130,7 +131,7 @@ export default function Sidebar() {
 
 
 
-                            <li className="rounded-lg mb-2 ">
+                            {/* <li className="rounded-lg mb-2 ">
                                 {isLoggedIn !=='no' ? (
                                 <NavLink
                                     to="/vendorReports"
@@ -141,7 +142,7 @@ export default function Sidebar() {
                                     vendor Reports
                                 </NavLink>
                                 ):("")}
-                            </li>
+                            </li> */}
 
 
 

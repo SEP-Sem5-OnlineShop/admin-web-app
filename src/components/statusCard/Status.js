@@ -21,7 +21,7 @@ export default function Status() {
             console.log(error) }
     )
     
-    console.log(vendorCount);
+    
 
 
     purchases.then(
@@ -34,7 +34,7 @@ export default function Status() {
             console.log(error) }
     )
    
-    console.log(purchaseCount);
+    
     return (
         <div className="p-4">
             

@@ -12,15 +12,14 @@ export default function DailyVendor() {
       const result = await genApi.getRequests();
  
       setVendors(result.data.data);
-      console.log(typeof(result.data))
-      console.log(result.data)
+      
     }catch(e){
       console.log(e)
     }
     
   },[]);
 
-  console.log(vendors)
+  
 
 const header = [
     ["firstname"],[ "lastname"], ["email"],["telephone"],["nic"], ["address"],["shop name"],["date"]
@@ -39,9 +38,7 @@ const header = [
   for(let index = 0; index < vendors.length; index++) {
     const element = vendors[index];
     const vendor=[];
-    console.log(((element.created_at.substr(0,10)).toString()))
-    console.log((date))
-    console.log(date===((element.created_at.substr(0,10)).toString()))
+    
     if(date===((element.created_at.substr(0,10)).toString())){
     
     vendor.push((element.firstName).toString())
@@ -52,12 +49,12 @@ const header = [
     vendor.push((element.address).toString())
     vendor.push(element.shopName)
     vendor.push((element.created_at.substr(0,10)).toString())
-    console.log(vendor)
+    
     csvData.push(vendor);
     }
   }
       
-      console.log(csvData)
+      
     return (
         <>
         <div>

@@ -16,8 +16,7 @@ export default function ChartLine() {
     day3.setDate(day3.getDate() - 2);
     day4.setDate(day4.getDate() - 3);
     day5.setDate(day5.getDate() - 4);
-    console.log(day2.toDateString());
-    console.log(day1.toDateString());
+    
 
 
 
@@ -62,7 +61,7 @@ export default function ChartLine() {
         data1.push(purchaseCount4);
         data1.push(purchaseCount5);
         
-        console.log(data1)
+        
 
 
 

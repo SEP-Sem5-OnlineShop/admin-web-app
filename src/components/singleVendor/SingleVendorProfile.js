@@ -20,7 +20,7 @@ export default function ProfileCard(params) {
     const [showSuccessfulModal, setshowSuccessfulModal] = React.useState(false);
     const [showFailedlModal, setshowFailedlModal] = React.useState(false);
     const {id} = useParams()
-    console.log('this is:' ,id);
+    // console.log('this is:' ,id);
     const HandleClick=() =>{
         if(genApi.removeVendor(id)){
             {setshowSuccessfulModal(true)}
@@ -42,7 +42,7 @@ export default function ProfileCard(params) {
         
     }
 
-    console.log(params.data.vendor ? params.data.vendor.permitNumber || "" : "")
+    // console.log(params.data.vendor ? params.data.vendor.permitNumber || "" : "")
 
     const status = comProps.status;
     let button;

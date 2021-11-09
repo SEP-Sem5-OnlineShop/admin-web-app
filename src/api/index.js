@@ -9,8 +9,8 @@ import admin from './general/admin'
 /*
  * Setup axios  
  */
-const BASE_URL = 'https://ontheway-backend-auth-api.herokuapp.com/api'
-// const BASE_URL = 'http://localhost:8000/api'
+// const BASE_URL = 'https://ontheway-backend-auth-api.herokuapp.com/api'
+const BASE_URL = 'http://localhost:8000/api'
 Axios.defaults.baseURL = BASE_URL
 Axios.defaults.withCredentials = false
 
@@ -38,7 +38,7 @@ Axios.interceptors.response.use(async response => {
 
     async function (error) {
         const originalRequest = error.config;
-        console.log(originalRequest)
+        // console.log(originalRequest)
         if(error.response.status === 401 && error.response.data.message === "Token Expired!") {
             // const {status, data} = await general.token()
             store.dispatch(actions.user.setUserData({}))

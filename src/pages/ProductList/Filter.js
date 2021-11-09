@@ -39,8 +39,8 @@ const [products, setProducts] = React.useState([]);
             const testVendor = {...result.data.data}
             
             setProducts(testVendor.vendor.products || [])
-            console.log(typeof(testVendor.products))
-            console.log(testVendor.products)
+            
+            
             }catch(e){
             console.log(e)
             }
@@ -49,7 +49,7 @@ const [products, setProducts] = React.useState([]);
 
         
         const productList=products
-        console.log(typeof({productList}))
+        
 
 
         const data=[]
@@ -62,7 +62,7 @@ const [products, setProducts] = React.useState([]);
   link: `/singleProduct/${vendor._id}`
 }))
 
-console.log(data)
+
         
 
 

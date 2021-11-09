@@ -5,7 +5,16 @@ import * as Yup from "yup";
 import {thunks} from "../../../store/index";
 import {useDispatch} from "react-redux";
 import { useHistory } from "react-router-dom";
-import 'react-toastify/dist/ReactToastify.css';
+import {motion} from "framer-motion";
+
+// Tailwind CSS Style Sheet
+import 'assets/styles/tailwind.css';
+import 'filepond/dist/filepond.min.css'
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+
+// importing css files
+// import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { toast } from "react-toastify";
 
 const LoginForm = (props, ref) => {
     // const notify = () => toast("There is an error");
@@ -28,24 +37,35 @@ const LoginForm = (props, ref) => {
                 .required('Required')
         }),
         onSubmit: async values => {
-            console.log("inside")
+            
             setLoading(true)
             try {
-                if(await dispatch(thunks.user.localSignIn(values.telephone, values.password))){
+                const {data, status} = await dispatch(thunks.user.localSignIn(values.telephone, values.password))
+                if(dispatch(thunks.user.localSignIn(values.telephone, values.password))) {
+                // if(await dispatch(thunks.user.localSignIn(values.telephone, values.password))){
+                    toast.success("Successfully logged in!")
+                // const {data, status} = await dispatch(thunks.user.localSignIn(values.telephone, values.password))
+                // if(status === 200 && data && data.message === "Success") {
                 history.push(`/`)}
+                // else{
+                //     toast.error("Incorrect Attempt")
+                // }
             }
             catch(e) {
-                console.log("error")
+                // toast.error(e.response.data.message)
+                toast.error("Incorrect Attempt")
+                // console.log("error")
             }
             setLoading(false)
+            // toast.error("Incorrect Attempt")
         },
     });
-    console.log(loading);
+    
 
     return (
-        
-             <form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}> 
-             {/* <ToastContainer /> */}
+        <motion.form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}>
+            {/*   <form layout className='w-5/6 flex flex-col justify-center items-center' onSubmit={formik.handleSubmit}>  */}
+             
             <InputWithValidation
                 label='Telephone Number'
                 id='telephone'
@@ -62,11 +82,21 @@ const LoginForm = (props, ref) => {
                 formik={formik}
                 className='w-full'
             />
-            <button  type="submit" className="w-full py-3 mt-2 rounded-xl bg-primary text-black font-bold">
+            {/* <button  type="submit" className="w-full py-3 mt-2 rounded-xl bg-primary text-black font-bold">
                 Log In
+            </button> */}
+
+            <button
+                disabled={
+                    (formik.errors.telephone || formik.errors.password) ||
+                    (!formik.values.telephone || !formik.values.password)
+                }
+                data-testid="login-form-submit" type="submit" className="w-full py-3 mt-2 rounded-xl bg-primary text-black font-bold">
+                {loading ? 'Loading...' : 'Log In'}
             </button>
             
-            </form>
+             {/* </form> */}
+            </motion.form>
     );
 };
 export default forwardRef(LoginForm)

@@ -46,8 +46,7 @@ function TableFilter() {
       const result = await genApi.getVendors();
  
       setVendors(result.data.data);
-      console.log(typeof(result.data))
-      console.log(result.data)
+      
     }catch(e){
       console.log(e)
     }
@@ -65,7 +64,7 @@ vendors.map(vendor => data.push({
   link: `/singleVendor/${vendor._id}`
 }))
 // const status=data
-console.log(data)
+
 
 //////////////////////////////////////////////////////
 

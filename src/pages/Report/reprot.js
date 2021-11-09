@@ -13,15 +13,14 @@ export default function Report() {
       const result = await genApi.getVendors();
  
       setVendors(result.data.data);
-      console.log(typeof(result.data))
-      console.log(result.data)
+      
     }catch(e){
       console.log(e)
     }
     
   },[]);
 
-  console.log(vendors)
+  
 //   console.log(vendors ? vendors.vendor|| "" : "")
 const header = [
     ["firstname"],[ "lastname"], ["email"],["telephone"],["shop name"], ["status"]
@@ -49,12 +48,12 @@ const header = [
     vendor.push((element.telephone).toString())
     vendor.push((element.vendor.shopName).toString())
     vendor.push(element.vendor.status)
-    console.log(vendor)
+    
     csvData.push(vendor);
     
   }
       
-      console.log(csvData)
+     
     return (
         <>
         <div>

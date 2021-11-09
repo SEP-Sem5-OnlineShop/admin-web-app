@@ -18,20 +18,24 @@ function REport() {
         <div className="">
           <h1 className="text-4xl text-center font-semibold"><u>Reports</u></h1>
         </div>
-        <div className="mt-6 text-3xl">
+        {/* <div className="mt-6 text-3xl"> */}
+        <div className="text-xl text-center font-medium grid grid-cols-1 md:grid-cols-3 gap-4 my-4 lg:my-6 flex:justify-between w-auto">
+          
         <Card>
            
            <CardBody>
               <Report />
             </CardBody>
 
-            <br></br>
+            </Card>
+            <Card>
 
             <CardBody>
               <DailyVendor/>
             </CardBody>
 
-            <br></br>
+            </Card>
+            <Card>
 
             <CardBody>
               <AllRequests/>

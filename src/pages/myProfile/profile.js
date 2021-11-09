@@ -7,8 +7,7 @@ import {genApi} from '../../api/index'
 
 export default function Profile() {
     const Id = useSelector(state => state.user.userData._id)
-    console.log(Id)
-    console.log(Id)
+    
     
 
         
@@ -25,7 +24,7 @@ export default function Profile() {
             }
             
         },[]);
-        console.log(vendor)
+        
     
 
     return (

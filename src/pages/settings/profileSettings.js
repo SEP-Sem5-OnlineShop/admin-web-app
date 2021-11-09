@@ -5,6 +5,7 @@ import InputWithValidation from "../../components/add-admin/input-with-validatio
 import CardTemplate from '@material-tailwind/react/Card';
 import { useDispatch, useSelector } from "react-redux";
 import {genApi,authApi} from '../../api/index'
+import { toast } from "react-toastify";
 
 export default function ProfileSettings() {
 
@@ -44,8 +45,10 @@ export default function ProfileSettings() {
                     if (status === 200 && data && data.message === "Success") {
                         console.log(data.data)
                     }
+                    toast.success("Succesfully updated...")
                 }
                 catch (e) {
+                    toast.error("Somothing is wrong!!!")
                     try {
                         const { data, status } = await authApi.updatePassword({ password: values.password })
                         if (status === 200 && data && data.message === "Success") {
