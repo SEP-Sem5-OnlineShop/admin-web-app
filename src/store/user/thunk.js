@@ -17,6 +17,7 @@ export function localSignIn(username, password) {
                 dispatch(userSlice.actions.setAuthToken(data.accessToken))
                 dispatch(userSlice.actions.setRole(data.data.role))
                 dispatch(userSlice.actions.setIsLogin("yes"))
+                localStorage.setItem("refreshToken", data.refreshToken)
             }
             return status
         }
@@ -37,6 +38,7 @@ export function signOUt() {
             window.localStorage.removeItem("userData")
             window.localStorage.setUserData("token", "")
             window.localStorage.setItem("role", "guest")
+            localStorage.removeItem("refreshToken")
         }
         catch (error) {
 
