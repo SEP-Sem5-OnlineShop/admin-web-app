@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import InputWithValidation from "../../components/add-admin/input-with-validation/index";
+// import InputWithValidation from "../../components/add-admin/input-with-validation/index";
+import InputWithValidation from "../../components/profileSetting/input-with-validation/index";
+
 import CardTemplate from '@material-tailwind/react/Card';
 import { useDispatch, useSelector } from "react-redux";
 import {genApi,authApi} from '../../api/index'
@@ -141,9 +143,9 @@ export default function ProfileSettings() {
                                 <div className="mt-8 flex justify-end">
                                     {
                                         disabled ?
-                                            <button onClick={(e) => { e.preventDefault(); setDisabled(false) }} type="button"
+                                            <button onClick={(e) => { e.preventDefault(); setDisabled(false) }} type="button" data-testid='update-details-button'
                                                 className="rounded-lg p-2 text-black bg-textLight">Update Details</button> :
-                                            <button onClick={(e) => { e.preventDefault(); formik.handleSubmit(); setDisabled(true) }} type="submit"
+                                            <button data-testid='submit-button' onClick={(e) => { e.preventDefault(); formik.handleSubmit(); setDisabled(true) }} type="submit"
                                                 className="rounded-lg p-2 text-black bg-textLight">Submit</button>
                                     }
                                 </div>

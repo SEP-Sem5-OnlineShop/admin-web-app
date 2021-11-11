@@ -10,15 +10,18 @@ import { registerPlugin } from 'react-filepond'
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import {genApi} from '../../api/index'
+import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
 
 export default function RegisterVendor() {
+  const history = useHistory();
     /////////////////////////
     const [showSuccessfulModal, setshowSuccessfulModal] = React.useState(false);
     const [showFailedlModal, setshowFailedlModal] = React.useState(false);
+    const [loading, setLoading] = React.useState(false)
         
     // const [files, setFiles] = React.useState([]);
         
@@ -53,7 +56,7 @@ export default function RegisterVendor() {
             
         }),
         onSubmit: async values => {
-            
+          setLoading(true)
             try{
               if (await genApi.createAdmin({
                 firstName: values.firstName,
@@ -63,6 +66,7 @@ export default function RegisterVendor() {
         
             }))
             toast.success("Successfully added as an admin........")
+            history.push(`/`)
             // {setshowSuccessfulModal(true)}
           }catch(e){
                 // {setshowFailedlModal(true)}
@@ -128,7 +132,7 @@ export default function RegisterVendor() {
                 {/*  */}
                 {/* <div className="flex justify-center w-3/5"> */}
                 <div className="flex justify-center mt-4 mr-4">
-                    <Button type="submit"
+                    {/* <Button type="submit"
                         
                         id="Submit"
                         color="lightBlue"
@@ -141,7 +145,17 @@ export default function RegisterVendor() {
                         
                     >
                         Submit
-                    </Button>
+                    </Button> */}
+
+
+                    <button
+                disabled={
+                    (formik.errors.firstName || formik.errors.lastName || formik.errors.telephone || formik.errors.email) ||
+                    (!formik.values.firstName || !formik.values.lastName||!formik.values.telephone || !formik.values.email)
+                }
+                data-testid="login-form-submit" type="submit" className="w-48 py-3 mt-2 rounded-xl bg-primary text-black font-bold">
+                {loading ? 'Loading...' : 'Submit'}
+            </button>
                     
                     </div>
                     <div className="flex justify-between mt-4 ml-4">

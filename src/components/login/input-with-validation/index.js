@@ -31,7 +31,7 @@ export default function InputWithValidation (props) {
                     compProps.label
                         ?
                     <label
-                    className='font-medium text-secondary text-sm xs:text-lg md:text-base'>{compProps.label}</label>
+                    className='font-medium text-secondary text-sm xs:text-lg md:text-base' for={compProps.id}>{compProps.label}</label>
                         :
                         null
                 }

@@ -2,15 +2,14 @@ import React from 'react'
 
 import Card from '@material-tailwind/react/Card';
 import CardBody from '@material-tailwind/react/CardBody';
-import CardFooter from '@material-tailwind/react/CardFooter';
-import H5 from '@material-tailwind/react/Heading5';
+
 
 
 
 
 export default function ProfileCard(params) {
     // const {id} = useParams()
-
+    const [disabled, setDisabled] = React.useState(true)
     const comProps = {
         // title: props.title || '',
         // Image: team,
@@ -34,13 +33,17 @@ export default function ProfileCard(params) {
             <ul className='list-decimal'>
             <div className="grid grid-cols-1 gap-y-3 gap-x-3 px-24 w-3/5">
             <li><label
-                    className='font-medium text-secondary text-sm xs:text-lg md:text-lg'>
+                    className='font-medium text-secondary text-sm xs:text-lg md:text-lg'
+                    for='name'
+                   >
                         Name
                     </label></li>
+                    
             <input readOnly
                     id={comProps.name}
                     name={comProps.name}
                     value={comProps.name}
+                    
                     className={
                         `rounded-md
                         mt-1 p-2
@@ -61,13 +64,15 @@ export default function ProfileCard(params) {
 
             <div className="grid grid-cols-1 gap-y-3 gap-x-3 px-24 w-3/5">
             <li><label
-                    className='font-medium text-secondary text-sm xs:text-lg md:text-lg'>
+                    className='font-medium text-secondary text-sm xs:text-lg md:text-lg'
+                    for='telephone'>
                         Telephone Number
                     </label></li>
             <input readOnly
                     id={comProps.telephone}
                     name={comProps.telephone}
                     value={comProps.telephone}
+                    
                     className={
                         `rounded-md
                         mt-1 p-2
@@ -93,6 +98,7 @@ export default function ProfileCard(params) {
             <input readOnly
                     id={comProps.email}
                     name={comProps.email}
+                    disabled={disabled}
                     value={comProps.email}
                     className={
                         `rounded-md
