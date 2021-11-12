@@ -2,6 +2,7 @@ import React from "react";
 import InputWithValidation from "../../components/add-admin/input-with-validation/index";
 import {useFormik} from "formik";
 import * as Yup from "yup";
+import Footer from '../../components/Footer'
 
 import {useParams,useHistory } from "react-router"
 // import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
@@ -45,8 +46,8 @@ export default function CreatePassword() {
     return (
         
     
-<div className="flex flex-col justify-center items-center">
-            <div className="w-full text-3xl font-medium">Create your password</div>
+<div className="flex flex-col justify-center items-center bg-white rounded content-center py-64 px-8">
+            <div className="w-full text-3xl font-medium flex justify-center">Create your password</div>
             <div className="w-full w-full lg:w-1/2 flex flex-col items-center justify-center p-8">
                 
 
@@ -76,6 +77,7 @@ export default function CreatePassword() {
                     </form>
                 
             </div>
+            <Footer/>
         </div>
     )
 

@@ -1264,6 +1264,11 @@ video {
 }
 
 
+.content-center{
+	align-content: center;
+}
+
+
 .items-center{
 	align-items: center;
 }
@@ -1594,6 +1599,24 @@ video {
 .px-10{
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
+}
+
+
+.py-8{
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+
+.px-8{
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+
+.py-64{
+	padding-top: 16rem;
+	padding-bottom: 16rem;
 }
 
 

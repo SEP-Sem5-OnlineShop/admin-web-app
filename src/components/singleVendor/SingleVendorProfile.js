@@ -101,7 +101,7 @@ export default function ProfileCard(params) {
             <CardBody>
                 <div className="border-t border-lightBlue-200 text-center px-2 ">
                     
-                    This vendor is from gampaha who sells bakery items.
+                Healthy eating means eating a variety of foods that give you the nutrients you need to maintain your health, feel good, and have energy.
                 </div>
             </CardBody>
             <CardFooter>
