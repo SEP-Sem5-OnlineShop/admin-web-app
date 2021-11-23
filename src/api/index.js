@@ -10,8 +10,8 @@ import admin from './general/admin'
  * Setup axios  
  */
 // const BASE_URL = 'https://ontheway-backend-auth-api.herokuapp.com/api'
-const BASE_URL = 'http://localhost:8000/api'
-// const BASE_URL = 'https://ontheway.thilinatlm.live/api'
+// const BASE_URL = 'http://localhost:8000/api'
+const BASE_URL = 'https://ontheway.thilinatlm.live/api'
 // const BASE_URL = 'http://localhost:8000/api'
 Axios.defaults.baseURL = BASE_URL
 Axios.defaults.withCredentials = false
